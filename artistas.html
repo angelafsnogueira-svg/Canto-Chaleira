@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let slides = document.querySelectorAll(".advert-slide");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    showSlide(currentIndex);
+  });
+</script>
+
+<body>
+
+  <!-- Cabeçalho superior com ícones -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header principal -->
+   
+<header class="site-header">
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header com overlay -->
+  <div class="overlay"></div>
+  <div class="content">
+    <a href="home.html">
+      <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+    </a>
+    <h1>O Canto da Chaleira</h1>
+    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="home.html">Início</a>
+    <a href="sobre.html">Sobre Nós</a>
+    <a href="artistas.html" class="active">Artistas</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="parcerias.html">Parcerias</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<!-- Conteúdo principal -->
+<main>
+  <!-- Blocos de texto -->
+  <p class="centralizado" style="font-family: 'Lexend', cursive;">Com uma equipa apaixonada pela cultura e pelo desenvolvimento social, 
+    trabalhamos diariamente para levar arte e entretenimento de qualidade à comunidade.</p>
+
+  <!-- Galeria de fotos -->
+  <section class="galeria-quadro">
+    <h1>Música & Produção</h1>
+    <div class="galeria-grid">
+
+      <figure>
+        <h3>Biannah Montana</h3>
+        <a href="Artistas/biannah_montana.html">
+          <img src="imagens/People/Biannah/biannah1.png" alt="Biannah Montana" class="lightbox-img">
+        </a>
+        <figcaption>Cantora</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Cristóvão McDuffin</h3>
+        <a href="Artistas/cristovao_mcduffin.html">
+          <img src="imagens/People/Cristovao/cristovão2.png" alt="Cristovao McDuffin" class="lightbox-img">
+        </a>
+        <figcaption>Cantor</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Diogo Canelas</h3>
+        <a href="Artistas/diogo_canelas.html">
+          <img src="imagens/People/Canelas/canelas2.png" alt="Diogo Canelas" class="lightbox-img">
+        </a>
+        <figcaption>DJ</figcaption>
+      </figure>
+
+      <figure>
+        <h3>John Blake</h3>
+        <a href="Artistas/john_blake.html">
+          <img src="imagens/People/Blake/blake1.jpg" alt="John Blake" class="lightbox-img">
+        </a>
+        <figcaption>Cantor & Variedades</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Malvara Rocha</h3>
+        <a href="Artistas/malvara_rocha.html">
+          <img src="imagens/foto2.jpg" alt="Malvara Rocha" class="lightbox-img">
+        </a>
+        <figcaption>Fadista</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Miguel N. Canhoto</h3>
+        <a href="Artistas/miguel_n_canhoto.html">
+          <img src="imagens/foto4.jpg" alt="Miguel N. Canhoto" class="lightbox-img">
+        </a>
+        <figcaption>Cantor</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Samantha Hailu</h3>
+        <a href="Artistas/samantha_hailu.html">
+          <img src="imagens/People/Samantha/Samantha1.jpg" alt="Samantha Hailu" class="lightbox-img">
+        </a>
+        <figcaption>Cantora</figcaption>
+      </figure>
+
+    <hr class="divisor">
+
+    </div>
+  </section>
+
+  <section class="galeria-quadro">
+    <h1>Artes Cénicas</h1>
+    <div class="galeria-grid">
+
+      <figure>
+        <h3>Almerindo Sousa</h3>
+        <a href="Artistas/almerindo_sousa.html">
+          <img src="imagens/foto2.jpg" alt="Almerindo Sousa" class="lightbox-img">
+        </a>
+        <figcaption>Ator</figcaption>
+      </figure>
+    
+      <figure>
+        <h3>Ezaquias Karambá</h3>
+        <a href="Artistas/ezaquias_karamba.html">
+          <img src="imagens/People/Ezaquias/ezaquias1.png" alt="Ezaquias Karambá" class="lightbox-img">
+        </a>
+        <figcaption>Ator</figcaption>
+      </figure>
+
+      <figure>
+        <h3>John Blake</h3>
+        <a href="Artistas/john_blake.html">
+          <img src="imagens/People/Blake/blake2.jpg" alt="John Blake" class="lightbox-img">
+        </a>
+        <figcaption>Ator & Variedades</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Kardama Mimo</h3>
+        <a href="Artistas/kardama_mimo.html">
+          <img src="imagens/foto2.jpg" alt="Kardama Mimo" class="lightbox-img">
+        </a>
+        <figcaption>Ator</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Ricardo Toureiro</h3>
+        <a href="Artistas/ricardo_toureiro.html">
+          <img src="imagens/People/Toureiro/toureiro1.jpg" alt="Ricardo Toureiro" class="lightbox-img">
+        </a>
+        <figcaption>Ator & Variedades</figcaption>
+      </figure>
+        
+      <hr class="divisor">
+
+    </div>
+  </section>
+
+  <section class="galeria-quadro">
+    <h1>Dança & Coreografia</h1>
+    <div class="galeria-grid">
+
+      <figure>
+        <h3>Cristóvão McDuffin</h3>
+        <a href="Artistas/cristovao_mcduffin.html">
+          <img src="imagens/People/Cristovao/cristovao4.png" alt="Cristovao McDuffin" class="lightbox-img">
+        </a>
+        <figcaption>Dançarino</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Isabella Rogers</h3>
+        <a href="Artistas/isabella_rogers.html">
+          <img src="imagens/foto2.jpg" alt="Isabella Rogers" class="lightbox-img">
+        </a>
+        <figcaption>Coreógrafa & Dançarina</figcaption>
+      </figure>
+
+      <figure>
+        <h3>James Lee</h3>
+        <a href="Artistas/james_lee.html">
+          <img src="imagens/foto2.jpg" alt="James Lee" class="lightbox-img">
+        </a>
+        <figcaption>Dançarino</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Pedro Tinto</h3>
+        <a href="Artistas/pedro_tinto.html">
+          <img src="imagens/foto2.jpg" alt="Pedro Tinto" class="lightbox-img">
+        </a>
+        <figcaption>Dançarino</figcaption>
+      </figure>
+        
+      <hr class="divisor">
+
+    </div>
+  </section>
+
+  <section class="galeria-quadro">
+    <h1>Fotografia & Edição</h1>
+    <div class="galeria-grid">
+      
+      <figure>
+        <h3>Amber Fox</h3>
+        <a href="Artistas/amber_fox.html">
+          <img src="imagens/People/Amber/amber1.png" alt="Amber Fox" class="lightbox-img">
+        </a>
+        <figcaption>Fotógrafa</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Leonardo Hailu</h3>
+        <a href="Artistas/leonardo_hailu.html">
+          <img src="imagens/foto2.jpg" alt="Leonardo Hailu" class="lightbox-img">
+        </a>
+        <figcaption>Fotógrafo</figcaption>
+      </figure>
+        
+      <hr class="divisor">
+
+    </div>
+  </section>
+
+  <section class="galeria-quadro">
+    <h1>Apresentação Radiofónica</h1>
+    <div class="galeria-grid">
+
+      <figure>
+        <h3>António Ferreira</h3>
+        <a href="Artistas/antonio_ferreira.html">
+          <img src="imagens/foto2.jpg" alt="António Ferreira" class="lightbox-img">
+        </a>
+        <figcaption>Preencher</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Pedro Cooper</h3>
+        <a href="Artistas/pedro_cooper.html">
+          <img src="imagens/foto2.jpg" alt="Pedro Cooper" class="lightbox-img">
+        </a>
+        <figcaption>Preencher</figcaption>
+      </figure>
+        
+      <hr class="divisor">
+
+    </div>
+  </section>
+
+  <section class="galeria-quadro">
+    <h1>Artes Literárias</h1>
+    <div class="galeria-grid">
+
+      <figure>
+        <h3>Alegna Costa</h3>
+        <a href="Artistas/alegna_costa.html">
+          <img src="imagens/People/Alegna/alegna1.png" alt="Alegna Costa" class="lightbox-img">
+        </a>
+        <figcaption>Preencher</figcaption>
+      </figure>
+
+      <figure>
+        <h3>Miguel Silva</h3>
+        <a href="Artistas/miguel_silva.html">
+          <img src="imagens/foto2.jpg" alt="Miguel Silva" class="lightbox-img">
+        </a>
+        <figcaption>Preencher</figcaption>
+      </figure>
+        
+      <hr class="divisor">
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sobre">
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="centralizado">
+        Participe das nossas atividades e contribua para fortalecer a cena artística de Puerto Esperanza.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox-overlay">
+    <img id="lightbox-img" src="" alt="Foto">
+  </div>
+
+  <!-- Barra de Publicidade -->
+  <div class="advert-bar">
+    <div class="advert-track">
+      <a href="https://catalogopdmpe.vercel.app" target="blank">
+        <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+      </a>
+        <img src="imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+        <img src="imagens/Parcerias/academia.png" alt="Publicidade 3">
+        <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+
+  <!-- Duplicar as imagens para criar o efeito de loop -->
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+      <img src="imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+      <img src="imagens/Parcerias/academia.png" alt="Publicidade 3">
+      <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const imgs = document.querySelectorAll('.lightbox-img');
+      const overlay = document.getElementById('lightbox-overlay');
+      const overlayImg = document.getElementById('lightbox-img');
+
+      imgs.forEach(img => {
+        img.addEventListener('click', () => {
+          overlayImg.src = img.src;
+          overlay.style.display = 'flex';
+        });
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    });
+  </script>
+
+    <script>
+  // Muda cor do menu ao rolar
+  window.addEventListener('scroll', function() {
+    const menu = document.querySelector('.menu');
+    if(window.scrollY > 50){
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>

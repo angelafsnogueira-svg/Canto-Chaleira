@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let slides = document.querySelectorAll(".advert-slide");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    showSlide(currentIndex);
+  });
+</script>
+
+<body>
+
+  <!-- Cabeçalho superior com ícones -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header principal -->
+   
+<header class="site-header">
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header com overlay -->
+  <div class="overlay"></div>
+  <div class="content">
+    <a href="home.html">
+      <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+    </a>
+    <h1>O Canto da Chaleira</h1>
+    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="home.html">Início</a>
+    <a href="sobre.html">Sobre Nós</a>
+    <a href="artistas.html">Artistas</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="parcerias.html" class="active">Parcerias</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+  <main>
+    <p>As nossas parcerias são uma forma estratégica de colaboração entre a associação cultural e outras entidades que partilham objetivos 
+        comuns. No âmbito cultural e social, estas parcerias possibilitam a união de esforços, o compartilhamento de recursos, 
+        conhecimentos e redes de contactos, além de favorecerem a realização de projetos conjuntos de maior impacto. Para uma associação 
+        sem fins lucrativos, parcerias bem estruturadas podem contribuir para a promoção da cultura, o fortalecimento da comunidade, 
+        a ampliação do alcance das iniciativas e a sustentabilidade das atividades desenvolvidas.</p>
+    <br></br>
+    <p>O Canto da Chaleira está sempre aberto a estabelecer novas parcerias e convida todas as pessoas, entidades e organizações 
+        interessadas a juntar-se a este esforço coletivo em prol da cultura e da comunidade de Puerto Esperanza.</p>
+    <br></br>    
+    <hr class="divisor">
+    <br></br>
+    <h2>Thunder Dance Academy</h2>
+    <section class="text-section">
+        <div class="text-block left">
+            <p>A Thunder Dance Academy e o Canto da Chaleira uniram forças numa parceria que promete dinamizar o mundo da dança e da 
+                cultura local. Esta colaboração permitirá a realização de workshops, apresentações, espetáculos e atividades interativas, 
+                combinando o talento, a criatividade e a experiência de ambos os parceiros para proporcionar experiências únicas ao público.</p>
+            <br></br>
+            <p>Com esta parceria, queremos fomentar a expressão artística, incentivar a aprendizagem e a troca de conhecimentos e criar 
+                momentos de alegria e inspiração para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu 
+                know-how na produção e promoção cultural, garantindo que cada iniciativa seja organizada com entusiasmo, profissionalismo 
+                e impacto positivo na comunidade.</p>
+        </div>
+    
+        <div class="text-block right">
+            <img src="imagens/Parcerias/academia.png" alt="Foto 1" width="400" height="400" style="display:block; margin:0 auto;">
+        </div>
+        
+    </section>
+    <br></br>    
+    <hr class="divisor">
+    <br></br>
+    <h2>Caveiras do Asfalto</h2>
+    <section class="text-section">
+        <div class="text-block left">
+            <p>O Clube Motard Caveiras do Asfalto e o Canto da Chaleira uniram esforços numa parceria que promete fortalecer o convívio 
+                e a promoção cultural junto da comunidade motard e do público em geral. Esta colaboração permitiu a realização de eventos 
+                memoráveis, combinando a paixão pelas motos com a música, arte e entretenimento oferecidos pelo Canto da Chaleira.</p>
+            <br></br>
+            <p>A parceria reforça a missão de ambos os parceiros: criar experiências únicas, promover a cultura local e oferecer momentos 
+                de diversão e união para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu know-how e 
+                dedicação para que cada iniciativa seja organizada com qualidade, entusiasmo e impacto positivo.</p>
+        </div>
+    
+        <div class="text-block right">
+            <img src="imagens/Parcerias/asfalto.png" alt="Foto 1" width="400" height="400" style="display:block; margin:0 auto;">
+        </div>
+
+    </section>
+
+  </main>

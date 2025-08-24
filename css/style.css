@@ -1,0 +1,530 @@
+/* Reset básico */
+body, h1, h2, p, a {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* ou qualquer outra fonte que queira */
+  margin: 0;
+  padding: 0;
+}
+
+/* Fonte Macondo apenas nos títulos */
+h1 {
+  font-family: 'Macondo', cursive;
+  font-size: 3rem;
+}
+
+h2, h4, h5, h6 {
+  font-family: 'Lilita One', sans-serif;
+  font-weight: 2rem;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: 'Macondo', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/*Fonte Lexend apenas nos textos */
+p {
+  font-family: 'Lexend', cursive;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+/* Parágrafo normal */
+p.normal {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Parágrafo destacado */
+p.destaque {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #00aced; /* azul */
+  font-size: 1.1rem;
+}
+
+/* Parágrafo em itálico */
+p.italico {
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  color: #555;
+}
+
+/* Parágrafo centralizado */
+p.centralizado {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #222;
+}
+
+/* Parágrafo com sombra */
+p.sombra {
+  font-family: 'Poppins', sans-serif;
+  color: #fdfdfd;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Aba de Publicidade */
+.advert-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #e63946; /* cor chamativa */
+  color: white;
+  text-align: center;
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  z-index: 3000;
+}
+
+/* Topbar */
+.topbar {
+  position: fixed;        /* necessário para z-index */
+  top: 0;
+  width: 100%;
+  background: #111;
+  padding: 0.5rem 1rem;
+  display: flex;
+  /*justify-content: flex-end;*/
+  gap: 1rem;
+  z-index: 2000;          /* acima do menu */
+}
+
+.topbar a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.topbar a:hover {
+  color: #7289da; /* cor do Discord */
+}
+
+/* Header principal com parallax */
+.site-header {
+  position: relative;
+  background-image: url("../imagens/Diversos/fundo.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  padding: 6rem 1rem 3rem 1rem;
+  overflow: hidden;
+}
+
+/* Overlay escuro */
+.site-header .overlay {
+  position: absolute;
+  top:0; left:0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* Conteúdo do header */
+.site-header .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 400px;
+}
+
+/* Logo */
+.site-header .logo {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.site-header h1 {
+  position: relative;
+  display: inline-block;
+  font-family: 'Macondo', cursive;
+  font-size: 3rem;
+  margin: 1rem 0;
+}
+
+.site-header h1::before,
+.site-header h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 400px;
+  height: 3px;
+  background-color: white;
+  transform: translateX(-50%);
+}
+
+.site-header h1::before { top: -15px; }
+.site-header h1::after { bottom: -15px; }
+
+/* Slogan */
+.site-header .slogan {
+  font-family: 'Qwitcher Grypen', cursive;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-top: 0.5rem;
+}
+
+/* Menu transparente sobre o header */
+.menu {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 40px;              /* abaixo da topbar */
+  width: 98.5%;
+  padding: 1rem 0;
+  background: rgba(0,0,0,0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;          /* abaixo da topbar */
+  font-family: 'Lexend', sans-serif;
+  gap: 2rem;
+}
+
+/* Links do menu */
+.menu a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline animado */
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 3px;
+  background-color: #ffcc00;
+  transition: transform 0.3s ease;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Menu escuro ao rolar */
+.menu.scrolled {
+  background: rgba(0,0,0,0.9);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Conteúdo */
+main {
+  padding: 2rem 10rem 2rem 10rem;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  text-align: center;
+}
+main h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Bloco de chamada Sobre Nós */
+.cta-sobre {
+  position: relative;
+  background-image: url("../imagens/Diversos/fundo.png"); /* coloque sua imagem aqui */
+  background-attachment: fixed; /* efeito parallax */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.cta-sobre .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* mais escuro que antes */
+  z-index: 1;
+}
+
+.cta-sobre .content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-sobre h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-sobre p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.cta-sobre .btn-sobre {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00aced;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.cta-sobre .btn-sobre:hover {
+  background: #0084a8;
+}
+
+.text-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;              /* espaço entre os blocos */
+  padding: 2rem;
+}
+
+.text-block {
+  flex: 1;                /* cada bloco ocupa 50% */
+  background: #ffffff;    /* só para destacar */
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.text-block h2 {
+  margin-bottom: 1rem;
+}
+
+.galeria {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.galeria-quadro {
+  background: #ffffff8e; /* cor de fundo diferente para a section inteira */
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+}
+
+.galeria h2 {
+  font-family: 'Macondo', cursive;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.galeria-grid figure {
+  background: rgba(255, 255, 255, 0.315); /* fundo semi-transparente */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+}
+
+.galeria-grid figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.galeia-grid figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #2f5081;
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.galeria-grid .divisor {
+  grid-column: 1 / -1; /* ocupa toda a linha da grid */
+  border: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  margin: 1rem 0;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .galeria-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Lightbox */
+#lightbox-overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+#lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+#lightbox-overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* ajuste o tamanho */
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.slides {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  animation: slide 20s infinite;
+}
+
+.slides img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+
+/* animação do slider */
+@keyframes slide {
+  0% { transform: translateX(0%); }
+  33% { transform: translateX(-100%); }
+  66% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+/*slider eventos*/
+.slidereventos {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  max-width: 600px; /* ajuste o tamanho */
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.slidereventos .slides {
+  display: flex;
+  width: max-content;
+  animation: slide 60s linear infinite;
+}
+
+.slidereventos .slides img {
+  width: 600px;
+  height: 400px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* Slider de Publicidade */
+.advert-bar {
+  position: relative;
+  width: 100%;
+  height: 200px;          /* altura da barra */
+  overflow: hidden;
+  background: #111;
+}
+
+.advert-track {
+  display: flex;
+  width: calc(200%);       /* 2x porque duplicamos imagens */
+  gap: 20rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  animation: scroll 60s linear infinite;
+}
+
+.advert-track img {
+  height: 200px;           /* ocupa toda a altura da barra */
+  width: auto;
+  object-fit: cover;
+}
+
+/* Animação para mover o carrossel */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Rodapé */
+footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let slides = document.querySelectorAll(".advert-slide");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    showSlide(currentIndex);
+  });
+</script>
+
+<body>
+
+  <!-- Cabeçalho superior com ícones -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header principal -->
+   
+<header class="site-header">
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header com overlay -->
+  <div class="overlay"></div>
+  <div class="content">
+    <a href="home.html">
+      <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+    </a>
+    <h1>O Canto da Chaleira</h1>
+    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="home.html">Início</a>
+    <a href="sobre.html">Sobre Nós</a>
+    <a href="artistas.html">Artistas</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="parcerias.html">Parcerias</a>
+    <a href="contacto.html" class="active">Contacto</a>
+  </nav>
+</header>

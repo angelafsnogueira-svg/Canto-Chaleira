@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let slides = document.querySelectorAll(".advert-slide");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    showSlide(currentIndex);
+  });
+</script>
+
+<body>
+
+  <!-- Cabeçalho superior com ícones -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header principal -->
+   
+<header class="site-header">
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header com overlay -->
+  <div class="overlay"></div>
+  <div class="content">
+    <a href="home.html">
+      <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+    </a>
+    <h1>O Canto da Chaleira</h1>
+    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="home.html">Início</a>
+    <a href="sobre.html" class="active">Sobre Nós</a>
+    <a href="artistas.html">Artistas</a>
+    <a href="atividades.html">Atividades</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="parcerias.html">Parcerias</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <h2>Sobre Nós</h2>
+    <!-- Blocos de texto -->
+    <section class="text-section">
+        <div class="text-block left">
+            <p>
+                Sonhamos com um "Canto da Chaleira" que seja visto como um símbolo de criatividade e identidade cultural de Puerto 
+                Esperanza. Queremos ser reconhecidos como uma casa onde arte e os talentos locais encontram o seu lugar e onde a 
+                cultura da cidade pode ganhar vida.
+            </p>
+        </div>
+
+        <div class="text-block right">
+            <p>
+                A nossa missão é inspirar a comunidade de Puerto Esperanza através das variadíssimas artes, criando uma plataforma 
+                que impulsione a cultura e a diversidade da cidade. Queremos descobrir, apoiar e promover talentos locais, dar voz à 
+                criatividade e fortalecer a ligação entre os artistas e o público.
+                Seja bem-vindo ao nosso cantinho, onde a música, a dança, a poesia e todas as formas de expressão são celebradas e 
+                compartilhadas!
+            </p>
+        </div>
+    </section>
+
+    <!-- Galeria de fotos -->
+    <section class="galeria-quadro">
+      <h1>Quadro</h1>
+      <div class="galeria-grid">
+
+        <figure>
+          <h3>Núbia Scorpion</h3>
+            <img src="imagens/foto1.jpg" alt="Núbia Scorpion" class="lightbox-img">
+            <figcaption>Co-Fundadora</figcaption>
+        </figure>
+        <figure>
+          <h3>Cristóvão McDuffin</h3>
+            <img src="imagens/People/Cristovao/cristovao1.png" alt="Cristovao McDuffin" class="lightbox-img">
+            <figcaption>Fundador</figcaption>
+        </figure>
+        <figure>
+          <h3>Alegna Costa</h3>
+            <img src="imagens/People/Alegna/alegna1.png" alt="Alegna Costa" class="lightbox-img">
+            <figcaption>Gerente</figcaption>
+        </figure>
+
+        <hr class="divisor">
+
+        <figure>
+          <h3>António Ferreira</h3>
+            <img src="imagens/foto4.jpg" alt="Antonio Ferreira" class="lightbox-img">
+            <figcaption>Preencher</figcaption>
+        </figure>
+        <figure>
+          <h3>Frank Brown</h3>
+            <img src="imagens/People/Frank/frank1.png" alt="Frank Brown" class="lightbox-img">
+            <figcaption>Departamento Desporto</figcaption>
+        </figure>
+        <figure>
+          <h3>Isabella Rogers</h3>
+            <img src="imagens/foto4.jpg" alt="Isabella Rogers" class="lightbox-img">
+            <figcaption>Departamento Dança</figcaption>
+        </figure>
+        <figure>
+          <h3>Joaquim Castro</h3>
+            <img src="imagens/People/Padeiro/padeiro1.png" alt="Joaquim Castro" class="lightbox-img">
+            <figcaption>Preencher</figcaption>
+        </figure>
+        <figure>
+          <h3>John Blake</h3>
+            <img src="imagens/People/Blake/blake1.jpg" alt="John Blake" class="lightbox-img">
+            <figcaption>Departamento Cinematográfico</figcaption>
+        </figure>
+        <figure>
+          <h3>Kardama Mimo</h3>
+            <img src="imagens/foto4.jpg" alt="Kardama Mimo" class="lightbox-img">
+            <figcaption>Cinematografia & Publicidade</figcaption>
+        </figure>
+        <figure>
+          <h3>Miguel N. Canhoto</h3>
+            <img src="imagens/foto4.jpg" alt="Miguel Canhoto" class="lightbox-img">
+            <figcaption>Preencher</figcaption>
+        </figure>
+        <figure>
+          <h3>Pedro Cooper</h3>
+            <img src="imagens/foto4.jpg" alt="Pedro Cooper" class="lightbox-img">
+            <figcaption>Rádio & Podcast</figcaption>
+        </figure>
+        <figure>
+          <h3>Ricardo Toureiro</h3>
+            <img src="imagens/People/Toureiro/toureiro2.png" alt="Ricardo Toureiro" class="lightbox-img">
+            <figcaption>Preencher</figcaption>
+        </figure>
+        <figure>
+          <h3>Samantha Hailu</h3>
+            <img src="imagens/People/Samantha/Samantha1.jpg" alt="Samantha Hailu" class="lightbox-img">
+            <figcaption>Preencher</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-sobre">
+      <div class="overlay"></div>
+      <div class="content">
+        <p class="centralizado">
+          Participe das nossas atividades e contribua para fortalecer a cena artística de Puerto Esperanza.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox-overlay">
+    <img id="lightbox-img" src="" alt="Foto">
+  </div>
+
+<!-- Barra de Publicidade -->
+<div class="advert-bar">
+  <div class="advert-track">
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+    <img src="imagens/Parcerias/academia.png" alt="Publicidade 3">
+    <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <!-- Duplicar as imagens para criar o efeito de loop -->
+      <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+    <img src="imagens/Parcerias/academia.png" alt="Publicidade 3">
+    <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+  </div>
+</div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const imgs = document.querySelectorAll('.lightbox-img');
+      const overlay = document.getElementById('lightbox-overlay');
+      const overlayImg = document.getElementById('lightbox-img');
+
+      imgs.forEach(img => {
+        img.addEventListener('click', () => {
+          overlayImg.src = img.src;
+          overlay.style.display = 'flex';
+        });
+      });
+
+      overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+      });
+    });
+  </script>
+
+  <script>
+  // Muda cor do menu ao rolar
+  window.addEventListener('scroll', function() {
+    const menu = document.querySelector('.menu');
+    if(window.scrollY > 50){
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>
