@@ -4,6 +4,11 @@ body, h1, h2, p, a {
   padding: 0;
 }
 
+html, body {
+max-width: 100%;
+overflow-x: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif; /* ou qualquer outra fonte que queira */
   margin: 0;
@@ -124,6 +129,8 @@ p.sombra {
   color: white;
   padding: 6rem 1rem 3rem 1rem;
   overflow: hidden;
+  width: 100%;
+  margin: 0;
 }
 
 /* Overlay escuro */
