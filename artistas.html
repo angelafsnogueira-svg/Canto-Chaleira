@@ -359,26 +359,6 @@
     <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- JavaScript -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const imgs = document.querySelectorAll('.lightbox-img');
-      const overlay = document.getElementById('lightbox-overlay');
-      const overlayImg = document.getElementById('lightbox-img');
-
-      imgs.forEach(img => {
-        img.addEventListener('click', () => {
-          overlayImg.src = img.src;
-          overlay.style.display = 'flex';
-        });
-      });
-
-      overlay.addEventListener('click', () => {
-        overlay.style.display = 'none';
-      });
-    });
-  </script>
-
     <script>
   // Muda cor do menu ao rolar
   window.addEventListener('scroll', function() {
