@@ -92,6 +92,152 @@
     <br></br>    
     <hr class="divisor">
     <br></br>
+
+    <section id="team-carousel">
+    <h1>Independentes</h1>
+    <div class="carousel-container">
+      <!-- <button class="prev">&#10094;</button> -->
+      <div class="carousel">
+
+        <div class="profile-card">
+          <h3>Caveiras do Asfalto</h3>
+          <a href="">
+            <img src="imagens/Parcerias/asfalto.jpg" alt="Caveiras do Asfalto">
+          </a>
+          <figcaption>Preencher</figcaption>
+        </div>
+
+        <div class="profile-card">
+          <h3>Thunder Dance Academy</h3>
+          <a href="">
+            <img src="imagens/Parcerias/academia.png" alt="Thunder Dance Academy">
+          </a>
+          <figcaption>Preencher</figcaption>
+        </div>
+
+      </div>
+      <!-- <button class="next">&#10095;</button> -->
+    </div>
+
+    <hr class="divisor">
+    <br></br>
+    <h1>Empresas</h1>
+    <div class="carousel-container">
+      <!-- <button class="prev">&#10094;</button> -->
+      <div class="carousel">
+
+        <div class="profile-card">
+          <h3>Barrigas</h3>
+          <a href="">
+            <img src="imagens/Diversos/tba.png" alt="Barrigas">
+          </a>
+          <figcaption>Restaurante</figcaption>
+        </div>
+
+        <div class="profile-card">
+          <h3>PDM</h3>
+          <a href="">
+            <img src="imagens/Parcerias/pdm.png" alt="Premium Deluxe Motorshop">
+          </a>
+          <figcaption>Concessão</figcaption>
+        </div>
+      
+        <div class="profile-card">
+          <h3>Tune Town</h3>
+          <a href="">
+            <img src="imagens/Parcerias/TuneTown2.png" alt="Tune Town">
+          </a>
+          <figcaption>Oficina</figcaption>
+        </div>
+
+      </div>
+      <!-- <button class="next">&#10095;</button> -->
+    </div>
+
+  <!-- Indicadores -->
+  <div class="indicators"></div>
+
+  <hr class="divisor">
+
+  </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const carousels = document.querySelectorAll('.carousel-container');
+
+  carousels.forEach(container => {
+    const carousel = container.querySelector('.carousel');
+    const prev = container.querySelector('.prev');
+    const next = container.querySelector('.next');
+
+    if (!carousel || !prev || !next) return; // proteção caso falte algum elemento
+
+    const cardsOriginal = carousel.querySelectorAll('.profile-card');
+    const totalCards = cardsOriginal.length;
+    const visibleCards = 1; // ajuste conforme quiser
+    const step = 1; // melhor usar inteiro para evitar bugs
+
+    if (totalCards <= visibleCards) {
+      prev.style.display = 'none';
+      nex.style.display = 'none';
+      return;
+    }
+
+    // Clonar slides para loop infinito
+    for (let i = 0; i < visibleCards; i++) {
+      const cloneStart = cardsOriginal[i].cloneNode(true);
+      cloneStart.classList.add('clone');
+      carousel.appendChild(cloneStart);
+
+      const cloneEnd = cardsOriginal[totalCards - 1 - i].cloneNode(true);
+      cloneEnd.classList.add('clone');
+      carousel.insertBefore(cloneEnd, carousel.firstChild);
+    }
+
+    let index = visibleCards; // começa depois dos clones do início
+
+    function updateCarousel(animate = true) {
+      const cardWidth = carousel.querySelector('.profile-card').offsetWidth + 32;
+      carousel.style.transition = animate ? 'transform 0.5s ease' : 'none';
+      carousel.style.transform = `translateX(${-index * cardWidth}px)`;
+    }
+
+    updateCarousel(false);
+
+    function moveNext() {
+      index += step;
+      updateCarousel();
+      setTimeout(() => {
+        if (index >= totalCards + visibleCards) {
+          index = visibleCards;
+          updateCarousel(false);
+        }
+      }, 500);
+    }
+
+    function movePrev() {
+      index -= step;
+      updateCarousel();
+      setTimeout(() => {
+        if (index < visibleCards) {
+          index = totalCards + visibleCards - 1;
+          updateCarousel(false);
+        }
+      }, 500);
+    }
+
+    next.addEventListener('click', moveNext);
+    prev.addEventListener('click', movePrev);
+
+    // Auto-slide opcional
+    // setInterval(moveNext, 10000);
+  });
+
+});
+</script>
+
+
     <h2>Thunder Dance Academy</h2>
     <section class="text-section">
         <div class="text-block left">
