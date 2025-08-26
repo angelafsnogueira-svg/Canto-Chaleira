@@ -93,31 +93,64 @@
     <hr class="divisor">
     <br></br>
 
-    <section id="team-carousel">
-    <h1>Independentes</h1>
-    <div class="carousel-container">
-      <!-- <button class="prev">&#10094;</button> -->
-      <div class="carousel">
+<section id="team-carousel">
+  <h1>Independentes</h1>
+  <div class="carousel-wrapper-parcerias">
+    <div class="carousel-container-parcerias">
+      <div class="carousel-track-parcerias">
 
-        <div class="profile-card">
+      <!-- Card 1 -->
+      <div class="profile-card-parcerias">
+        <div class="card-text-parcerias">
           <h3>Caveiras do Asfalto</h3>
-          <a href="">
+          <p>
+            O Clube Motard Caveiras do Asfalto e o Canto da Chaleira uniram esforços numa parceria que promete fortalecer o convívio 
+            e a promoção cultural junto da comunidade motard e do público em geral. Esta colaboração permitiu a realização de eventos 
+            memoráveis, combinando a paixão pelas motos com a música, arte e entretenimento oferecidos pelo Canto da Chaleira.
+          </p>
+          <br>
+          <p>
+            A parceria reforça a missão de ambos os parceiros: criar experiências únicas, promover a cultura local e oferecer momentos 
+            de diversão e união para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu know-how e 
+            dedicação para que cada iniciativa seja organizada com qualidade, entusiasmo e impacto positivo.
+          </p>
+        </div>
+        <div class="card-image-parcerias">
+          <a href="#">
             <img src="imagens/Parcerias/asfalto.jpg" alt="Caveiras do Asfalto">
           </a>
-          <figcaption>Preencher</figcaption>
         </div>
+      </div>
 
-        <div class="profile-card">
+      <!-- Card 2 -->
+      <div class="profile-card-parcerias">
+        <div class="card-text-parcerias">
           <h3>Thunder Dance Academy</h3>
-          <a href="">
+          <p>
+            A Thunder Dance Academy e o Canto da Chaleira uniram forças numa parceria que promete dinamizar o mundo da dança e da 
+            cultura local. Esta colaboração permitirá a realização de workshops, apresentações, espetáculos e atividades interativas, 
+            combinando o talento, a criatividade e a experiência de ambos os parceiros para proporcionar experiências únicas ao público.
+          </p>
+          <br>
+          <p>
+            Com esta parceria, queremos fomentar a expressão artística, incentivar a aprendizagem e a troca de conhecimentos e criar 
+            momentos de alegria e inspiração para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu 
+            know-how na produção e promoção cultural, garantindo que cada iniciativa seja organizada com entusiasmo, profissionalismo 
+            e impacto positivo na comunidade.
+          </p>
+        </div>
+        <div class="card-image-parcerias">
+          <a href="#">
             <img src="imagens/Parcerias/academia.png" alt="Thunder Dance Academy">
           </a>
-          <figcaption>Preencher</figcaption>
         </div>
-
       </div>
-      <!-- <button class="next">&#10095;</button> -->
     </div>
+    </div>
+    <!-- Botões do carrossel -->
+    <button class="carousel-btn-parcerias prev">‹</button>
+    <button class="carousel-btn-parcerias next">›</button>
+  </div>
 
     <hr class="divisor">
     <br></br>
@@ -126,7 +159,7 @@
       <!-- <button class="prev">&#10094;</button> -->
       <div class="carousel">
 
-        <div class="profile-card">
+        <div class="profile-card-parceria">
           <h3>Barrigas</h3>
           <a href="">
             <img src="imagens/Diversos/tba.png" alt="Barrigas">
@@ -134,7 +167,7 @@
           <figcaption>Restaurante</figcaption>
         </div>
 
-        <div class="profile-card">
+        <div class="profile-card-parceria">
           <h3>PDM</h3>
           <a href="">
             <img src="imagens/Parcerias/pdm.png" alt="Premium Deluxe Motorshop">
@@ -142,7 +175,7 @@
           <figcaption>Concessão</figcaption>
         </div>
       
-        <div class="profile-card">
+        <div class="profile-card-parceria">
           <h3>Tune Town</h3>
           <a href="">
             <img src="imagens/Parcerias/TuneTown2.png" alt="Tune Town">
@@ -159,122 +192,83 @@
 
   <hr class="divisor">
 
-  </section>
+</section>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".carousel-track-parcerias");
+  const prevBtn = document.querySelector(".carousel-btn-parcerias.prev");
+  const nextBtn = document.querySelector(".carousel-btn-parcerias.next");
+  const cards = document.querySelectorAll(".profile-card-parcerias");
 
-  const carousels = document.querySelectorAll('.carousel-container');
+  let currentIndex = 0;
 
-  carousels.forEach(container => {
-    const carousel = container.querySelector('.carousel');
-    const prev = container.querySelector('.prev');
-    const next = container.querySelector('.next');
+  // largura de cada card (assumindo que todos têm a mesma largura)
+  const cardWidth = cards[0].offsetWidth + 20; // 20px de margem/gap
 
-    if (!carousel || !prev || !next) return; // proteção caso falte algum elemento
+  function updateCarousel() {
+    track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+  }
 
-    const cardsOriginal = carousel.querySelectorAll('.profile-card');
-    const totalCards = cardsOriginal.length;
-    const visibleCards = 1; // ajuste conforme quiser
-    const step = 1; // melhor usar inteiro para evitar bugs
-
-    if (totalCards <= visibleCards) {
-      prev.style.display = 'none';
-      nex.style.display = 'none';
-      return;
-    }
-
-    // Clonar slides para loop infinito
-    for (let i = 0; i < visibleCards; i++) {
-      const cloneStart = cardsOriginal[i].cloneNode(true);
-      cloneStart.classList.add('clone');
-      carousel.appendChild(cloneStart);
-
-      const cloneEnd = cardsOriginal[totalCards - 1 - i].cloneNode(true);
-      cloneEnd.classList.add('clone');
-      carousel.insertBefore(cloneEnd, carousel.firstChild);
-    }
-
-    let index = visibleCards; // começa depois dos clones do início
-
-    function updateCarousel(animate = true) {
-      const cardWidth = carousel.querySelector('.profile-card').offsetWidth + 32;
-      carousel.style.transition = animate ? 'transform 0.5s ease' : 'none';
-      carousel.style.transform = `translateX(${-index * cardWidth}px)`;
-    }
-
-    updateCarousel(false);
-
-    function moveNext() {
-      index += step;
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < cards.length - 1) {
+      currentIndex++;
       updateCarousel();
-      setTimeout(() => {
-        if (index >= totalCards + visibleCards) {
-          index = visibleCards;
-          updateCarousel(false);
-        }
-      }, 500);
     }
-
-    function movePrev() {
-      index -= step;
-      updateCarousel();
-      setTimeout(() => {
-        if (index < visibleCards) {
-          index = totalCards + visibleCards - 1;
-          updateCarousel(false);
-        }
-      }, 500);
-    }
-
-    next.addEventListener('click', moveNext);
-    prev.addEventListener('click', movePrev);
-
-    // Auto-slide opcional
-    // setInterval(moveNext, 10000);
   });
 
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  // Esconde botões se houver 3 ou menos cards
+  if (cards.length <= 1) {
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+  }
+});
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".carousel-track-parcerias");
+  const cards = document.querySelectorAll(".profile-card-parcerias");
+  const prevBtn = document.querySelector(".carousel-btn-parcerias.prev");
+  const nextBtn = document.querySelector(".carousel-btn-parcerias.next");
+
+  let currentIndex = 0;
+  const totalCards = cards.length;
+
+  function updateCarousel() {
+    const cardWidth = cards[0].offsetWidth;
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+    // mostrar / esconder botões
+    prevBtn.style.display = currentIndex === 0 ? "none" : "block";
+    nextBtn.style.display = currentIndex === totalCards - 1 ? "none" : "block";
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < totalCards - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  // inicia já com o prev escondido
+  updateCarousel();
 });
 </script>
 
-
-    <h2>Thunder Dance Academy</h2>
-    <section class="text-section">
-        <div class="text-block left">
-            <p>A Thunder Dance Academy e o Canto da Chaleira uniram forças numa parceria que promete dinamizar o mundo da dança e da 
-                cultura local. Esta colaboração permitirá a realização de workshops, apresentações, espetáculos e atividades interativas, 
-                combinando o talento, a criatividade e a experiência de ambos os parceiros para proporcionar experiências únicas ao público.</p>
-            <br></br>
-            <p>Com esta parceria, queremos fomentar a expressão artística, incentivar a aprendizagem e a troca de conhecimentos e criar 
-                momentos de alegria e inspiração para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu 
-                know-how na produção e promoção cultural, garantindo que cada iniciativa seja organizada com entusiasmo, profissionalismo 
-                e impacto positivo na comunidade.</p>
-        </div>
-    
-        <div class="text-block right">
-            <img src="imagens/Parcerias/academia.png" alt="Foto 1" width="400" height="400" style="display:block; margin:0 auto;">
-        </div>
-        
-    </section>
-    <br></br>    
-    <hr class="divisor">
-    <br></br>
-    <h2>Caveiras do Asfalto</h2>
-    <section class="text-section">
-        <div class="text-block left">
-            <p>O Clube Motard Caveiras do Asfalto e o Canto da Chaleira uniram esforços numa parceria que promete fortalecer o convívio 
-                e a promoção cultural junto da comunidade motard e do público em geral. Esta colaboração permitiu a realização de eventos 
-                memoráveis, combinando a paixão pelas motos com a música, arte e entretenimento oferecidos pelo Canto da Chaleira.</p>
-            <br></br>
-            <p>A parceria reforça a missão de ambos os parceiros: criar experiências únicas, promover a cultura local e oferecer momentos 
-                de diversão e união para todos os participantes. O Canto da Chaleira orgulha-se de contribuir com o seu know-how e 
-                dedicação para que cada iniciativa seja organizada com qualidade, entusiasmo e impacto positivo.</p>
-        </div>
-    
-        <div class="text-block right">
-            <img src="imagens/Parcerias/asfalto.png" alt="Foto 1" width="400" height="400" style="display:block; margin:0 auto;">
-        </div>
-
-    </section>
-
-  </main>
+</main>
