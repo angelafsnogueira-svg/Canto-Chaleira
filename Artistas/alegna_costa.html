@@ -3,22 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Waveform YouTube Audio Player</title>
+<title>YouTube Playlist Visualizer</title>
 <style>
   body {
     background: #111;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    gap: 20px;
+    padding: 20px;
     font-family: sans-serif;
   }
-  .audio-player {
+  .track {
     background: #222;
-    padding: 20px;
-    border-radius: 12px;
-    width: 400px;
     color: #fff;
+    width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: max-height 0.3s ease;
+  }
+  .track-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  .track-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -42,21 +57,17 @@
     background: #00cc66;
   }
   .waveform {
-    width: 100%;
-    height: 10px;
-    background: #444;
-    border-radius: 5px;
-    cursor: pointer;
-    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 60px;
   }
-  .waveform-filled {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, #ff6600, #ffcc00);
-    border-radius: 5px;
-    width: 0%;
+  .bar {
+    flex: 1;
+    background: linear-gradient(180deg, #ff6600, #ffcc00);
+    height: 10px;
+    border-radius: 2px;
+    transition: height 0.1s;
   }
   .time-vol {
     display: flex;
@@ -70,104 +81,166 @@
 </head>
 <body>
 
-<div class="audio-player">
-  <div class="controls">
-    <button class="play-btn">▶</button>
-    <button class="loop-btn">🔁</button>
-  </div>
-  <div class="waveform">
-    <div class="waveform-filled"></div>
-  </div>
-  <div class="time-vol">
-    <span class="time">0:00</span>
-    <input type="range" class="volume" min="0" max="100" value="100">
+<h2>YouTube Playlist Visualizer</h2>
+
+<div class="track" data-video="R96zhdIaKbc">
+  <div class="track-header">Track 1</div>
+  <div class="track-content">
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <button class="loop-btn">🔁</button>
+    </div>
+    <div class="waveform"></div>
+    <div class="time-vol">
+      <span class="time">0:00</span>
+      <input type="range" class="volume" min="0" max="100" value="100">
+    </div>
   </div>
 </div>
 
-<div id="player"></div>
+<div class="track" data-video="OZ5eR3x9ua0">
+  <div class="track-header">Track 2</div>
+  <div class="track-content">
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <button class="loop-btn">🔁</button>
+    </div>
+    <div class="waveform"></div>
+    <div class="time-vol">
+      <span class="time">0:00</span>
+      <input type="range" class="volume" min="0" max="100" value="100">
+    </div>
+  </div>
+</div>
+
+<div class="track" data-video="w8vTw8ZTur8">
+  <div class="track-header">Track 3</div>
+  <div class="track-content">
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <button class="loop-btn">🔁</button>
+    </div>
+    <div class="waveform"></div>
+    <div class="time-vol">
+      <span class="time">0:00</span>
+      <input type="range" class="volume" min="0" max="100" value="100">
+    </div>
+  </div>
+</div>
+
+<!-- Hidden YouTube players -->
+<div id="players-container"></div>
 
 <script>
-  // Load YouTube IFrame API
+  // Load YouTube API
   let tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   document.body.appendChild(tag);
 
-  let player;
-  const videoId = 'R96zhdIaKbc'; // Replace with your YouTube video ID
-  const playBtn = document.querySelector('.play-btn');
-  const loopBtn = document.querySelector('.loop-btn');
-  const waveform = document.querySelector('.waveform');
-  const waveformFilled = document.querySelector('.waveform-filled');
-  const time = document.querySelector('.time');
-  const volumeSlider = document.querySelector('.volume');
-  let isLooping = false;
+  const tracks = document.querySelectorAll('.track');
+  const ytPlayers = [];
+  const barsMap = [];
+  const barsCount = 30;
 
   function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '0',
-      width: '0',
-      videoId: videoId,
-      playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
+    tracks.forEach((track, index) => {
+      const videoId = track.dataset.video;
+      const container = document.createElement('div');
+      container.id = `player-${index}`;
+      container.style.display = 'none';
+      document.getElementById('players-container').appendChild(container);
+
+      ytPlayers[index] = new YT.Player(container.id, {
+        height: '0',
+        width: '0',
+        videoId: videoId,
+        playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
+      });
+
+      const waveformEl = track.querySelector('.waveform');
+      const bars = [];
+      for(let i=0;i<barsCount;i++){
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        waveformEl.appendChild(bar);
+        bars.push(bar);
+      }
+      barsMap[index] = bars;
+
+      const playBtn = track.querySelector('.play-btn');
+      const loopBtn = track.querySelector('.loop-btn');
+      const volumeSlider = track.querySelector('.volume');
+      let isLooping = false;
+
+      // Track expand/collapse
+      track.querySelector('.track-header').addEventListener('click', ()=>{
+        tracks.forEach((t,i)=>{
+          if(i===index){
+            t.querySelector('.track-content').style.maxHeight = '200px';
+          } else {
+            t.querySelector('.track-content').style.maxHeight = '0';
+          }
+        });
+      });
+
+      // Play/Pause button
+      playBtn.addEventListener('click', ()=>{
+        if(!ytPlayers[index]) return;
+        ytPlayers.forEach((p,i)=>{ if(i!==index) p.pauseVideo(); });
+        tracks.forEach((t,i)=>{ if(i!==index) t.querySelector('.play-btn').textContent='▶'; });
+
+        const state = ytPlayers[index].getPlayerState();
+        if(state === YT.PlayerState.PLAYING){
+          ytPlayers[index].pauseVideo();
+          playBtn.textContent='▶';
+        } else {
+          ytPlayers[index].unMute();
+          ytPlayers[index].playVideo();
+          playBtn.textContent='⏸';
+        }
+      });
+
+      // Loop
+      loopBtn.addEventListener('click', ()=>{
+        isLooping=!isLooping;
+        loopBtn.classList.toggle('active', isLooping);
+      });
+
+      // Volume
+      volumeSlider.addEventListener('input', ()=>{
+        if(ytPlayers[index]) ytPlayers[index].setVolume(volumeSlider.value);
+      });
+
+      // Animate waveform
+      function animate(){
+        if(ytPlayers[index] && ytPlayers[index].getDuration){
+          const duration = ytPlayers[index].getDuration();
+          const currentTime = ytPlayers[index].getCurrentTime();
+          if(duration>0){
+            let minutes=Math.floor(currentTime/60);
+            let seconds=Math.floor(currentTime%60);
+            if(seconds<10) seconds='0'+seconds;
+            track.querySelector('.time').textContent=`${minutes}:${seconds}`;
+
+            if(ytPlayers[index].getPlayerState()===YT.PlayerState.PLAYING){
+              bars.forEach(bar=>{
+                const h=Math.random()*50+10;
+                bar.style.height=h+'px';
+              });
+            } else {
+              bars.forEach(bar=>bar.style.height='10px');
+            }
+
+            if(isLooping && currentTime>=duration-0.5){
+              ytPlayers[index].seekTo(0);
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
     });
   }
-
-  // Play/Pause
-  playBtn.addEventListener('click', () => {
-    if(!player) return;
-    const state = player.getPlayerState();
-    if(state === YT.PlayerState.PLAYING) {
-      player.pauseVideo();
-      playBtn.textContent = '▶';
-    } else {
-      player.unMute();
-      player.playVideo();
-      playBtn.textContent = '⏸';
-    }
-  });
-
-  // Loop toggle
-  loopBtn.addEventListener('click', () => {
-    isLooping = !isLooping;
-    loopBtn.classList.toggle('active', isLooping);
-  });
-
-  // Update waveform and time
-  function updateWaveform() {
-    if(player && player.getDuration) {
-      const duration = player.getDuration();
-      const currentTime = player.getCurrentTime();
-      if(duration > 0) {
-        const percent = (currentTime / duration) * 100;
-        waveformFilled.style.width = percent + '%';
-
-        let minutes = Math.floor(currentTime / 60);
-        let seconds = Math.floor(currentTime % 60);
-        if(seconds < 10) seconds = '0' + seconds;
-        time.textContent = `${minutes}:${seconds}`;
-
-        // Loop handling
-        if(isLooping && currentTime >= duration - 0.5) {
-          player.seekTo(0);
-        }
-      }
-    }
-    requestAnimationFrame(updateWaveform);
-  }
-  updateWaveform();
-
-  // Seek on click
-  waveform.addEventListener('click', (e) => {
-    if(!player) return;
-    const width = waveform.clientWidth;
-    const clickX = e.offsetX;
-    const duration = player.getDuration();
-    player.seekTo((clickX / width) * duration, true);
-  });
-
-  // Volume control
-  volumeSlider.addEventListener('input', () => {
-    if(player) player.setVolume(volumeSlider.value);
-  });
 </script>
 
 </body>
