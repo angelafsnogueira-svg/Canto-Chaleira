@@ -937,7 +937,80 @@ button:hover {
   }
 }
 
+/*playlist */
 
+body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  .track {
+    background: #222;
+    color: #fff;
+    width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: max-height 0.3s ease;
+  }
+  .track-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+  }
+  .track-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .play-btn, .loop-btn {
+    background: #ff6600;
+    border: none;
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .loop-btn.active {
+    background: #00cc66;
+  }
+  .waveform {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 60px;
+  }
+  .bar {
+    flex: 1;
+    background: linear-gradient(180deg, #ff6600, #ffcc00);
+    height: 10px;
+    border-radius: 2px;
+    transition: height 0.1s;
+  }
+  .time-vol {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .volume {
+    width: 120px;
+  }
 
 /* Rodapé */
 footer {
