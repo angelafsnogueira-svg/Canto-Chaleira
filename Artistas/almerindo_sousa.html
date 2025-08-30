@@ -213,6 +213,118 @@
 <div id="players-container"></div>
       </section>
 
+      <script>
+  // Load YouTube API
+  let tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  const tracks = document.querySelectorAll('.track');
+  const ytPlayers = [];
+  const barsMap = [];
+  const barsCount = 30;
+
+  function onYouTubeIframeAPIReady() {
+    tracks.forEach((track, index) => {
+      const videoId = track.dataset.video;
+      const container = document.createElement('div');
+      container.id = `player-${index}`;
+      container.style.display = 'none';
+      document.getElementById('players-container').appendChild(container);
+
+      ytPlayers[index] = new YT.Player(container.id, {
+        height: '0',
+        width: '0',
+        videoId: videoId,
+        playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
+      });
+
+      const waveformEl = track.querySelector('.waveform');
+      const bars = [];
+      for(let i=0;i<barsCount;i++){
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        waveformEl.appendChild(bar);
+        bars.push(bar);
+      }
+      barsMap[index] = bars;
+
+      const playBtn = track.querySelector('.play-btn');
+      const loopBtn = track.querySelector('.loop-btn');
+      const volumeSlider = track.querySelector('.volume');
+      let isLooping = false;
+
+      // Track expand/collapse
+      track.querySelector('.track-header').addEventListener('click', ()=>{
+        tracks.forEach((t,i)=>{
+          if(i===index){
+            t.querySelector('.track-content').style.maxHeight = '200px';
+          } else {
+            t.querySelector('.track-content').style.maxHeight = '0';
+          }
+        });
+      });
+
+      // Play/Pause button
+      playBtn.addEventListener('click', ()=>{
+        if(!ytPlayers[index]) return;
+        ytPlayers.forEach((p,i)=>{ if(i!==index) p.pauseVideo(); });
+        tracks.forEach((t,i)=>{ if(i!==index) t.querySelector('.play-btn').textContent='▶'; });
+
+        const state = ytPlayers[index].getPlayerState();
+        if(state === YT.PlayerState.PLAYING){
+          ytPlayers[index].pauseVideo();
+          playBtn.textContent='▶';
+        } else {
+          ytPlayers[index].unMute();
+          ytPlayers[index].playVideo();
+          playBtn.textContent='⏸';
+        }
+      });
+
+      // Loop
+      loopBtn.addEventListener('click', ()=>{
+        isLooping=!isLooping;
+        loopBtn.classList.toggle('active', isLooping);
+      });
+
+      // Volume
+      volumeSlider.addEventListener('input', ()=>{
+        if(ytPlayers[index]) ytPlayers[index].setVolume(volumeSlider.value);
+      });
+
+      // Animate waveform
+      function animate(){
+        if(ytPlayers[index] && ytPlayers[index].getDuration){
+          const duration = ytPlayers[index].getDuration();
+          const currentTime = ytPlayers[index].getCurrentTime();
+          if(duration>0){
+            let minutes=Math.floor(currentTime/60);
+            let seconds=Math.floor(currentTime%60);
+            if(seconds<10) seconds='0'+seconds;
+            track.querySelector('.time').textContent=`${minutes}:${seconds}`;
+
+            if(ytPlayers[index].getPlayerState()===YT.PlayerState.PLAYING){
+              bars.forEach(bar=>{
+                const h=Math.random()*50+10;
+                bar.style.height=h+'px';
+              });
+            } else {
+              bars.forEach(bar=>bar.style.height='10px');
+            }
+
+            if(isLooping && currentTime>=duration-0.5){
+              ytPlayers[index].seekTo(0);
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    });
+  }
+</script>
+
       <!-- Calendar -->
       <section class="artist-calendar" id="calendar">
         <h2>Próximos Concertos</h2>
