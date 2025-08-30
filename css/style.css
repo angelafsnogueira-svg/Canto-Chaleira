@@ -9,10 +9,23 @@ max-width: 100%;
 overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif; /* ou qualquer outra fonte que queira */
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: #000000;           /* preto */
+  text-decoration: none; /* sem sublinhado */
+}
+
+a:hover {
+  color: #eba83c;        /* muda de cor quando passar o mouse (opcional) */
 }
 
 /* Fonte Macondo apenas nos títulos */
@@ -504,10 +517,10 @@ main h2 {
 .advert-track {
   display: flex;
   width: calc(200%);       /* 2x porque duplicamos imagens */
-  gap: 20rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
-  animation: scroll 60s linear infinite;
+  gap: 15rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  animation: scroll 80s linear infinite;
 }
 
 .advert-track img {
@@ -716,6 +729,215 @@ button:hover {
 .indicators .dot.active {
   background: #fff;
 }
+
+/* =========================
+   ARTIST PROFILE
+========================= */
+
+/* Container flexível para menu + conteúdo */
+.artist-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Menu lateral normal (segue o scroll) */
+.side-menu {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* Layout relativo para não sobrepor header/footer */
+  position: relative;
+  top: 0;
+  left: 0;
+
+  /* Altura inicial mínima */
+  height: 250px;
+
+  /* Transição suave de altura */
+  transition: height 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* links começam na base */
+  padding-bottom: 5rem;
+}
+
+.side-menu nav {
+  margin-bottom: 10rem; /* moves all links slightly above the bottom */
+}
+
+/* Links do menu lateral */
+.side-menu nav a {
+  display: block;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-family: "Lexend", sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.side-menu nav a.active,
+.side-menu nav a:hover {
+  background-color: #eba83c;
+  color: #fff;
+}
+
+/* Conteúdo principal ajustado para lado a lado com menu */
+.artist-profile {
+  flex: 1; /* ocupa todo o espaço restante */
+  font-family: "Lexend", sans-serif;
+  line-height: 1.6;
+}
+
+/* Seções do perfil */
+.artist-profile section {
+  margin-bottom: 3rem;
+}
+
+/* Intro */
+.artist-intro p {
+  text-align: justify;
+  font-size: 1.1rem;
+  color: #000000;
+}
+
+/* Gallery */
+.galeria-artista {
+  position: relative;
+  width: 900px; /* largura visível */
+  height: 600px;
+  margin-left: 15px;
+  margin-right: 0;
+  overflow: hidden;
+}
+
+.galeria-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.galeria-img {
+  width: 900px;
+  height: 600px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.galeria-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.galeria-btn.prev {
+  left: 10px;
+}
+
+.galeria-btn.next {
+  right: 10px;
+}
+
+/* Playlist */
+.artist-playlist ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.artist-playlist li {
+  margin: 0.5rem 0;
+}
+
+.artist-playlist a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #eba83c;
+  transition: color 0.3s;
+}
+
+.artist-playlist a:hover {
+  color: #333;
+}
+
+/* Calendar */
+.artist-calendar ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.artist-calendar li {
+  margin: 0.5rem 0;
+}
+
+/* Social Links */
+.artist-links {
+  text-align: center;
+}
+
+.artist-links a {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.artist-links a i {
+  margin-right: 0.5rem;
+  color: #eba83c;
+}
+
+.artist-links a:hover {
+  color: #eba83c;
+}
+
+/* Foto do artista */
+.artist-photo {
+  display: block;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 1rem auto 2rem;
+  border: 4px solid #eba83c;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .artist-container {
+    flex-direction: column;
+  }
+
+  .side-menu {
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .artist-profile {
+    margin-left: 0;
+  }
+}
+
+
 
 /* Rodapé */
 footer {

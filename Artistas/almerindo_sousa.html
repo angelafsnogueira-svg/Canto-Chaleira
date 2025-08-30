@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
+  body {
+    background: rgba(17, 17, 17, 0.02);
+    background-image: url("../imagens/Diversos/clean-gray-paper.png");
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cabeçalho superior -->
+  <div class="topbar">
+    <a href="https://discord.gg/SEU-LINK" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <a href="https://discord.gg/SEU-LINK" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="../imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+      <h1>O Canto da Chaleira</h1>
+      <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+    </div>
+
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="../sobre.html">Sobre Nós</a>
+      <a href="../artistas.html" class="active">Artistas</a>
+      <a href="../atividades.html">Atividades</a>
+      <a href="../eventos.html">Eventos</a>
+      <a href="../parcerias.html">Parcerias</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const menu = document.querySelector('.menu');
+      if(window.scrollY > 50){
+        menu.classList.add('scrolled');
+      } else {
+        menu.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- CONTAINER: Menu lateral + Conteúdo -->
+  <div class="artist-container">
+
+    <!-- Menu lateral -->
+    <aside class="side-menu">
+      <nav>
+        <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
+        <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
+        <a href="#playlist"><i class="fa-solid fa-music"></i> Singles</a>
+        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Agenda</a>
+        <a href="#links"><i class="fa-solid fa-link"></i> Links</a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="artist-profile">
+      <!-- Intro -->
+      <section class="artist-intro" id="artist-intro">
+        <h2>Cristóvão McDuffin</h2>
+        <img src="../imagens/People/Cristovao/cristovao3.png" alt="Foto do Artista" class="artist-photo">
+        <p><strong>Cristóvão McDuffin</strong> é um cantor português residente em Puerto Esperanza. O seu percurso artístico iniciou-se aos 21 anos, quando se mudou para a cidade 
+          para prosseguir os seus estudos, momento em que começou a dedicar-se à música de forma mais consistente.</p>
+        <br>
+        <p>Ao longo do seu trajeto, Cristóvão atuou em diversos espaços culturais e de entretenimento da cidade, entre os quais o restaurante <strong>Hog's</strong>, o bar noturno 
+          <strong>Malibu</strong>, o restaurante <strong>BurgerShot</strong> e a empresa de gravação <strong>Rockford Records</strong>, onde chegou a ser proprietário e onde também 
+          se apresentou em palco. Para além disso, participou num programa de talentos, no qual alcançou a final e apresentou a sua primeira música original, <strong>“Pergaminho”</strong>
+           e esteve presente como cantor num reality show.</p>
+        <br>
+        <p>O seu estilo musical caracteriza-se pela versatilidade, com particular incidência na Música Portuguesa, pop e rock. Habitualmente apresenta-se acompanhado da sua guitarra 
+          acústica, elemento central na sua expressão artística.</p>
+        <br>
+        <p>Cristóvão McDuffin tem ainda desenvolvido colaborações com outros músicos, destacando-se a canção <strong>“Estica-me as Peles”</strong>, gravada em parceria com o artista
+           <strong>John Blake</strong>. Apesar de ainda não ter recebido distinções formais, tem vindo a afirmar-se no panorama artístico local, consolidando gradualmente a sua 
+           presença na cena musical de Puerto Esperanza.</p>
+      </section>
+
+      <!-- Gallery -->
+      <section class="artist-gallery" id="gallery">
+        <h2>Galeria</h2>
+        <div class="galeria-artista">
+          <button class="galeria-btn prev">‹</button>
+            <div class="galeria-track-container">
+              <div class="galeria-track">
+                <img src="../imagens/People/Cristovao/cristovão2.png" alt="Foto 1" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cristovao5.png" alt="Foto 2" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cristovao1.png" alt="Foto 3" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cm3.png" alt="Foto 4" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cm2.png" alt="Foto 5" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cristovao4.png" alt="Foto 6" class="galeria-img">
+                <img src="../imagens/People/Cristovao/cristovao6.png" alt="Foto 7" class="galeria-img">
+              </div>
+            </div>
+          <button class="galeria-btn next">›</button>
+        </div>
+      </section>
+
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const track = document.querySelector(".galeria-track");
+          const prevBtn = document.querySelector(".galeria-btn.prev");
+          const nextBtn = document.querySelector(".galeria-btn.next");
+          const imgs = document.querySelectorAll(".galeria-img");
+
+          let currentIndex = 0;
+          const imgWidth = imgs[0].offsetWidth; // largura de cada foto
+
+          function updateGaleria() {
+          track.style.transform = `translateX(${-currentIndex * imgWidth}px)`;
+          }
+
+          nextBtn.addEventListener("click", () => {
+            if (currentIndex < imgs.length - 1) {
+            currentIndex++;
+            updateGaleria();
+            }
+          });
+
+          prevBtn.addEventListener("click", () => {
+            if (currentIndex > 0) {
+            currentIndex--;
+            updateGaleria();
+            }
+          });
+
+          // Esconde botões se só existir 1 imagem
+          if (imgs.length <= 1) {
+            prevBtn.style.display = "none";
+            nextBtn.style.display = "none";
+          }
+        });
+      </script>
+
+      <!-- Playlist -->
+      <section class="artist-playlist" id="playlist">
+        <h2>Singles</h2>
+        <div class="track" data-video="R96zhdIaKbc">
+          <div class="track-header">"I Love You" Billie Eilish Cover</div>
+          <div class="track-content">
+            <div class="controls">
+              <button class="play-btn">▶</button>
+              <button class="loop-btn">🔁</button>
+            </div>
+          <div class="waveform"></div>
+          <div class="time-vol">
+            <span class="time">0:00</span>
+            <input type="range" class="volume" min="0" max="100" value="100">
+          </div>
+          </div>
+        </div>
+
+<div class="track" data-video="OZ5eR3x9ua0">
+  <div class="track-header">"Wildflower" Billie Eilish Cover</div>
+  <div class="track-content">
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <button class="loop-btn">🔁</button>
+    </div>
+    <div class="waveform"></div>
+    <div class="time-vol">
+      <span class="time">0:00</span>
+      <input type="range" class="volume" min="0" max="100" value="100">
+    </div>
+  </div>
+</div>
+
+<div class="track" data-video="w8vTw8ZTur8">
+  <div class="track-header">"Those Eyes" New West Cover</div>
+  <div class="track-content">
+    <div class="controls">
+      <button class="play-btn">▶</button>
+      <button class="loop-btn">🔁</button>
+    </div>
+    <div class="waveform"></div>
+    <div class="time-vol">
+      <span class="time">0:00</span>
+      <input type="range" class="volume" min="0" max="100" value="100">
+    </div>
+  </div>
+</div>
+
+<!-- Hidden YouTube players -->
+<div id="players-container"></div>
+      </section>
+
+      <!-- Calendar -->
+      <section class="artist-calendar" id="calendar">
+        <h2>Próximos Concertos</h2>
+        <ul>
+          <li>12 Março 2026 - Lisboa, Portugal</li>
+          <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li>
+        </ul>
+      </section>
+
+      <!-- Links -->
+      <section class="artist-links" id="links">
+        <h2>Siga o Artista</h2>
+        <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="https://spotify.com/" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
+        <a href="https://artistwebsite.com" target="_blank"><i class="fa-solid fa-globe"></i> Website Oficial</a>
+      </section>
+    </main>
+
+  </div> <!-- /.artist-container -->
+
+  <div class="advert-bar">
+  <div class="advert-track">
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <!-- Duplicar as imagens para criar o efeito de loop -->
+      <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+  </div>
+</div>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+const sideMenu = document.querySelector('.side-menu');
+const menuLinks = document.querySelectorAll('.side-menu nav a');
+
+const minHeight = 400; // altura inicial do menu
+
+// Calcula a altura máxima com base no conteúdo principal, sem ultrapassar o footer
+const mainContent = document.querySelector('.artist-profile');
+const maxHeight = mainContent.offsetTop + mainContent.offsetHeight - sideMenu.offsetTop - 20; // margem de 20px
+
+// Cores inicial e final (gradiente dinâmico)
+const startMenuColor = {r: 255, g: 255, b: 255, a: 0.02}; // #f5f5f5
+const endMenuColor   = {r: 235, g: 168, b: 60, a: 1};  // #eba83c
+
+// Gradiente do conteúdo (links)
+const startLinkColor = {r: 0, g: 0, b: 0};    // texto inicial
+const endLinkColor = {r: 0, g: 0, b: 0};   // texto final
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Faz o menu crescer proporcionalmente ao scroll da página
+  let newHeight = minHeight + scrollY;
+  if (newHeight > maxHeight) newHeight = maxHeight;
+  sideMenu.style.height = newHeight + "px";
+
+  // Calcula progresso para revelar links
+  let progress = (newHeight - minHeight) / (maxHeight - minHeight);
+
+  // Links animados
+  menuLinks.forEach((link, index) => {
+    const delay = index * 0;
+    link.style.opacity = progress > delay ? 1 : 0;
+    link.style.transform = progress > delay ? "translateY(0)" : "translateY(20px)";
+
+    // Gradiente de cor do link
+    const r = Math.round(startLinkColor.r + (endLinkColor.r - startLinkColor.r) * progress);
+    const g = Math.round(startLinkColor.g + (endLinkColor.g - startLinkColor.g) * progress);
+    const b = Math.round(startLinkColor.b + (endLinkColor.b - startLinkColor.b) * progress);
+    link.style.color = `rgb(${r},${g},${b})`;
+  });
+
+  // Gradiente do fundo do menu
+  const rMenu = Math.round(startMenuColor.r + (endMenuColor.r - startMenuColor.r) * progress);
+  const gMenu = Math.round(startMenuColor.g + (endMenuColor.g - startMenuColor.g) * progress);
+  const bMenu = Math.round(startMenuColor.b + (endMenuColor.b - startMenuColor.b) * progress);
+  const aMenu = startMenuColor.a + (endMenuColor.a - startMenuColor.a) * progress; // <<< sem Math.round
+  sideMenu.style.backgroundColor = `rgba(${rMenu},${gMenu},${bMenu},${aMenu})`;
+});
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
