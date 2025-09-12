@@ -45,11 +45,23 @@ h1 {
   font-size: 3rem;
 }
 
-h2, h4, h5, h6 {
+h2, h4, h5 {
   font-family: 'Lilita One', sans-serif;
   font-weight: 2rem;
   font-style: normal;
   font-size: 3rem;
+}
+
+h6 {
+font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 130px;
+  margin-bottom: 0px;
+  margin-top: -30px;
+  color: #eba83c;
+  margin-left: -10px;
+  text-shadow: 100px 100px 200x rgba(0, 0, 0, 0.849);
 }
 
 h3 {
@@ -121,6 +133,13 @@ p.sombra {
   font-weight: 500;
   font-style: normal;
 }
+
+.rubik-vinyl-regular {
+  font-family: "Rubik Vinyl", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 /* Aba de Publicidade */
@@ -743,7 +762,9 @@ main h2 {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 20px 0;
-  background: rgba(255, 255, 255, 0);
+  /*background: rgb(255, 255, 255);*/
+  background-image: url(../imagens/Diversos/fundoalternativo.png);
+  background: rgba(255, 255, 255, 0.01);
 }
 
 #team-carousel .profile-card {
