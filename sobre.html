@@ -14,7 +14,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lilita+One&family=Love+Light&family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
 
 </head>
 
@@ -87,108 +87,246 @@
     <section class="text-section">
         <div class="text-block left">
             <p>
-                Sonhamos com um "Canto da Chaleira" que seja visto como um símbolo de criatividade e identidade cultural de Puerto 
-                Esperanza. Queremos ser reconhecidos como uma casa onde arte e os talentos locais encontram o seu lugar e onde a 
-                cultura da cidade pode ganhar vida.
+                O <strong>Canto da Chaleira</strong> nasceu da vontade de criar um espaço aberto e acolhedor para todos os que acreditam na força da cultura e das artes. 
+                Mais do que uma associação, somos um ponto de encontro, um lugar de partilha e de inspiração.
+            </p>
+            <br>
+            <p>
+                O nome <strong>“Canto da Chaleira”</strong> representa esse espírito de proximidade: assim como uma chaleira reúne amigos em torno de uma boa conversa, queremos 
+                reunir pessoas em torno da música, da dança, da poesia, do cinema, da pintura e de tantas outras expressões artísticas que dão vida a Puerto Esperanza.
+
             </p>
         </div>
 
         <div class="text-block right">
             <p>
-                A nossa missão é inspirar a comunidade de Puerto Esperanza através das variadíssimas artes, criando uma plataforma 
-                que impulsione a cultura e a diversidade da cidade. Queremos descobrir, apoiar e promover talentos locais, dar voz à 
-                criatividade e fortalecer a ligação entre os artistas e o público.
-                Seja bem-vindo ao nosso cantinho, onde a música, a dança, a poesia e todas as formas de expressão são celebradas e 
-                compartilhadas!
+                Aqui acreditamos que a cultura é feita de todos e para todos. Trabalhamos para dar visibilidade aos artistas locais, para criar novas oportunidades e para que cada 
+                talento, seja ele pequeno ou grande, tenha o seu espaço.
+            </p>
+            <br>
+            <p>
+                O nosso compromisso é com a comunidade, com a diversidade e com a autenticidade.
+            </p>
+            <br>
+            <p>
+                No Canto da Chaleira, cada voz importa e cada arte tem lugar, nos acreditamos que tudo o que tu sonhas pode se tornar real.
             </p>
         </div>
     </section>
 
     <section>
-        <header class="site-header" style="width: calc(100% + 650px); overflow-x: visible; position: relative; left: 50%; transform: translateX(-50%);">
-          <div class="overlay"></div>
-          <div class="content">
-            <img src="imagens/People/Cristovao/cristovao3.png" style= "width: calc(100% + 650px); overflow-x: visible; position: relative; left: 50%; transform: translateX(-50%);">
+      <header class="site-header" style="width: calc(100% + 650px); overflow-x: visible; position: relative; left: 50%; transform: translateX(-50%);">
+        <div class="overlay"></div>
+        <div class="content" style="position: relative;">
+      
+          <!-- Imagem principal -->
+          <img src="imagens/People/Cristovao/cristovao3.png" 
+               style="width: calc(100% + 650px); overflow-x: visible; position: relative; left: 50%; transform: translateX(-50%);">
+
+          <div class="love-light-regular"
+               style="position: absolute; top: 10%; right: 200px; transform: translateY(-50%);
+                  color: #fff; font-size: 60px; font-weight: 600; text-align: center; z-index: 3;">
+              "Porque tudo o que tu Sonhas pode ser Real"
           </div>
-          
-        </header>
+
+          <div style="position: absolute; top: 35%; right: 390px; transform: translateY(-50%);
+                  color: #ffffff67; font-size: 17px; font-weight: 600; text-align: center; z-index: 3;">
+              Clique abaixo para ver a mensagem do fundador
+          </div>
+
+          <!-- Botão centrado verticalmente no lado direito -->
+          <button id="openModalBtn" 
+                style="position: absolute; top: 50%; right: 470px; transform: translateY(-50%); 
+                     z-index: 2; padding: 18px 36px; background-color: #eba83c; color: #fff;
+                     font-size: 20px; font-weight: 600;  
+                     border: none; border-radius: 8px; cursor: pointer;">
+            Founder's Letter
+          </button>
+
+          <div class="windsong-regular" 
+               style="position: absolute; top: 95%; right: 230px; transform: translateY(-50%);
+                  color: #ffffff0c; font-size: 57px; font-weight: 600; text-align: center; z-index: 3;">
+              Cristovão McDuffin
+          </div>
+
+        </div>
+      </header>
     </section>
 
-    <!-- Galeria de fotos -->
-    <section class="galeria-quadro">
-      <h1>Quadro</h1>
-      <div class="galeria-grid">
+<!-- Modal -->
+<div id="videoModal" 
+     style="display: none; position: fixed; z-index: 999; left: 0; top: 38px; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+  
+  <!-- Vídeo no modal -->
+  <video controls autoplay 
+         style="max-width: 80%; max-height: 80%; border: 3px solid #fff; border-radius: 10px;">
+    <source src="Videos/founder letter.mp4" type="video/mp4">
+    O seu navegador não suporta vídeo.
+  </video>
+</div>
 
-        <figure>
+<script>
+  const videoModal = document.getElementById("videoModal");
+  const btn = document.getElementById("openModalBtn");
+
+  btn.onclick = function() {
+    videoModal.style.display = "flex";
+  }
+
+  videoModal.onclick = function(e) {
+    if (e.target === videoModal) {
+      videoModal.style.display = "none";
+    }
+  }
+</script>
+
+  <br></br>
+  <br></br>
+  <h1>Quadro</h1>
+  
+<section id="team-carousel">
+    <br></br>
+    <hr class="divisor"
+        style="position: absolute; left: 200px; right: 200px; margin-bottom: 50px;">
+    <div class="carousel-container">
+      <div class="carousel">
+
+        <div class="profile-card-quadro">
           <h3>Núbia Scorpion</h3>
-            <img src="imagens/People/Núbia/nubia2.png" alt="Núbia Scorpion" class="lightbox-img">
-            <figcaption>Co-Fundadora</figcaption>
-        </figure>
-        <figure>
+            <img src="imagens/People/Núbia/nubia2.png" alt="Núbia Scorpion">
+          <figcaption>Co-Fundadora</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
           <h3>Cristóvão McDuffin</h3>
-            <img src="imagens/People/Cristovao/cristovao1.png" alt="Cristovao McDuffin" class="lightbox-img">
-            <figcaption>Fundador</figcaption>
-        </figure>
-        <figure>
+          <a href="Artistas/cristovao_mcduffin.html">
+            <img src="imagens/People/Cristovao/cristovao1.png" alt="Cristovao McDuffin">
+          </a>
+          <figcaption>Fundador</figcaption>
+        </div>
+      
+        <div class="profile-card-quadro">
           <h3>Alegna Costa</h3>
-            <img src="imagens/People/Alegna/alegna1.png" alt="Alegna Costa" class="lightbox-img">
-            <figcaption>Gerente</figcaption>
-        </figure>
+          <a href="Artistas/alegna_costa.html">
+            <img src="imagens/People/Alegna/alegna1.png" alt="Alegna Costa">
+          </a>
+          <figcaption>Gerente</figcaption>
+        </div>
 
-        <hr class="divisor">
-
-        <figure>
-          <h3>António Ferreira</h3>
-            <img src="imagens/foto4.jpg" alt="Antonio Ferreira" class="lightbox-img">
-            <figcaption>Preencher</figcaption>
-        </figure>
-        <figure>
-          <h3>Frank Brown</h3>
-            <img src="imagens/People/Frank/frank1.png" alt="Frank Brown" class="lightbox-img">
-            <figcaption>Departamento Desporto</figcaption>
-        </figure>
-        <figure>
-          <h3>Isabella Rogers</h3>
-            <img src="imagens/foto4.jpg" alt="Isabella Rogers" class="lightbox-img">
-            <figcaption>Departamento Dança</figcaption>
-        </figure>
-        <figure>
-          <h3>Joaquim Castro</h3>
-            <img src="imagens/People/Padeiro/padeiro1.png" alt="Joaquim Castro" class="lightbox-img">
-            <figcaption>Preencher</figcaption>
-        </figure>
-        <figure>
-          <h3>John Blake</h3>
-            <img src="imagens/People/Blake/blake1.jpg" alt="John Blake" class="lightbox-img">
-            <figcaption>Departamento Cinematográfico</figcaption>
-        </figure>
-        <figure>
-          <h3>Kardama Mimo</h3>
-            <img src="imagens/foto4.jpg" alt="Kardama Mimo" class="lightbox-img">
-            <figcaption>Cinematografia & Publicidade</figcaption>
-        </figure>
-        <figure>
-          <h3>Miguel N. Canhoto</h3>
-            <img src="imagens/foto4.jpg" alt="Miguel Canhoto" class="lightbox-img">
-            <figcaption>Preencher</figcaption>
-        </figure>
-        <figure>
-          <h3>Pedro Cooper</h3>
-            <img src="imagens/foto4.jpg" alt="Pedro Cooper" class="lightbox-img">
-            <figcaption>Rádio & Podcast</figcaption>
-        </figure>
-        <figure>
-          <h3>Ricardo Toureiro</h3>
-            <img src="imagens/People/Toureiro/toureiro2.png" alt="Ricardo Toureiro" class="lightbox-img">
-            <figcaption>Preencher</figcaption>
-        </figure>
-        <figure>
-          <h3>Samantha Hailu</h3>
-            <img src="imagens/People/Samantha/Samantha1.jpg" alt="Samantha Hailu" class="lightbox-img">
-            <figcaption>Preencher</figcaption>
-        </figure>
       </div>
-    </section>
+    </div>
+
+    <hr class="divisor"
+        style="position: absolute; left: 200px; right: 200px; margin-bottom: 50px;">
+    <div class="carousel-container">
+      <div class="carousel"
+           style="left: 0; top: 38px; width: 100%; height: 100%; 
+           background-color: #ffffff17; justify-content: center; align-items: center;">
+
+        <div class="profile-card-quadro">
+          <h3>António Ferreira</h3>
+          <a href="Artistas/antonio_ferreira.html">
+            <img src="imagens/People/António/antonio1.webp" alt="António Ferreira">
+          </a>
+          <figcaption>Departamento Rádio & Podcast</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
+          <h3>Pedro Cooper</h3>
+          <a href="Artistas/pedro_cooper.html">
+            <img src="imagens/People/Cooper/" alt="Pedro Cooper">
+          </a>
+          <figcaption>Departamento Rádio & Podcast</figcaption>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+
+        <div class="profile-card-quadro">
+          <h3>John Blake</h3>
+          <a href="Artistas/john_blake.html">
+            <img src="imagens/People/Blake/blake2.jpg" alt="John Blake">
+          </a>
+          <figcaption>Departamento Cinematográfico</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
+          <h3>Ricardo Toureiro</h3>
+          <a href="Artistas/ricardo_toureiro.html">
+            <img src="imagens/People/Toureiro/toureiro1.jpg" alt="Ricardo Toureiro">
+          </a>
+          <figcaption>Departamento Cinematográfico</figcaption>
+        </div>
+      
+        <div class="profile-card-quadro">
+          <h3>Samantha Hailu</h3>
+          <a href="Artistas/samantha_hailu.html">
+            <img src="imagens/People/Samantha/Samantha1.jpg" alt="Samantha Hailu">
+          </a>
+          <figcaption>Departamento Cinematográfico</figcaption>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel">
+
+        <div class="profile-card-quadro">
+          <h3>Frank Brown</h3>
+            <img src="imagens/People/Frank/frank1.png" alt="Frank Brown">
+          <figcaption>Departamento Desporto</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
+          <h3>Isabella Rogers</h3>
+          <a href="Artistas/isabella_rogers.html">
+            <img src="imagens/People/Isabella/bella1.png" alt="Isabella Rogers">
+          </a>
+          <figcaption>Departamento Dança</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
+          <h3>Miguel N. Canhoto</h3>
+          <a href="Artistas/miguel_n_canhoto.html">
+            <img src="imagens/People/Canhoto/canhoto1.png" alt="Miguel N. Canhoto">
+          </a>
+          <figcaption>Departamento de Música</figcaption>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel"
+           style="left: 0; top: 38px; width: 100%; height: 100%; 
+           background-color: #ffffff; justify-content: center; align-items: center;">
+
+        <div class="profile-card-quadro">
+          <h3>Joaquim Castro</h3>
+            <img src="imagens/People/Padeiro/padeiro1.png" alt="Joaquim Castro">
+          <figcaption>Projetos & Parcerias</figcaption>
+        </div>
+
+        <div class="profile-card-quadro">
+          <h3>Kardama Mimo</h3>
+          <a href="Artistas/kardama_mimo.html">
+            <img src="imagens/People/Kardama/mimo1.png" alt="Kardama Mimo">
+          </a>
+          <figcaption>Marketing & Publicidade</figcaption>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="divisor"
+        style="position: absolute; left: 200px; right: 200px; margin-bottom: 50px;">
+  
+  </section>
 
     <!-- CTA -->
     <section class="cta-sobre">

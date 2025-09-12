@@ -28,6 +28,15 @@ a:hover {
   color: #eba83c;        /* muda de cor quando passar o mouse (opcional) */
 }
 
+b {
+  color: #eba83c;           /* preto */
+  text-decoration: none; /* sem sublinhado */
+}
+
+b:hover {
+  color: #3ca5eb;        /* muda de cor quando passar o mouse (opcional) */
+}
+
 /* Fonte Macondo apenas nos títulos */
 h1 {
   font-family: 'Macondo', cursive;
@@ -92,6 +101,25 @@ p.sombra {
   text-align: center;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
+
+.love-light-regular {
+  font-family: "Love Light", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.windsong-regular {
+  font-family: "WindSong", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.windsong-medium {
+  font-family: "WindSong", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+
 
 /* Aba de Publicidade */
 .advert-bar {
@@ -320,6 +348,182 @@ main h2 {
 .cta-sobre .btn-sobre:hover {
   background: #0084a8;
 }
+
+/* Bloco de chamada Eventos */
+.cta-eventos {
+  position: relative;
+  background-image: url("../imagens/Diversos/fundo.png"); /* coloque sua imagem aqui */
+  background-attachment: fixed; /* efeito parallax */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.cta-eventos .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* mais escuro que antes */
+  z-index: 1;
+}
+
+.cta-eventos .content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-eventos h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-eventos p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.cta-eventos .btn-sobre {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #00aced;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.cta-eventos .btn-sobre:hover {
+  background: #0084a8;
+}
+
+.timeline-slider {
+  max-width: 1200px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+  padding: 0 20px;
+}
+
+.timeline-slider h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-container {
+  overflow: hidden;
+  width: 110%;
+  border-top: 3px solid #eba83c;
+  border-bottom: 3px solid #eba83c;
+  padding: 20px 0;
+  margin-left: -60px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 615px;
+  height: 400px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.slider-item img {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.slider-item:hover img {
+  transform: scale(1.05); /* Zoom ao passar o mouse */
+}
+
+.slider-date {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.slider-title {
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.slider-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.slider-description-tags {
+  font-size: 14px;
+  color: #eba83c;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Botões de navegação */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(235,168,60,0.8);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+  background-color: rgba(235,168,60,1);
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .slider-item {
+    min-width: 200px;
+  }
+  .slider-item img {
+    height: 120px;
+  }
+}
+
 
 .text-section {
   display: flex;
@@ -562,6 +766,21 @@ main h2 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
+#team-carousel .profile-card-quadro {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 12px;
+  padding: 0px;
+  margin: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  height: 320px;
+}
+
+#team-carousel .profile-card-quadro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
 #team-carousel .profile-card-parceria {
   background: rgba(0, 0, 0, 0.014);
   border-radius: 12px;
@@ -622,9 +841,29 @@ main h2 {
   color: #000000;
 }
 
+.profile-card-quadro {
+  flex: 0 0 calc(33.333% - 2rem);
+  margin: 0 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  text-align: center;
+  padding: 1.5rem;
+  color: #000000;
+}
+
 .profile-card img {
   width: 270px;
   height: 270px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.profile-card-quadro img {
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
