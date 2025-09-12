@@ -462,7 +462,7 @@ main h2 {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 615px;
+  width: 625px;
   height: 400px;
   text-align: center;
   padding: 10px;
@@ -524,15 +524,15 @@ main h2 {
 }
 
 .slider-btn:hover {
-  background-color: rgba(235,168,60,1);
+  background-color: rgba(172, 171, 171, 0.342);
 }
 
 .slider-btn.prev {
-  left: 10px;
+  left: -150px;
 }
 
 .slider-btn.next {
-  right: 10px;
+  right: -150px;
 }
 
 /* Responsivo */
@@ -841,14 +841,14 @@ main h2 {
 
 .carousel-wrapper-parcerias {
   position: relative; /* base para posicionar os botões */
-  max-width: 1000px;  /* largura máxima do carrossel */
+  max-width: 800px;  /* largura máxima do carrossel */
   margin: 0 auto;     /* centra tudo */
 }
 
 .carousel-container-parcerias {
   position: relative;
   width: 100%;
-  max-width: 900px; /* largura máxima do carrossel */
+  max-width: 800px; /* largura máxima do carrossel */
   margin: auto;
   overflow: hidden;
 }
@@ -990,6 +990,8 @@ main h2 {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
+  width: 800px;
+  height: 600px;
 }
 
 .card-text-parcerias {
