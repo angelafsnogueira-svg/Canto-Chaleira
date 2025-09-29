@@ -242,9 +242,9 @@
 .artist-playlist h2{text-align:center;margin-bottom:20px;font-size:26px}
 
 /* track card */
-.track{background:#fff;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
-.track.playing{border:2px solid #4f46e5;box-shadow:0 8px 30px rgba(79,70,229,0.14)}
-.track-header{padding:12px 16px;background:#f3f4f6;cursor:pointer;font-weight:600;outline:none}
+.track{background-image:url(../imagens/Playlist/Cristovao/pergaminho.png);background-size:cover;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.track.playing{border:2px solid #eba83c;box-shadow:0 8px 30px rgba(79,70,229,0.14)}
+.track-header{padding:12px 16px;background:#000000;cursor:pointer;font-weight:600;outline:none;display:flex;justify-content:center;align-items:ceneter;text-align:center;}
 .track-content{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .2s; padding:0 16px}
 .track.active .track-content{max-height:260px;padding:16px}
 
@@ -252,21 +252,54 @@
 .controls{display:flex;gap:8px;margin-bottom:12px}
 .controls button{border:0;background:#e6e7ee;color:#111;padding:10px;border-radius:8px;cursor:pointer;font-size:16px;transition:background .15s}
 .controls button:hover{background:#d6d7e6}
-.controls button.active{background:#4f46e5;color:#fff}
+.controls button.active{background:#fffcf7;color:#fff}
 
 /* waveform decorative */
-.waveform{display:flex;gap:2px;height:60px;align-items:flex-end;margin-bottom:10px}
+.waveform{display:flex;gap:2px;height:60px;align-items:flex-end;margin-bottom:-31px}
 .waveform .bar{width:3px;background:#a3a3a3;border-radius:2px;height:10px;transition:height .18s linear}
 
 /* progress */
-.progress-container{width:100%;height:8px;background:#e5e7eb;border-radius:999px;margin:8px 0;position:relative;cursor:pointer;user-select:none}
-.progress{position:absolute;left:0;top:0;height:100%;background:#111827;width:0;border-radius:999px;transition:width .1s linear}
-.progress-handle{position:absolute;top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid #111827;box-shadow:0 2px 6px rgba(0,0,0,.12);left:0;pointer-events:none;transition:left .05s linear}
+.progress-container{
+  width:100%;
+  height:8px;
+  background:#e5e7eb;
+  border-radius:999px;
+  margin:8px 0;
+  margin-bottom:-10px;
+  position:relative;
+  cursor:pointer;
+  user-select:none;
+  overflow:hidden; /* permite efeito "waveform saindo da barra" */
+}
+.progress{
+  position:absolute;
+  left:0;
+  bottom:0; /* sobe da base */
+  height:100%;
+  width:0;
+  border-radius:999px;
+  background: linear-gradient(to top, #f59e0b, #fde68a);
+  transition: width .1s linear;
+}
+.progress-handle{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#eba83c;
+  border:2px solid #eba83c;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  left:0;
+  pointer-events:none;
+  transition:left .05s linear;
+}
 
 /* time + volume */
 .time-vol{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .time{font-size:14px;color:#444;min-width:110px}
-.volume{flex:1;margin-left:12px}
+.volume{flex:1;margin-left:12px; accent-color:#f59e0b} /* cor da barra do volume */
 
 /* small screens */
 @media (max-width:720px){
@@ -274,28 +307,20 @@
   .waveform{height:48px}
   .time{min-width:70px}
 }
+
 </style>
 
 <!-- SCRIPT (cola no fim do body ou imediatamente após o bloco acima) -->
 <script>
-/*
-  Player robusto:
-  - usa API do YouTube com onReady / onStateChange
-  - progress bar clicável + arrastável (pointer events)
-  - volume persistente (localStorage)
-  - waveform decorativa e animada quando a faixa toca
-  - evita chamadas inseguras antes do player estar pronto
-*/
 (function(){
   const trackEls = Array.from(document.querySelectorAll('.track'));
   if(trackEls.length===0) return;
 
-  const players = [];            // YT.Player instances
-  const state = [];              // per-track state {ready, looping, dragging}
-  const barsMap = [];            // waveform bars
+  const players = [];
+  const state = [];
+  const barsMap = [];
   const barsCount = 36;
 
-  // helper
   function fmt(sec){
     sec = Math.max(0, Math.floor(sec||0));
     const m = Math.floor(sec/60);
@@ -316,29 +341,26 @@
     barsMap[idx] = bars;
   }
 
-  // init UI for each track
   trackEls.forEach((track, idx)=>{
     state[idx] = {ready:false,looping:false,dragging:false,mouseDown:false};
     createWaveform(track, idx);
 
-    // toggle expand on header (keyboard accessible)
     const header = track.querySelector('.track-header');
+    header.style.display = 'flex';
+    header.style.alignItems = 'center';
+    header.style.justifyContent = 'center';
+
     header.addEventListener('click', ()=> track.classList.toggle('active'));
     header.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter' || ev.key===' ') { ev.preventDefault(); track.classList.toggle('active'); } });
-
-    // play / loop / volume UI handlers will be bound after player ready
   });
 
-  // ---- YouTube API loader & init ----
   function loadYouTubeAPI(cb){
     if(window.YT && window.YT.Player){ cb(); return; }
-    // attach global callback
     const prev = window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady = function(){
       if(typeof prev === 'function') prev();
       cb();
     };
-    // inject script only if not already present
     if(!document.querySelector('script[src*="youtube.com/iframe_api"]')){
       const tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -365,34 +387,28 @@
         }
       });
 
-      // bind UI handlers now (they reference players[idx] but guard when not ready)
       bindUI(track, idx);
     });
 
-    // start animation loop
     requestAnimationFrame(loopTick);
   }
 
-  // Called when a player signals ready
   function onPlayerReady(ev, idx){
     state[idx].ready = true;
-    // restore volume
     const vol = localStorage.getItem('ocv-vol-'+idx);
+    const volInput = trackEls[idx].querySelector('.volume');
     if(vol !== null){
       try{ players[idx].setVolume(Number(vol)); }catch(e){}
-      const volInput = trackEls[idx].querySelector('.volume');
       if(volInput) volInput.value = vol;
     } else {
       try{ players[idx].setVolume(100); }catch(e){}
     }
   }
 
-  // handle play/pause visual when state changes
   function onPlayerStateChange(ev, idx){
     const track = trackEls[idx];
     const playBtnIcon = track.querySelector('.play-btn i');
     const isPlaying = (ev.data === YT.PlayerState.PLAYING);
-    const isPaused  = (ev.data === YT.PlayerState.PAUSED);
     const isEnded   = (ev.data === YT.PlayerState.ENDED);
 
     if(isPlaying){
@@ -408,14 +424,12 @@
         players[idx].seekTo(0);
         players[idx].playVideo();
       } else {
-        // set icon to play
         if(playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
         track.classList.remove('playing');
       }
     }
   }
 
-  // UI binding (safe even before player ready)
   function bindUI(track, idx){
     const playBtn = track.querySelector('.play-btn');
     const loopBtn = track.querySelector('.loop-btn');
@@ -425,39 +439,28 @@
     const progressEl = track.querySelector('.progress');
     const handle = track.querySelector('.progress-handle');
 
-    // Play / Pause
     playBtn.addEventListener('click', ()=>{
-      // pause others
       players.forEach((p,i)=>{ if(i!==idx && p && typeof p.pauseVideo==='function') try{ p.pauseVideo(); }catch(e){} });
-      // toggle this
       const p = players[idx];
       if(!p) return;
       const stateCode = (typeof p.getPlayerState === 'function') ? p.getPlayerState() : -1;
-      if(stateCode === YT.PlayerState.PLAYING){
-        try{ p.pauseVideo(); }catch(e){}
-      } else {
-        try{ p.unMute(); p.playVideo(); }catch(e){}
-      }
+      if(stateCode === YT.PlayerState.PLAYING){ try{ p.pauseVideo(); }catch(e){} } 
+      else { try{ p.unMute(); p.playVideo(); }catch(e){} }
     });
 
-    // Loop
     loopBtn.addEventListener('click', ()=>{
       state[idx].looping = !state[idx].looping;
       loopBtn.classList.toggle('active', state[idx].looping);
       loopBtn.setAttribute('aria-pressed', state[idx].looping ? 'true' : 'false');
     });
 
-    // Volume persistence
     volInput.addEventListener('input', ()=>{
       const v = volInput.value;
       localStorage.setItem('ocv-vol-'+idx, v);
       const p = players[idx];
-      if(p && typeof p.setVolume === 'function'){
-        try{ p.setVolume(Number(v)); }catch(e){}
-      }
+      if(p && typeof p.setVolume === 'function'){ try{ p.setVolume(Number(v)); }catch(e){} }
     });
 
-    // Progress click + drag (pointer events)
     let pointerDown = false;
     function pctFromEvent(evt){
       const rect = progressContainer.getBoundingClientRect();
@@ -476,20 +479,16 @@
       try{ p.seekTo(target, true); }catch(e){}
     }
 
-    // pointerdown
     progressContainer.addEventListener('pointerdown', (ev)=>{
       ev.preventDefault();
       pointerDown = true;
       state[idx].dragging = true;
       const pct = pctFromEvent(ev);
-      // update UI immediately
       progressEl.style.width = (pct*100)+'%';
       handle.style.left = (pct*100)+'%';
-      // keep moving
       progressContainer.setPointerCapture(ev.pointerId);
     });
 
-    // pointermove
     progressContainer.addEventListener('pointermove', (ev)=>{
       if(!pointerDown) return;
       const pct = pctFromEvent(ev);
@@ -497,7 +496,6 @@
       handle.style.left = (pct*100)+'%';
     });
 
-    // pointerup -> seek
     progressContainer.addEventListener('pointerup', (ev)=>{
       if(!pointerDown) return;
       pointerDown = false;
@@ -509,7 +507,6 @@
       try{ progressContainer.releasePointerCapture(ev.pointerId); }catch(e){}
     });
 
-    // also allow keyboard seeking (arrow left/right, home/end)
     progressContainer.addEventListener('keydown', (ev)=>{
       const p = players[idx];
       if(!p || typeof p.getDuration !== 'function') return;
@@ -525,11 +522,9 @@
       seekToPct(pct);
     });
 
-    // store references on element for animation loop
-    track._ui = {progressEl, handle, timeEl, bars: barsMap[idx]};
+    track._ui = {progressEl, handle, timeEl, bars: barsMap[idx], header: track.querySelector('.track-header')};
   }
 
-  // loopTick: updates waveform and time/progress periodically
   function loopTick(){
     trackEls.forEach((track, idx)=>{
       const p = players[idx];
@@ -537,7 +532,6 @@
       const ui = track._ui;
       if(!ui) return;
 
-      // safe guards
       if(p && st && st.ready && typeof p.getDuration === 'function' && !st.dragging){
         const dur = p.getDuration();
         const cur = (typeof p.getCurrentTime === 'function') ? p.getCurrentTime() : 0;
@@ -546,43 +540,46 @@
           const pct = (cur / dur) * 100;
           ui.progressEl.style.width = pct + '%';
           ui.handle.style.left = pct + '%';
-        } else {
-          ui.timeEl.textContent = '0:00 / 0:00';
-        }
+        } else { ui.timeEl.textContent = '0:00 / 0:00'; }
       }
 
-      // animate waveform only when playing
       try{
         const stateCode = (p && typeof p.getPlayerState === 'function') ? p.getPlayerState() : -1;
+        const header = ui.header;
+
         if(stateCode === YT.PlayerState.PLAYING){
-          // random heights for visual effect
-          ui.bars.forEach(b=>{
-            b.style.height = (Math.random()*48 + 8) + 'px';
-            b.style.background = '#4f46e5';
+          ui.bars.forEach(bar=>{
+            const h = Math.random()*48 + 8;
+            bar.style.height = h + 'px';
+            const pct = h / 56;
+            const startColor = `rgba(245,158,11,${0.7 + 0.3*pct})`;
+            const endColor   = `rgba(253,230,138,${0.7 + 0.3*pct})`;
+            bar.style.background = `linear-gradient(to top, ${startColor}, ${endColor})`;
+            bar.style.boxShadow = `0 0 ${4 + 6*pct}px rgba(253, 230, 138, 0.7)`;
           });
+          if(header) header.style.background = `linear-gradient(90deg, rgba(245,158,11,1), rgba(253,230,138,1))`;
         } else {
-          ui.bars.forEach(b=>{
-            b.style.height = '8px';
-            b.style.background = '#a3a3a3';
+          ui.bars.forEach(bar=>{
+            bar.style.height = '8px';
+            bar.style.background = '#f59e0b';
+            bar.style.boxShadow = 'none';
           });
+          if(header){
+            header.style.background = '#000000';
+          }
         }
-      }catch(e){
-        // ignore transient errors
-      }
+      } catch(e){}
     });
 
     requestAnimationFrame(loopTick);
   }
 
-  // Initialize (load API if needed)
   loadYouTubeAPI(initPlayers);
 
-  // --- debug helpers (visible in console) ---
-  window._ocv_debug = {
-    players, state, trackEls
-  };
+  window._ocv_debug = { players, state, trackEls };
 })();
 </script>
+
 
 
       <!-- Calendar -->

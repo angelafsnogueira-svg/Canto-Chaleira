@@ -1334,12 +1334,7 @@ button:hover {
   .loop-btn.active {
     background: #00cc66;
   }
-  .waveform {
-    display: flex;
-    align-items: flex-end;
-    gap: 2px;
-    height: 60px;
-  }
+ 
   .bar {
     flex: 1;
     background: linear-gradient(180deg, #ff6600, #ffcc00);
