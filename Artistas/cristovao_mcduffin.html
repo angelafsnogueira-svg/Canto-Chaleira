@@ -165,7 +165,7 @@
 <section class="artist-playlist" id="playlist">
   <h2>Singles</h2>
 
-  <div class="track" data-video="FbgPrumHJM4">
+  <div class="track" data-video="FbgPrumHJM4" data-bg="../imagens/Playlist/Cristovao/pergaminho.png">
     <div class="track-header" tabindex="0">"Pergaminho" (Incompleto)</div>
     <div class="track-content">
       <div class="controls" role="group" aria-label="Controlo da faixa">
@@ -187,30 +187,8 @@
     </div>
   </div>
 
-  <div class="track" data-video="jwUSsWgay3g">
+  <div class="track" data-video="jwUSsWgay3g" data-bg="../imagens/Playlist/Cristovao/estica-me.png">
     <div class="track-header" tabindex="0">"Estica-me as Peles" John Blake feat. McDuffin</div>
-    <div class="track-content">
-      <div class="controls" role="group" aria-label="Controlo da faixa">
-        <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
-        <button class="loop-btn" title="Repetir" aria-pressed="false" aria-label="Repetir"><i class="fa-solid fa-repeat"></i></button>
-      </div>
-
-      <div class="waveform" aria-hidden="true"></div>
-
-      <div class="progress-container" aria-label="Barra de progresso" role="slider" tabindex="0">
-        <div class="progress"></div>
-        <div class="progress-handle" aria-hidden="true"></div>
-      </div>
-
-      <div class="time-vol">
-        <span class="time">0:00 / 0:00</span>
-        <input type="range" class="volume" min="0" max="100" value="100" aria-label="Volume">
-      </div>
-    </div>
-  </div>
-
-  <div class="track" data-video="w8vTw8ZTur8">
-    <div class="track-header" tabindex="0">"Those Eyes" New West Cover</div>
     <div class="track-content">
       <div class="controls" role="group" aria-label="Controlo da faixa">
         <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
@@ -242,7 +220,7 @@
 .artist-playlist h2{text-align:center;margin-bottom:20px;font-size:26px}
 
 /* track card */
-.track{background-image:url(../imagens/Playlist/Cristovao/pergaminho.png);background-size:cover;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.track{background-size:cover;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
 .track.playing{border:2px solid #eba83c;box-shadow:0 8px 30px rgba(79,70,229,0.14)}
 .track-header{padding:12px 16px;background:#000000;cursor:pointer;font-weight:600;outline:none;display:flex;justify-content:center;align-items:ceneter;text-align:center;}
 .track-content{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .2s; padding:0 16px}
@@ -340,6 +318,11 @@
     }
     barsMap[idx] = bars;
   }
+
+  trackEls.forEach(track=>{
+  const bg = track.dataset.bg;
+  if(bg) track.style.backgroundImage = `url(${bg})`;
+  });
 
   trackEls.forEach((track, idx)=>{
     state[idx] = {ready:false,looping:false,dragging:false,mouseDown:false};
