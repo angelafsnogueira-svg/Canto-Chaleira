@@ -1356,6 +1356,93 @@ button:hover {
     width: 120px;
   }
 
+
+  .contacto-wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 70vh;
+padding: 40px 20px;
+background: #f6f7fb00;
+margin-top: -150px;
+margin-bottom: -150px;
+}
+
+
+.contacto-card {
+display: flex;
+background: #fff;
+border-radius: 16px;
+box-shadow: 0 8px 30px rgba(17,24,39,0.08);
+overflow: hidden;
+max-width: 960px;
+width: 100%;
+}
+
+
+.map {
+flex: 1 1 55%;
+position: relative;
+min-height: 320px;
+}
+.map img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.map .pin {
+position: absolute;
+right: 15%;
+top: 35%;
+background: #fff;
+border-radius: 50%;
+padding: 8px;
+font-size: 18px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+.info {
+flex: 1 1 45%;
+padding: 40px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 12px;
+}
+.info h2 {
+margin: 0;
+font-size: 22px;
+}
+.info .street {
+margin: 0 0 10px 0;
+color: #555;
+}
+
+
+.contacts {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.contact-item {
+font-size: 15px;
+}
+.contact-label {
+font-weight: 600;
+margin-right: 6px;
+}
+.contact-value {
+color: #666;
+}
+
+
+@media (max-width: 720px) {
+.contacto-card { flex-direction: column; }
+.map { min-height: 220px; }
+.info { padding: 24px; }
+}
+
 /* Rodapé */
 footer {
   background: #222;

@@ -161,168 +161,261 @@
         });
       </script>
 
-      <!-- Playlist -->
-      <section class="artist-playlist" id="playlist">
-        <h2>Singles</h2>
-        <div class="track" data-video="FbgPrumHJM4">
-          <div class="track-header">"Pergaminho" (Incompleto)</div>
-          <div class="track-content">
-            <div class="controls">
-              <button class="play-btn">▶</button>
-              <button class="loop-btn">🔁</button>
-            </div>
-          <div class="waveform"></div>
-          <div class="time-vol">
-            <span class="time">0:00</span>
-            <input type="range" class="volume" min="0" max="100" value="100">
-          </div>
-          </div>
-        </div>
-<br>
-<div class="track" data-video="jwUSsWgay3g">
-  <div class="track-header">"Estica-me as Peles" John Blake feat. McDuffin</div>
-  <div class="track-content">
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <button class="loop-btn">🔁</button>
-    </div>
-    <div class="waveform"></div>
-    <div class="time-vol">
-      <span class="time">0:00</span>
-      <input type="range" class="volume" min="0" max="100" value="100">
+<!-- PLAYLIST -->
+<section class="artist-playlist" id="playlist">
+  <h2>Singles</h2>
+
+  <div class="track" data-video="FbgPrumHJM4">
+    <div class="track-header">"Pergaminho" (Incompleto)</div>
+    <div class="track-content">
+      <div class="controls">
+        <button class="play-btn" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="waveform"></div>
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100">
+      </div>
     </div>
   </div>
-</div>
-<br>
-<div class="track" data-video="w8vTw8ZTur8">
-  <div class="track-header">"Those Eyes" New West Cover</div>
-  <div class="track-content">
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <button class="loop-btn">🔁</button>
-    </div>
-    <div class="waveform"></div>
-    <div class="time-vol">
-      <span class="time">0:00</span>
-      <input type="range" class="volume" min="0" max="100" value="100">
+
+  <div class="track" data-video="jwUSsWgay3g">
+    <div class="track-header">"Estica-me as Peles" John Blake feat. McDuffin</div>
+    <div class="track-content">
+      <div class="controls">
+        <button class="play-btn" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="waveform"></div>
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100">
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Hidden YouTube players -->
-<div id="players-container"></div>
-      </section>
+  <div class="track" data-video="w8vTw8ZTur8">
+    <div class="track-header">"Those Eyes" New West Cover</div>
+    <div class="track-content">
+      <div class="controls">
+        <button class="play-btn" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="waveform"></div>
+      <div class="progress-container">
+        <div class="progress"></div>
+      </div>
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100">
+      </div>
+    </div>
+  </div>
 
-      <script>
-  // Load YouTube API
-  let tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
+  <!-- Hidden YouTube players -->
+  <div id="players-container"></div>
+</section>
 
-  const tracks = document.querySelectorAll('.track');
-  const ytPlayers = [];
-  const barsMap = [];
-  const barsCount = 30;
+<!-- CSS extra -->
+<style>
+.waveform {
+  display: flex;
+  gap: 2px;
+  height: 60px;
+  align-items: flex-end;
+}
+.waveform .bar {
+  width: 3px;
+  background: #888;
+  transition: height 0.2s;
+}
 
-  function onYouTubeIframeAPIReady() {
-    tracks.forEach((track, index) => {
-      const videoId = track.dataset.video;
-      const container = document.createElement('div');
-      container.id = `player-${index}`;
-      container.style.display = 'none';
-      document.getElementById('players-container').appendChild(container);
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  margin: 8px 0;
+  cursor: pointer;
+  position: relative;
+}
+.progress {
+  height: 100%;
+  background: #333;
+  width: 0%;
+  border-radius: 3px;
+}
 
-      ytPlayers[index] = new YT.Player(container.id, {
-        height: '0',
-        width: '0',
-        videoId: videoId,
-        playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
-      });
+.time-vol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.time {
+  font-size: 14px;
+  color: #555;
+  min-width: 80px;
+}
+</style>
 
-      const waveformEl = track.querySelector('.waveform');
-      const bars = [];
-      for(let i=0;i<barsCount;i++){
-        const bar = document.createElement('div');
-        bar.classList.add('bar');
-        waveformEl.appendChild(bar);
-        bars.push(bar);
-      }
-      barsMap[index] = bars;
+<!-- SCRIPT -->
+<script>
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+document.body.appendChild(tag);
 
-      const playBtn = track.querySelector('.play-btn');
-      const loopBtn = track.querySelector('.loop-btn');
-      const volumeSlider = track.querySelector('.volume');
-      let isLooping = false;
+const tracks = document.querySelectorAll('.track');
+const ytPlayers = [];
+const barsMap = [];
+const barsCount = 40;
 
-      // Track expand/collapse
-      track.querySelector('.track-header').addEventListener('click', ()=>{
-        tracks.forEach((t,i)=>{
-          if(i===index){
-            t.querySelector('.track-content').style.maxHeight = '200px';
-          } else {
-            t.querySelector('.track-content').style.maxHeight = '0';
-          }
-        });
-      });
+function formatTime(sec){
+  let minutes = Math.floor(sec/60);
+  let seconds = Math.floor(sec%60);
+  if(seconds<10) seconds='0'+seconds;
+  return `${minutes}:${seconds}`;
+}
 
-      // Play/Pause button
-      playBtn.addEventListener('click', ()=>{
-        if(!ytPlayers[index]) return;
-        ytPlayers.forEach((p,i)=>{ if(i!==index) p.pauseVideo(); });
-        tracks.forEach((t,i)=>{ if(i!==index) t.querySelector('.play-btn').textContent='▶'; });
+function onYouTubeIframeAPIReady() {
+  tracks.forEach((track, index) => {
+    const videoId = track.dataset.video;
+    const container = document.createElement('div');
+    container.id = `player-${index}`;
+    container.style.display = 'none';
+    document.getElementById('players-container').appendChild(container);
 
-        const state = ytPlayers[index].getPlayerState();
-        if(state === YT.PlayerState.PLAYING){
-          ytPlayers[index].pauseVideo();
-          playBtn.textContent='▶';
-        } else {
-          ytPlayers[index].unMute();
-          ytPlayers[index].playVideo();
-          playBtn.textContent='⏸';
-        }
-      });
-
-      // Loop
-      loopBtn.addEventListener('click', ()=>{
-        isLooping=!isLooping;
-        loopBtn.classList.toggle('active', isLooping);
-      });
-
-      // Volume
-      volumeSlider.addEventListener('input', ()=>{
-        if(ytPlayers[index]) ytPlayers[index].setVolume(volumeSlider.value);
-      });
-
-      // Animate waveform
-      function animate(){
-        if(ytPlayers[index] && ytPlayers[index].getDuration){
-          const duration = ytPlayers[index].getDuration();
-          const currentTime = ytPlayers[index].getCurrentTime();
-          if(duration>0){
-            let minutes=Math.floor(currentTime/60);
-            let seconds=Math.floor(currentTime%60);
-            if(seconds<10) seconds='0'+seconds;
-            track.querySelector('.time').textContent=`${minutes}:${seconds}`;
-
-            if(ytPlayers[index].getPlayerState()===YT.PlayerState.PLAYING){
-              bars.forEach(bar=>{
-                const h=Math.random()*50+10;
-                bar.style.height=h+'px';
-              });
-            } else {
-              bars.forEach(bar=>bar.style.height='10px');
-            }
-
-            if(isLooping && currentTime>=duration-0.5){
-              ytPlayers[index].seekTo(0);
-            }
-          }
-        }
-        requestAnimationFrame(animate);
-      }
-      animate();
+    ytPlayers[index] = new YT.Player(container.id, {
+      height: '0',
+      width: '0',
+      videoId: videoId,
+      playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
     });
-  }
+
+    const waveformEl = track.querySelector('.waveform');
+    const bars = [];
+    for(let i=0;i<barsCount;i++){
+      const bar = document.createElement('div');
+      bar.classList.add('bar');
+      waveformEl.appendChild(bar);
+      bars.push(bar);
+    }
+    barsMap[index] = bars;
+
+    const playBtn = track.querySelector('.play-btn');
+    const loopBtn = track.querySelector('.loop-btn');
+    const volumeSlider = track.querySelector('.volume');
+    const timeEl = track.querySelector('.time');
+    const progressContainer = track.querySelector('.progress-container');
+    const progressEl = track.querySelector('.progress');
+    let isLooping = false;
+
+    // Expand track
+    track.querySelector('.track-header').addEventListener('click', ()=>{
+      tracks.forEach((t,i)=>{
+        if(i===index){
+          t.classList.toggle('active');
+        } else {
+          t.classList.remove('active');
+        }
+      });
+    });
+
+    // Play/Pause
+    playBtn.addEventListener('click', ()=>{
+      if(!ytPlayers[index]) return;
+      ytPlayers.forEach((p,i)=>{ if(i!==index) p.pauseVideo(); });
+      tracks.forEach((t,i)=>{ 
+        if(i!==index){ 
+          t.classList.remove('playing');
+          t.querySelector('.play-btn i').className="fa-solid fa-play";
+        }
+      });
+
+      const state = ytPlayers[index].getPlayerState();
+      if(state === YT.PlayerState.PLAYING){
+        ytPlayers[index].pauseVideo();
+        playBtn.querySelector('i').className="fa-solid fa-play";
+        track.classList.remove('playing');
+      } else {
+        ytPlayers[index].unMute();
+        ytPlayers[index].playVideo();
+        playBtn.querySelector('i').className="fa-solid fa-pause";
+        track.classList.add('playing');
+      }
+    });
+
+    // Loop
+    loopBtn.addEventListener('click', ()=>{
+      isLooping=!isLooping;
+      loopBtn.classList.toggle('active', isLooping);
+    });
+
+    // Volume + persistência
+    const savedVol = localStorage.getItem(`vol-${index}`);
+    if(savedVol) {
+      volumeSlider.value = savedVol;
+      ytPlayers[index].setVolume(savedVol);
+    }
+    volumeSlider.addEventListener('input', ()=>{
+      if(ytPlayers[index]) {
+        ytPlayers[index].setVolume(volumeSlider.value);
+        localStorage.setItem(`vol-${index}`, volumeSlider.value);
+      }
+    });
+
+    // Click progress bar
+    progressContainer.addEventListener('click', (e)=>{
+      const rect = progressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const percentage = clickX / width;
+      const duration = ytPlayers[index].getDuration();
+      if(duration>0){
+        ytPlayers[index].seekTo(duration*percentage, true);
+      }
+    });
+
+    // Animate waveform + update time
+    function animate(){
+      if(ytPlayers[index] && ytPlayers[index].getDuration){
+        const duration = ytPlayers[index].getDuration();
+        const currentTime = ytPlayers[index].getCurrentTime();
+        if(duration>0){
+          const current = formatTime(currentTime);
+          const total = formatTime(duration);
+          timeEl.textContent = `${current} / ${total}`;
+
+          // progress update
+          const percent = (currentTime/duration)*100;
+          progressEl.style.width = percent+"%";
+
+          if(ytPlayers[index].getPlayerState()===YT.PlayerState.PLAYING){
+            bars.forEach(bar=>{
+              const h=Math.random()*50+10;
+              bar.style.height=h+'px';
+            });
+          } else {
+            bars.forEach(bar=>bar.style.height='10px');
+          }
+
+          if(isLooping && currentTime>=duration-0.5){
+            ytPlayers[index].seekTo(0);
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  });
+}
 </script>
 
       <!-- Calendar -->
