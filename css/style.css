@@ -469,7 +469,7 @@ main h2 {
 
 .slider-track {
   display: flex;
-  gap: 30px;
+  gap: 25px;
   transition: transform 0.5s ease-in-out;
 }
 
