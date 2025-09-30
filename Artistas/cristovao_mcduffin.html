@@ -209,6 +209,28 @@
     </div>
   </div>
 
+  <div class="track" data-video="aQcKBiQ0Tpg" data-bg="../imagens/Playlist/Cristovao/throughvalley.jpg">
+    <div class="track-header" tabindex="0">"Through the Valley (Cover)</div>
+    <div class="track-content">
+      <div class="controls" role="group" aria-label="Controlo da faixa">
+        <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir" aria-pressed="false" aria-label="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <div class="waveform" aria-hidden="true"></div>
+
+      <div class="progress-container" aria-label="Barra de progresso" role="slider" tabindex="0">
+        <div class="progress"></div>
+        <div class="progress-handle" aria-hidden="true"></div>
+      </div>
+
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100" aria-label="Volume">
+      </div>
+    </div>
+  </div>
+
   <!-- Hidden YouTube players -->
   <div id="players-container" style="display:none;"></div>
 </section>
@@ -275,7 +297,7 @@
 
 /* time + volume */
 .time-vol{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.time{font-size:14px;color:#444;min-width:110px}
+.time{font-size:14px;color:#ffffff;min-width:110px}
 .volume{flex:1;margin-left:12px; accent-color:#f59e0b} /* cor da barra do volume */
 
 /* small screens */

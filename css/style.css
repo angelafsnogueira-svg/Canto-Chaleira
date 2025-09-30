@@ -45,7 +45,7 @@ h1 {
   font-size: 3rem;
 }
 
-h2, h4, h5 {
+h2, h5 {
   font-family: 'Lilita One', sans-serif;
   font-weight: 2rem;
   font-style: normal;
@@ -68,6 +68,15 @@ h3 {
   font-family: 'Macondo', cursive;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-family: "Special Elite", system-ui;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  font-style: bold;
 }
 
 /*Fonte Lexend apenas nos textos */
@@ -762,24 +771,88 @@ main h2 {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   padding: 20px 0;
-  /*background: rgb(255, 255, 255);*/
-  background-image: url(../imagens/Diversos/fundoalternativo.png);
-  background: rgba(255, 255, 255, 0.01);
+  background: none;
 }
 
 #team-carousel .profile-card {
-  background: rgba(0, 0, 0, 0.014);
+  backdrop-filter: none;
+  border: none;
   border-radius: 12px;
   padding: 0px;
-  margin: 1rem;
+  margin-top: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 600px;
-  height: 450px;
+  width: 300px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #team-carousel .profile-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  /*box-shadow: 0 8px 20px rgba(0,0,0,0.6);*/
+}
+
+/* Container da imagem */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 60%; /* altura da imagem dentro do card */
+  overflow: hidden;
+  display: relative;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Imagem */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+}
+
+/* Overlay do hover */
+.overlay-artista {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.315); /* sombra sobre a imagem */
+  border-radius: 50%;
+  border: -7px solid #eba83c;
+  transform: translate(-50%, -50%); /* centraliza exatamente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.image-container:hover .overlay-artista {
+  opacity: 1;
+}
+
+/* Botão "Saber Mais" */
+.btn-artista {
+  padding: 10px 20px;
+  background: #000000;
+  color: #f8f8f8;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-artista:hover {
+  background: #eba83c;
+  color: #fff;
 }
 
 #team-carousel .profile-card-quadro {
@@ -804,7 +877,7 @@ main h2 {
   padding: 0px;
   margin: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 600px;
+  width: 800px;
   height: 450px;
 }
 
@@ -841,14 +914,14 @@ main h2 {
 
 .carousel-wrapper-parcerias {
   position: relative; /* base para posicionar os botões */
-  max-width: 800px;  /* largura máxima do carrossel */
+  max-width: 1000px;  /* largura máxima do carrossel */
   margin: 0 auto;     /* centra tudo */
 }
 
 .carousel-container-parcerias {
   position: relative;
-  width: 100%;
-  max-width: 800px; /* largura máxima do carrossel */
+  width: 130%;
+  max-width: 1000px; /* largura máxima do carrossel */
   margin: auto;
   overflow: hidden;
 }
@@ -861,7 +934,7 @@ main h2 {
 .profile-card {
   flex: 0 0 calc(33.333% - 2rem);
   margin: 0 1rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 15px;
@@ -883,11 +956,30 @@ main h2 {
 }
 
 .profile-card img {
-  width: 270px;
-  height: 270px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+}
+
+/* Ícones de redes sociais */
+.social-icons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #111;
+  font-size: 30px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  color: #eba83c;   /* laranja do site */
+  transform: translateY(-2px);
 }
 
 #team-carousel .profile-card-quadro img {
@@ -990,8 +1082,8 @@ main h2 {
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
-  width: 800px;
-  height: 600px;
+  width: 600px;
+  height: 450px;
 }
 
 .card-text-parcerias {
