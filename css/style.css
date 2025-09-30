@@ -471,7 +471,7 @@ main h2 {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 625px;
+  width: 623px;
   height: 400px;
   text-align: center;
   padding: 10px;
@@ -743,10 +743,10 @@ main h2 {
 
 .advert-track {
   display: flex;
-  width: calc(200%);       /* 2x porque duplicamos imagens */
-  gap: 15rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  width: calc(311%);       /* 2x porque duplicamos imagens */
+  gap: 10rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   animation: scroll 80s linear infinite;
 }
 
@@ -941,6 +941,15 @@ main h2 {
   text-align: center;
   padding: 1.5rem;
   color: #000000;
+}
+
+.profile-card figcaption {
+  font-family: "Patrick Hand SC", cursive;
+  font-size: 1.3rem;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: -10px;
+  color:#00000081;
 }
 
 .profile-card-quadro {
