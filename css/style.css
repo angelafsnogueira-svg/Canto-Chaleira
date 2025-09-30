@@ -1,5 +1,5 @@
 /* Reset básico */
-body, h1, h2, p, a {
+body, h1, h2, h5, p, a {
   margin: 0;
   padding: 0;
 }
@@ -45,7 +45,7 @@ h1 {
   font-size: 3rem;
 }
 
-h2, h5 {
+h2 {
   font-family: 'Lilita One', sans-serif;
   font-weight: 2rem;
   font-style: normal;
@@ -71,12 +71,19 @@ h3 {
 }
 
 h4 {
-  font-family: "Special Elite", system-ui;
+  font-family: "Macondo", system-ui;
   text-align: center;
-  font-weight: 500;
   font-size: 2rem;
   margin-bottom: 5px;
   font-style: bold;
+}
+
+h5 {
+  font-family: 'Lilita One', sans-serif;
+  font-weight: 0.5rem;
+  font-style: normal;
+  font-size: 2.7rem;
+  color:#0a0202;
 }
 
 /*Fonte Lexend apenas nos textos */
@@ -471,7 +478,7 @@ main h2 {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  width: 623px;
+  width: 620px;
   height: 400px;
   text-align: center;
   padding: 10px;
@@ -1467,7 +1474,7 @@ margin-bottom: -150px;
 
 .contacto-card {
 display: flex;
-background: #fff;
+background: #eba83c;
 border-radius: 16px;
 box-shadow: 0 8px 30px rgba(17,24,39,0.08);
 overflow: hidden;
@@ -1512,7 +1519,7 @@ font-size: 22px;
 }
 .info .street {
 margin: 0 0 10px 0;
-color: #555;
+color: #ffffff;
 }
 
 
@@ -1529,7 +1536,7 @@ font-weight: 600;
 margin-right: 6px;
 }
 .contact-value {
-color: #666;
+color: #ffffff;
 }
 
 
