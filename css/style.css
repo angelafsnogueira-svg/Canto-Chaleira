@@ -1290,7 +1290,7 @@ button:hover {
 }
 
 .side-menu nav {
-  margin-bottom: 10rem; /* moves all links slightly above the bottom */
+  margin-bottom: 8rem; /* moves all links slightly above the bottom */
 }
 
 /* Links do menu lateral */
@@ -1650,6 +1650,50 @@ color: #ffffff;
 .map { min-height: 220px; }
 .info { padding: 24px; }
 }
+
+.related-artists {
+  margin: 60px 0;
+  text-align: center;
+}
+
+.related-artists h2 {
+  font-size: 1.8rem;
+  color: #eba83c;
+  margin-bottom: 25px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.related-card {
+  background: #000000;
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.related-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.related-card h3 {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.related-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
 
 /* Rodapé */
 footer {

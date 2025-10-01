@@ -27,14 +27,14 @@
 
   <!-- Cabeçalho superior -->
   <div class="topbar">
-    <a href="https://discord.gg/SEU-LINK" target="_blank" title="Discord">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
       <i class="fa-brands fa-discord"></i>
     </a>
   </div>
 
   <header class="site-header">
     <div class="topbar">
-      <a href="https://discord.gg/SEU-LINK" target="_blank" title="Discord">
+      <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
         <i class="fa-brands fa-discord"></i>
       </a>
     </div>
@@ -50,7 +50,7 @@
       <a href="../index.html">Início</a>
       <a href="../sobre.html">Sobre Nós</a>
       <a href="../artistas.html" class="active">Artistas</a>
-      <a href="../atividades.html">Atividades</a>
+      <!-- <a href="../atividades.html">Atividades</a> -->
       <a href="../eventos.html">Eventos</a>
       <a href="../parcerias.html">Parcerias</a>
       <a href="../contacto.html">Contacto</a>
@@ -112,7 +112,7 @@
       <section class="artist-gallery" id="gallery">
         <h2>Galeria</h2>
         <div class="galeria-artista">
-          <button class="galeria-btn prev">&#10094;</button>
+        <button class="galeria-btn prev">‹</button>
           <div class="galeria-track-container">
             <div class="galeria-track">
               <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
@@ -124,7 +124,7 @@
               <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
             </div>
           </div>
-          <button class="galeria-btn next">&#10095;</button>
+        <button class="galeria-btn next">›</button>
           <div class="galeria-thumbnails">
             <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Thumb 1" class="thumb active">
             <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Thumb 2" class="thumb">
@@ -137,52 +137,94 @@
         </div>
       </section>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">&times;</button>
+  <button class="lightbox-prev">‹</button>
+  <img src="" alt="Imagem ampliada">
+  <button class="lightbox-next">›</button>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".galeria-track");
+  const prevBtn = document.querySelector(".galeria-btn.prev");
+  const nextBtn = document.querySelector(".galeria-btn.next");
+  const imgs = document.querySelectorAll(".galeria-img");
+  const thumbs = document.querySelectorAll(".thumb");
+
+  let currentIndex = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateSlider();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider();
+    });
+  });
+
+  // ---- Lightbox ----
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  const lightboxClose = lightbox.querySelector(".lightbox-close");
+  const lightboxPrev = lightbox.querySelector(".lightbox-prev");
+  const lightboxNext = lightbox.querySelector(".lightbox-next");
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  imgs.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  function updateLightbox() {
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightboxPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateLightbox();
+  });
+
+  lightboxNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateLightbox();
+  });
+
+  // Fecha ao clicar fora da imagem
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  updateSlider();
+});
+</script>
+
     <hr class="divisor"
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
     <br>
-
-
-      <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const track = document.querySelector(".galeria-track");
-          const prevBtn = document.querySelector(".galeria-btn.prev");
-          const nextBtn = document.querySelector(".galeria-btn.next");
-          const imgs = document.querySelectorAll(".galeria-img");
-          const thumbs = document.querySelectorAll(".thumb");
-
-        let currentIndex = 0;
-
-        function updateSlider() {
-          track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
-          thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
-        }
-
-        nextBtn.addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % imgs.length; // infinito
-          updateSlider();
-        });
-
-        prevBtn.addEventListener("click", () => {
-          currentIndex = (currentIndex - 1 + imgs.length) % imgs.length; // infinito
-          updateSlider();
-        });
-
-        thumbs.forEach((thumb, index) => {
-          thumb.addEventListener("click", () => {
-            currentIndex = index;
-            updateSlider();
-          });
-        });
-
-          updateSlider(); // inicializa
-
-          // Esconde botões se só existir 1 imagem
-          if (imgs.length <= 1) {
-            prevBtn.style.display = "none";
-            nextBtn.style.display = "none";
-          }
-        });
-      </script>
 
 <!-- PLAYLIST -->
 <section class="artist-playlist" id="playlist">
@@ -210,7 +252,7 @@
     </div>
   </div>
 
-  <div class="track" data-video="jwUSsWgay3g" data-bg="../imagens/Playlist/Cristovao/estica-me.png">
+  <div class="track" data-video="jwUSsWgay3g" data-bg="../imagens/Playlist/Cristovao/bluevalley.jpg">
     <div class="track-header" tabindex="0">"Estica-me as Peles" John Blake feat. McDuffin</div>
     <div class="track-content">
       <div class="controls" role="group" aria-label="Controlo da faixa">
@@ -607,25 +649,58 @@
 })();
 </script>
 
-
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
 
       <!-- Calendar -->
       <section class="artist-calendar" id="calendar">
-        <h2>Próximos Concertos</h2>
+        <h2>Próximas Atuações</h2>
         <ul>
-          <li>12 Março 2026 - Lisboa, Portugal</li>
-          <li>28 Março 2026 - Porto, Portugal</li>
-          <li>15 Abril 2026 - Madrid, Espanha</li>
+          <li>Novas Datas em Breve</li>
+          <!-- <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li> -->
         </ul>
       </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
 
       <!-- Links -->
       <section class="artist-links" id="links">
         <h2>Siga o Artista</h2>
-        <a href="https://youtube.com/" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
-        <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-        <a href="https://spotify.com/" target="_blank"><i class="fa-brands fa-spotify"></i> Spotify</a>
-        <a href="https://artistwebsite.com" target="_blank"><i class="fa-solid fa-globe"></i> Website Oficial</a>
+        <a href="https://www.youtube.com/watch?v=FbgPrumHJM4" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <a href="https://discord.gg/fSyFtH6hxs" target="_blank"><i class="fa-brands fa-discord"></i> O Canto da Chaleira</a>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <section class="related-artists">
+      <h2>Outras pessoas também viram</h2>
+        <div class="related-grid">
+          <a href="../Artistas/biannah_montana.html" class="related-card">
+            <img src="../imagens/People/Biannah/biannah1.jpg" alt="Biannah Montana">
+            <h3>Biannah Montana</h3>
+          </a>
+
+          <a href="../Artistas/john_blake.html" class="related-card">
+            <img src="../imagens/People/Blake/blake1.jpg" alt="John Blake">
+            <h3>John Blake</h3>
+          </a>
+
+          <a href="../Artistas/thunder.html" class="related-card">
+            <img src="../imagens/Diversos/tba.jpg" alt="Grupo Thunder">
+            <h3>Grupo Thunder</h3>
+          </a>
+
+          <a href="../Artistas/willy_gama.html" class="related-card">
+            <img src="../imagens/Diversos/tba.jpg" alt="Willy Gama">
+            <h3>Willy Gama</h3>
+          </a>
+        </div>
       </section>
     </main>
 
