@@ -653,6 +653,71 @@ main h2 {
   }
 }
 
+#artist-intro {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu menu fixo */
+}
+
+#gallery {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu menu fixo */
+}
+
+#playlist {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu menu fixo */
+}
+
+#calendar {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu menu fixo */
+}
+
+#links {
+  scroll-margin-top: 100px; /* Ajuste conforme a altura do seu menu fixo */
+}
+
+/* Lightbox galeria artista */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Botões Lightbox */
+.lightbox button {
+  position: absolute;
+  background: rgba(235,168,60,0.9);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: background 0.3s;
+}
+
+.lightbox button:hover {
+  background: #ffbe40;
+}
+
+.lightbox-close { top: 120px; right: 40px; }
+.lightbox-prev { left: 40px; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 40px; top: 50%; transform: translateY(-50%); }
+
 /* Lightbox */
 #lightbox-overlay {
   position: fixed;
@@ -1268,44 +1333,84 @@ button:hover {
 }
 
 /* Gallery */
+
 .galeria-artista {
   position: relative;
-  width: 900px; /* largura visível */
-  height: 600px;
-  margin-left: 15px;
-  margin-right: 0;
+  max-width: 900px;
+  margin: 0 auto;
+ /* overflow: hidden;*/
+}
+
+.galeria-track-container {
   overflow: hidden;
 }
 
 .galeria-track {
   display: flex;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease-in-out;
 }
 
 .galeria-img {
   width: 900px;
   height: 600px;
-  height: auto;
-  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.galeria-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(235, 168, 60, 0.8);
 }
 
 .galeria-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgba(235,168,60,0.8);
   border: none;
-  padding: 10px;
+  color: #fff;
+  font-size: 24px;
+  padding: 10px 15px;
   cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s ease;
 }
 
-.galeria-btn.prev {
-  left: 10px;
+.galeria-btn:hover {
+  background: #ffbe40;
 }
 
-.galeria-btn.next {
-  right: 10px;
+.galeria-btn.prev { left: -60px; top: 43%; }
+.galeria-btn.next { right: -60px; top:43%; }
+
+.galeria-thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+}
+
+.thumb.active,
+.thumb:hover {
+  opacity: 1;
+  border-color: #eba83c;
 }
 
 /* Playlist */

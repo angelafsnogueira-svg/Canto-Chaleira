@@ -72,7 +72,7 @@
   <div class="artist-container">
 
     <!-- Menu lateral -->
-    <aside class="side-menu">
+    <aside style="font-size: 1.1rem;" class="side-menu">
       <nav>
         <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
         <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
@@ -104,54 +104,77 @@
            presença na cena musical de Puerto Esperanza.</p>
       </section>
 
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
       <!-- Gallery -->
       <section class="artist-gallery" id="gallery">
         <h2>Galeria</h2>
         <div class="galeria-artista">
-          <button class="galeria-btn prev">‹</button>
-            <div class="galeria-track-container">
-              <div class="galeria-track">
-                <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Foto 2" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Foto 3" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cm3.jpg" alt="Foto 4" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cm2.jpg" alt="Foto 5" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Foto 6" class="galeria-img">
-                <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
-              </div>
+          <button class="galeria-btn prev">&#10094;</button>
+          <div class="galeria-track-container">
+            <div class="galeria-track">
+              <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Foto 2" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Foto 3" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm3.jpg" alt="Foto 4" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm2.jpg" alt="Foto 5" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Foto 6" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
             </div>
-          <button class="galeria-btn next">›</button>
+          </div>
+          <button class="galeria-btn next">&#10095;</button>
+          <div class="galeria-thumbnails">
+            <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Thumb 1" class="thumb active">
+            <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Thumb 2" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Thumb 3" class="thumb">
+            <img src="../imagens/People/Cristovao/cm3.jpg" alt="Thumb 4" class="thumb">
+            <img src="../imagens/People/Cristovao/cm2.jpg" alt="Thumb 5" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Thumb 6" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Thumb 7" class="thumb">
+          </div>
         </div>
       </section>
 
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br>
+
 
       <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const track = document.querySelector(".galeria-track");
+      document.addEventListener("DOMContentLoaded", function () {
+        const track = document.querySelector(".galeria-track");
           const prevBtn = document.querySelector(".galeria-btn.prev");
           const nextBtn = document.querySelector(".galeria-btn.next");
           const imgs = document.querySelectorAll(".galeria-img");
+          const thumbs = document.querySelectorAll(".thumb");
 
-          let currentIndex = 0;
-          const imgWidth = imgs[0].offsetWidth; // largura de cada foto
+        let currentIndex = 0;
 
-          function updateGaleria() {
-          track.style.transform = `translateX(${-currentIndex * imgWidth}px)`;
-          }
+        function updateSlider() {
+          track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
+          thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+        }
 
-          nextBtn.addEventListener("click", () => {
-            if (currentIndex < imgs.length - 1) {
-            currentIndex++;
-            updateGaleria();
-            }
+        nextBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % imgs.length; // infinito
+          updateSlider();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + imgs.length) % imgs.length; // infinito
+          updateSlider();
+        });
+
+        thumbs.forEach((thumb, index) => {
+          thumb.addEventListener("click", () => {
+            currentIndex = index;
+            updateSlider();
           });
+        });
 
-          prevBtn.addEventListener("click", () => {
-            if (currentIndex > 0) {
-            currentIndex--;
-            updateGaleria();
-            }
-          });
+          updateSlider(); // inicializa
 
           // Esconde botões se só existir 1 imagem
           if (imgs.length <= 1) {
@@ -163,7 +186,7 @@
 
 <!-- PLAYLIST -->
 <section class="artist-playlist" id="playlist">
-  <h2>Singles</h2>
+  <h2 style="font-size: 3rem;">Singles</h2>
 
   <div class="track" data-video="FbgPrumHJM4" data-bg="../imagens/Playlist/Cristovao/pergaminho.png">
     <div class="track-header" tabindex="0">"Pergaminho" (Incompleto)</div>
