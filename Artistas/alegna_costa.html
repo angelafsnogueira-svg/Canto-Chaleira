@@ -1,247 +1,640 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YouTube Playlist Visualizer</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
   body {
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    font-family: sans-serif;
+    background: rgba(17, 17, 17, 0.02);
+    background-image: url("../imagens/Diversos/clean-gray-paper.png");
   }
-  .track {
-    background: #222;
-    color: #fff;
-    width: 400px;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: max-height 0.3s ease;
-  }
-  .track-header {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-  }
-  .track-content {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .play-btn, .loop-btn {
-    background: #ff6600;
-    border: none;
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  .loop-btn.active {
-    background: #00cc66;
-  }
-  .waveform {
-    display: flex;
-    align-items: flex-end;
-    gap: 2px;
-    height: 60px;
-  }
-  .bar {
-    flex: 1;
-    background: linear-gradient(180deg, #ff6600, #ffcc00);
-    height: 10px;
-    border-radius: 2px;
-    transition: height 0.1s;
-  }
-  .time-vol {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .volume {
-    width: 120px;
-  }
-</style>
+  </style>
 </head>
+
 <body>
 
-<h2>YouTube Playlist Visualizer</h2>
-
-<div class="track" data-video="R96zhdIaKbc">
-  <div class="track-header">"I Love You" Billie Eilish Cover</div>
-  <div class="track-content">
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <button class="loop-btn">🔁</button>
-    </div>
-    <div class="waveform"></div>
-    <div class="time-vol">
-      <span class="time">0:00</span>
-      <input type="range" class="volume" min="0" max="100" value="100">
-    </div>
+  <!-- Cabeçalho superior -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
   </div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="../imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+      <h1>O Canto da Chaleira</h1>
+      <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+    </div>
+
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="../sobre.html">Sobre Nós</a>
+      <a href="../artistas.html" class="active">Artistas</a>
+      <!-- <a href="../atividades.html">Atividades</a> -->
+      <a href="../eventos.html">Eventos</a>
+      <a href="../parcerias.html">Parcerias</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const menu = document.querySelector('.menu');
+      if(window.scrollY > 50){
+        menu.classList.add('scrolled');
+      } else {
+        menu.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- CONTAINER: Menu lateral + Conteúdo -->
+  <div class="artist-container">
+
+    <!-- Menu lateral -->
+    <aside style="font-size: 1.1rem;" class="side-menu">
+      <nav>
+        <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
+        <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
+        <a href="#playlist"><i class="fa-solid fa-book"></i> Obras</a>
+        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Lançamentos</a>
+        <a href="#links"><i class="fa-solid fa-link"></i> Links</a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="artist-profile">
+      <!-- Intro -->
+      <section class="artist-intro" id="artist-intro">
+        <h2>Alegna Costa</h2>
+        <img src="../imagens/People/Alegna/alegna2.jpg" alt="Foto do Artista" class="artist-photo">
+        <p><strong>Alegna Costa</strong> é uma escritora e novelista luso-coreana de 28 anos, cuja obra mergulha nas profundezas da essência humana e nas contradições que definem 
+          cada um de nós. A sua escrita caracteriza-se por um olhar intenso e implacável sobre a fragilidade, o medo e os dilemas morais que perseguem a existência. Mais do que 
+          contar histórias, Alegna cria atmosferas que nos obrigam a enfrentar aquilo que tentamos esconder em silêncio: as sombras dentro de nós.</p>
+        <br>
+        <p>Com uma prosa densa, inquietante e profundamente humana, as suas narrativas exploram o paradoxo entre luz e escuridão, inocência e culpa, livre-arbítrio e condenação. 
+          Os seus personagens, imperfeitos e autênticos, refletem o que há de mais real na alma humana, tornando as suas obras tanto um espelho perturbador quanto uma experiência 
+          literária transformadora.</p>
+        <br>
+        <p>Para além da escrita, Alegna destaca-se também pelo seu espírito empreendedor e pela capacidade de gestão de eventos, áreas onde alia criatividade, estratégia e visão 
+          cultural. O seu percurso multifacetado mostra uma autora que não se limita ao papel, mas que estende a sua energia à construção de experiências que unem arte, comunidade 
+          e impacto social.</p>
+
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Gallery -->
+      <section class="artist-gallery" id="gallery">
+        <h2>Galeria</h2>
+        <div class="galeria-artista">
+        <button class="galeria-btn prev">‹</button>
+          <div class="galeria-track-container">
+            <div class="galeria-track">
+              <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Foto 2" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Foto 3" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm3.jpg" alt="Foto 4" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm2.jpg" alt="Foto 5" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Foto 6" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
+            </div>
+          </div>
+        <button class="galeria-btn next">›</button>
+          <div class="galeria-thumbnails">
+            <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Thumb 1" class="thumb active">
+            <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Thumb 2" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Thumb 3" class="thumb">
+            <img src="../imagens/People/Cristovao/cm3.jpg" alt="Thumb 4" class="thumb">
+            <img src="../imagens/People/Cristovao/cm2.jpg" alt="Thumb 5" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Thumb 6" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Thumb 7" class="thumb">
+          </div>
+        </div>
+      </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">&times;</button>
+  <button class="lightbox-prev">‹</button>
+  <img src="" alt="Imagem ampliada">
+  <button class="lightbox-next">›</button>
 </div>
 
-<div class="track" data-video="OZ5eR3x9ua0">
-  <div class="track-header">"Wildflower" Billie Eilish Cover</div>
-  <div class="track-content">
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <button class="loop-btn">🔁</button>
-    </div>
-    <div class="waveform"></div>
-    <div class="time-vol">
-      <span class="time">0:00</span>
-      <input type="range" class="volume" min="0" max="100" value="100">
-    </div>
-  </div>
-</div>
-
-<div class="track" data-video="w8vTw8ZTur8">
-  <div class="track-header">"Those Eyes" New West Cover</div>
-  <div class="track-content">
-    <div class="controls">
-      <button class="play-btn">▶</button>
-      <button class="loop-btn">🔁</button>
-    </div>
-    <div class="waveform"></div>
-    <div class="time-vol">
-      <span class="time">0:00</span>
-      <input type="range" class="volume" min="0" max="100" value="100">
-    </div>
-  </div>
-</div>
-
-<!-- Hidden YouTube players -->
-<div id="players-container"></div>
 
 <script>
-  // Load YouTube API
-  let tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".galeria-track");
+  const prevBtn = document.querySelector(".galeria-btn.prev");
+  const nextBtn = document.querySelector(".galeria-btn.next");
+  const imgs = document.querySelectorAll(".galeria-img");
+  const thumbs = document.querySelectorAll(".thumb");
 
-  const tracks = document.querySelectorAll('.track');
-  const ytPlayers = [];
-  const barsMap = [];
-  const barsCount = 30;
+  let currentIndex = 0;
 
-  function onYouTubeIframeAPIReady() {
-    tracks.forEach((track, index) => {
-      const videoId = track.dataset.video;
-      const container = document.createElement('div');
-      container.id = `player-${index}`;
-      container.style.display = 'none';
-      document.getElementById('players-container').appendChild(container);
-
-      ytPlayers[index] = new YT.Player(container.id, {
-        height: '0',
-        width: '0',
-        videoId: videoId,
-        playerVars: { autoplay: 0, controls: 0, modestbranding: 1 }
-      });
-
-      const waveformEl = track.querySelector('.waveform');
-      const bars = [];
-      for(let i=0;i<barsCount;i++){
-        const bar = document.createElement('div');
-        bar.classList.add('bar');
-        waveformEl.appendChild(bar);
-        bars.push(bar);
-      }
-      barsMap[index] = bars;
-
-      const playBtn = track.querySelector('.play-btn');
-      const loopBtn = track.querySelector('.loop-btn');
-      const volumeSlider = track.querySelector('.volume');
-      let isLooping = false;
-
-      // Track expand/collapse
-      track.querySelector('.track-header').addEventListener('click', ()=>{
-        tracks.forEach((t,i)=>{
-          if(i===index){
-            t.querySelector('.track-content').style.maxHeight = '200px';
-          } else {
-            t.querySelector('.track-content').style.maxHeight = '0';
-          }
-        });
-      });
-
-      // Play/Pause button
-      playBtn.addEventListener('click', ()=>{
-        if(!ytPlayers[index]) return;
-        ytPlayers.forEach((p,i)=>{ if(i!==index) p.pauseVideo(); });
-        tracks.forEach((t,i)=>{ if(i!==index) t.querySelector('.play-btn').textContent='▶'; });
-
-        const state = ytPlayers[index].getPlayerState();
-        if(state === YT.PlayerState.PLAYING){
-          ytPlayers[index].pauseVideo();
-          playBtn.textContent='▶';
-        } else {
-          ytPlayers[index].unMute();
-          ytPlayers[index].playVideo();
-          playBtn.textContent='⏸';
-        }
-      });
-
-      // Loop
-      loopBtn.addEventListener('click', ()=>{
-        isLooping=!isLooping;
-        loopBtn.classList.toggle('active', isLooping);
-      });
-
-      // Volume
-      volumeSlider.addEventListener('input', ()=>{
-        if(ytPlayers[index]) ytPlayers[index].setVolume(volumeSlider.value);
-      });
-
-      // Animate waveform
-      function animate(){
-        if(ytPlayers[index] && ytPlayers[index].getDuration){
-          const duration = ytPlayers[index].getDuration();
-          const currentTime = ytPlayers[index].getCurrentTime();
-          if(duration>0){
-            let minutes=Math.floor(currentTime/60);
-            let seconds=Math.floor(currentTime%60);
-            if(seconds<10) seconds='0'+seconds;
-            track.querySelector('.time').textContent=`${minutes}:${seconds}`;
-
-            if(ytPlayers[index].getPlayerState()===YT.PlayerState.PLAYING){
-              bars.forEach(bar=>{
-                const h=Math.random()*50+10;
-                bar.style.height=h+'px';
-              });
-            } else {
-              bars.forEach(bar=>bar.style.height='10px');
-            }
-
-            if(isLooping && currentTime>=duration-0.5){
-              ytPlayers[index].seekTo(0);
-            }
-          }
-        }
-        requestAnimationFrame(animate);
-      }
-      animate();
-    });
+  function updateSlider() {
+    track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
   }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateSlider();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider();
+    });
+  });
+
+  // ---- Lightbox ----
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  const lightboxClose = lightbox.querySelector(".lightbox-close");
+  const lightboxPrev = lightbox.querySelector(".lightbox-prev");
+  const lightboxNext = lightbox.querySelector(".lightbox-next");
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  imgs.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  function updateLightbox() {
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightboxPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateLightbox();
+  });
+
+  lightboxNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateLightbox();
+  });
+
+  // Fecha ao clicar fora da imagem
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  updateSlider();
+});
 </script>
 
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br>
+
+<section class="biblioteca">
+  <h2>Obras Literárias</h2>
+
+  <!-- Barra de ferramentas -->
+  <div class="biblioteca-toolbar">
+    <input type="text" id="search" placeholder="Pesquisar livros..." />
+    <button id="toggle-view">📋 Lista / 🪞 Estante</button>
+  </div>
+
+  <!-- Lista de livros -->
+  <div class="livros grid" id="livros">
+    <div class="livro" 
+         data-title="Sede de Sangue: Aroma" 
+         data-author="Alegna Costa Costa"
+         data-sinopse="Um suspense romântico com toques de mistério, onde monstros residem nas sombras mais escuras da noite e nos raios de sol mais brilhantes do dia."
+         data-file="../imagens/Livros/Sede de Sangue_ Aroma.pdf"
+         data-img="../imagens/Livros/sede_de_sangue.jpg">
+      <img src="../imagens/Livros/sede_de_sangue.jpg" alt="Pergaminho Antigo" class="capa">
+      <h3>Sede de Sangue: Aroma</h3>
+      <p>Autor: Alegna Costa</p>
+      <div class="acoes">
+        <a href="../imagens/Livros/Sede de Sangue_ Aroma.pdf" target="_blank" class="btn-leitura">📖 Ler Preview</a>
+        <a href="../imagens/Livros/Sede de Sangue_ Aroma.pdf" download class="btn-download">⬇️ Download Preview</a>
+        <button class="fav-btn">⭐</button>
+      </div>
+    </div>
+
+    <div class="livro" 
+         data-title="Lust of Death [ENG]" 
+         data-author="Alegna Costa"
+         data-sinopse="Dean Winchester kills for rage and pleasure.
+Castiel Novak kills out of blind faith in a holy mission.
+As their brutal crimes gain notoriety, each becomes obsessed with the other, turning murder into a game of provocation, taunts, and bloody messages — until their paths inevitably collide."
+         data-file="../imagens/Livros/Lust of Death.pdf"
+         data-img="../imagens/Livros/lust_of_death.png">
+      <img src="../imagens/Livros/lust_of_death.png" alt="Blue Valley" class="capa">
+      <h3>Lust of Death [ENG]</h3>
+      <p>Autor: Alegna Costa</p>
+      <div class="acoes">
+        <a href="../imagens/Livros/Lust of Death.pdf" target="_blank" class="btn-leitura">📖 Ler Preview</a>
+        <a href="../imagens/Livros/Lust of Death.pdf" download class="btn-download">⬇️ Download Preview</a>
+        <button class="fav-btn">⭐</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="" alt="Capa do Livro">
+    <div class="modal-info">
+      <h2 id="modal-title"></h2>
+      <p id="modal-author"></p>
+      <p id="modal-sinopse"></p>
+      <div class="acoes">
+        <a id="modal-ler" href="#" target="_blank" class="btn-leitura">📖 Ler Preview</a>
+        <a id="modal-download" href="#" download class="btn-download">⬇️ Download Preview</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === GERAL (igual ao anterior) === */
+.biblioteca {
+  max-width: 1000px;
+  margin: 40px auto;
+  font-family: "Lexend", sans-serif;
+  padding: 0 16px;
+}
+.biblioteca h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.biblioteca-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+.biblioteca-toolbar input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.biblioteca-toolbar button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #000000;
+  color: white;
+  cursor: pointer;
+}
+.biblioteca-toolbar button:hover { background: #2563eb; }
+
+.livros {
+  display: grid;
+  gap: 20px;
+}
+.livros.grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.livros.lista { display: flex; flex-direction: column; }
+
+.livro {
+  background: none;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
+  padding: 16px;
+  transition: transform .2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.livros.lista .livro {
+  flex-direction: row;
+  text-align: left;
+  gap: 20px;
+}
+.livros.lista .livro .capa { width: 100px; }
+.livro:hover { transform: translateY(-5px); }
+
+.capa {
+  width: 150px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.livro h3 { margin: 6px 0; font-size: 18px; }
+.livro p { font-size: 14px; color: #555; }
+.acoes {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.btn-leitura, .btn-download, .fav-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background .2s;
+}
+.btn-leitura { background: #000000; color: #fff; }
+.btn-download { background: #f59e0b; color: #fff; }
+.fav-btn { background: #eee; }
+.btn-leitura:hover { background: #000000; }
+.btn-download:hover { background: #d97706; }
+.fav-btn.active { background: #facc15; }
+
+/* === MODAL === */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  gap: 20px;
+  animation: fadeIn .3s ease;
+}
+.modal-content img {
+  width: 250px;
+  border-radius: 8px;
+}
+.modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.modal-info h2 { margin: 0 0 10px; }
+.modal-info p { margin: 5px 0; color: #444; }
+.close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+
+<script>
+const livros = document.querySelectorAll('.livro');
+const search = document.getElementById('search');
+const toggleViewBtn = document.getElementById('toggle-view');
+const livrosContainer = document.getElementById('livros');
+const favBtns = document.querySelectorAll('.fav-btn');
+
+// --- Pesquisa ---
+search.addEventListener('input', () => {
+  const term = search.value.toLowerCase();
+  livros.forEach(livro => {
+    const title = livro.dataset.title.toLowerCase();
+    const author = livro.dataset.author.toLowerCase();
+    livro.style.display = (title.includes(term) || author.includes(term)) ? '' : 'none';
+  });
+});
+
+// --- Alternar visualização ---
+toggleViewBtn.addEventListener('click', () => {
+  livrosContainer.classList.toggle('grid');
+  livrosContainer.classList.toggle('lista');
+});
+
+// --- Favoritos (localStorage) ---
+favBtns.forEach((btn, i) => {
+  const livro = livros[i];
+  const key = 'fav-' + livro.dataset.title;
+  if(localStorage.getItem(key) === '1') btn.classList.add('active');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // não abrir modal
+    btn.classList.toggle('active');
+    if(btn.classList.contains('active')){
+      localStorage.setItem(key, '1');
+    } else {
+      localStorage.removeItem(key);
+    }
+  });
+});
+
+// --- MODAL ---
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalAuthor = document.getElementById('modal-author');
+const modalSinopse = document.getElementById('modal-sinopse');
+const modalLer = document.getElementById('modal-ler');
+const modalDownload = document.getElementById('modal-download');
+const modalClose = document.querySelector('.close');
+
+livros.forEach(livro => {
+  livro.addEventListener('click', () => {
+    modalImg.src = livro.dataset.img;
+    modalTitle.textContent = livro.dataset.title;
+    modalAuthor.textContent = "Autor: " + livro.dataset.author;
+    modalSinopse.textContent = livro.dataset.sinopse;
+    modalLer.href = livro.dataset.file;
+    modalDownload.href = livro.dataset.file;
+    modal.style.display = 'flex';
+  });
+});
+
+modalClose.addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+</script>
+
+
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Calendar -->
+      <section class="artist-calendar" id="calendar">
+        <h2>Próximos Lançamentos</h2>
+        <ul>
+          <li>Novas Datas em Breve</li>
+          <!-- <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li> -->
+        </ul>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Links -->
+      <section class="artist-links" id="links">
+        <h2>Siga o Artista</h2>
+        <a href="https://archiveofourown.org/works/4117282" target="_blank"><i class="fa-solid fa-book"></i> Archive of Our Own</a>
+        <a href="https://discord.gg/fSyFtH6hxs" target="_blank"><i class="fa-brands fa-discord"></i> O Canto da Chaleira</a>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <section class="related-artists">
+      <h2>Outras pessoas também viram</h2>
+        <div class="related-grid">
+          <a href="../Artistas/miguel_silva.html" class="related-card">
+            <img src="../imagens/People/Miguel/miguel2.jpg" alt="Miguel Silva">
+            <h3>Miguel Silva</h3>
+          </a>
+
+          <a href="../Artistas/john_blake.html" class="related-card">
+            <img src="../imagens/People/Blake/blake1.jpg" alt="John Blake">
+            <h3>John Blake</h3>
+          </a>
+
+          <a href="../Artistas/cristovao_mcduffin.html" class="related-card">
+            <img src="../imagens/People/Cristovao/cristovao3.jpg" alt="Cristovão McDuffin">
+            <h3>Cristovão McDuffin</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+  </div> <!-- /.artist-container -->
+
+<!-- Barra de Publicidade -->
+<div class="advert-bar">
+  <div class="advert-track">
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <img src="../imagens/Parcerias/barrigas2.png" alt="Publicidade 5">
+    <img src="../imagens/Parcerias/MVEvents.png" alt="Publicidade 6">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 7">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 8">
+    </a>
+    
+    <!-- Duplicar as imagens para criar o efeito de loop -->
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <img src="../imagens/Parcerias/barrigas2.png" alt="Publicidade 5">
+    <img src="../imagens/Parcerias/MVEvents.png" alt="Publicidade 6">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 7">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 8">
+    </a>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+const sideMenu = document.querySelector('.side-menu');
+const menuLinks = document.querySelectorAll('.side-menu nav a');
+
+const minHeight = 400; // altura inicial do menu
+
+// Calcula a altura máxima com base no conteúdo principal, sem ultrapassar o footer
+const mainContent = document.querySelector('.artist-profile');
+const maxHeight = mainContent.offsetTop + mainContent.offsetHeight - sideMenu.offsetTop - 20; // margem de 20px
+
+// Cores inicial e final (gradiente dinâmico)
+const startMenuColor = {r: 255, g: 255, b: 255, a: 0.02}; // #f5f5f5
+const endMenuColor   = {r: 235, g: 168, b: 60, a: 1};  // #eba83c
+
+// Gradiente do conteúdo (links)
+const startLinkColor = {r: 0, g: 0, b: 0};    // texto inicial
+const endLinkColor = {r: 0, g: 0, b: 0};   // texto final
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Faz o menu crescer proporcionalmente ao scroll da página
+  let newHeight = minHeight + scrollY;
+  if (newHeight > maxHeight) newHeight = maxHeight;
+  sideMenu.style.height = newHeight + "px";
+
+  // Calcula progresso para revelar links
+  let progress = (newHeight - minHeight) / (maxHeight - minHeight);
+
+  // Links animados
+  menuLinks.forEach((link, index) => {
+    const delay = index * 0;
+    link.style.opacity = progress > delay ? 1 : 0;
+    link.style.transform = progress > delay ? "translateY(0)" : "translateY(20px)";
+
+    // Gradiente de cor do link
+    const r = Math.round(startLinkColor.r + (endLinkColor.r - startLinkColor.r) * progress);
+    const g = Math.round(startLinkColor.g + (endLinkColor.g - startLinkColor.g) * progress);
+    const b = Math.round(startLinkColor.b + (endLinkColor.b - startLinkColor.b) * progress);
+    link.style.color = `rgb(${r},${g},${b})`;
+  });
+
+  // Gradiente do fundo do menu
+  const rMenu = Math.round(startMenuColor.r + (endMenuColor.r - startMenuColor.r) * progress);
+  const gMenu = Math.round(startMenuColor.g + (endMenuColor.g - startMenuColor.g) * progress);
+  const bMenu = Math.round(startMenuColor.b + (endMenuColor.b - startMenuColor.b) * progress);
+  const aMenu = startMenuColor.a + (endMenuColor.a - startMenuColor.a) * progress; // <<< sem Math.round
+  sideMenu.style.backgroundColor = `rgba(${rMenu},${gMenu},${bMenu},${aMenu})`;
+});
+  </script>
+
+  <script src="js/script.js"></script>
 </body>
 </html>

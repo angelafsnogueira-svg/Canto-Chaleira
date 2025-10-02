@@ -944,7 +944,7 @@ main h2 {
 }
 
 #team-carousel .profile-card-parceria {
-  background: rgba(0, 0, 0, 0.014);
+  background: none;
   border-radius: 12px;
   padding: 0px;
   margin: 1rem;
@@ -955,7 +955,7 @@ main h2 {
 
 #team-carousel .profile-card-parceria:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  /*box-shadow: 0 8px 20px rgba(0,0,0,0.6);*/
 }
 
 .carousel-container {

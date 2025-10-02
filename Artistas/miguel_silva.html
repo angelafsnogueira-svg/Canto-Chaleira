@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+  <style>
+  body {
+    background: rgba(17, 17, 17, 0.02);
+    background-image: url("../imagens/Diversos/clean-gray-paper.png");
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cabeçalho superior -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="content">
+      <img src="../imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+      <h1>O Canto da Chaleira</h1>
+      <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+    </div>
+
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="../sobre.html">Sobre Nós</a>
+      <a href="../artistas.html" class="active">Artistas</a>
+      <!-- <a href="../atividades.html">Atividades</a> -->
+      <a href="../eventos.html">Eventos</a>
+      <a href="../parcerias.html">Parcerias</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const menu = document.querySelector('.menu');
+      if(window.scrollY > 50){
+        menu.classList.add('scrolled');
+      } else {
+        menu.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- CONTAINER: Menu lateral + Conteúdo -->
+  <div class="artist-container">
+
+    <!-- Menu lateral -->
+    <aside style="font-size: 1.1rem;" class="side-menu">
+      <nav>
+        <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
+        <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
+        <a href="#playlist"><i class="fa-solid fa-book"></i> Obras</a>
+        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Agenda</a>
+        <a href="#links"><i class="fa-solid fa-link"></i> Links</a>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="artist-profile">
+      <!-- Intro -->
+      <section class="artist-intro" id="artist-intro">
+        <h2>Miguel Silva</h2>
+        <img src="../imagens/People/Miguel/miguel2.jpg" alt="Foto do Artista" class="artist-photo">
+        <p><strong>Miguel Silva</strong> é um poeta português de 27 anos, apaixonado pela arte das palavras e pela profundidade da alma humana. A sua relação com a poesia 
+            intensificou-se após uma marcante missão humanitária no Afeganistão, ao serviço da ONU, onde testemunhou de perto o lado mais sombrio da condição humana. Foi nesse 
+            cenário difícil que encontrou na escrita um refúgio e, ao mesmo tempo, uma forma poderosa de expressão.</p>
+        <br>
+        <p>Desde então, Miguel tem vindo a desenvolver uma escrita intensa e emocional, marcada por fortes referências e normalmente dirigida a pessoas específicas. Os seus poemas 
+            carregam uma profundidade rara, refletindo sobre dor, perda, humanidade e amor com uma sensibilidade única.</p>
+        <br>
+        <p>Atualmente, encontra-se a trabalhar no seu primeiro livro de poesia, intitulado <strong><i>“Perdi-me sem perder a noção”</i></strong>, uma obra que promete explorar as 
+            contradições internas do ser humano, mergulhando em temas como identidade, solidão e redenção.</p>
+        <br>
+        <p>Miguel Silva é, acima de tudo, <strong>um contador de emoções</strong>, que começa a afirmar-se no panorama literário através de uma poesia que não pede licença para 
+            tocar fundo.</p>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Gallery -->
+      <section class="artist-gallery" id="gallery">
+        <h2>Galeria</h2>
+        <div class="galeria-artista">
+        <button class="galeria-btn prev">‹</button>
+          <div class="galeria-track-container">
+            <div class="galeria-track">
+              <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Foto 2" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Foto 3" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm3.jpg" alt="Foto 4" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cm2.jpg" alt="Foto 5" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Foto 6" class="galeria-img">
+              <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
+            </div>
+          </div>
+        <button class="galeria-btn next">›</button>
+          <div class="galeria-thumbnails">
+            <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Thumb 1" class="thumb active">
+            <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Thumb 2" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Thumb 3" class="thumb">
+            <img src="../imagens/People/Cristovao/cm3.jpg" alt="Thumb 4" class="thumb">
+            <img src="../imagens/People/Cristovao/cm2.jpg" alt="Thumb 5" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Thumb 6" class="thumb">
+            <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Thumb 7" class="thumb">
+          </div>
+        </div>
+      </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">&times;</button>
+  <button class="lightbox-prev">‹</button>
+  <img src="" alt="Imagem ampliada">
+  <button class="lightbox-next">›</button>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".galeria-track");
+  const prevBtn = document.querySelector(".galeria-btn.prev");
+  const nextBtn = document.querySelector(".galeria-btn.next");
+  const imgs = document.querySelectorAll(".galeria-img");
+  const thumbs = document.querySelectorAll(".thumb");
+
+  let currentIndex = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateSlider();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider();
+    });
+  });
+
+  // ---- Lightbox ----
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  const lightboxClose = lightbox.querySelector(".lightbox-close");
+  const lightboxPrev = lightbox.querySelector(".lightbox-prev");
+  const lightboxNext = lightbox.querySelector(".lightbox-next");
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  imgs.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  function updateLightbox() {
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightboxPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateLightbox();
+  });
+
+  lightboxNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateLightbox();
+  });
+
+  // Fecha ao clicar fora da imagem
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  updateSlider();
+});
+</script>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br>
+
+<section class="biblioteca">
+  <h2>📚 Biblioteca Digital</h2>
+
+  <!-- Barra de ferramentas -->
+  <div class="biblioteca-toolbar">
+    <input type="text" id="search" placeholder="Pesquisar livros..." />
+    <button id="toggle-view">📋 Lista / 🪞 Estante</button>
+  </div>
+
+  <!-- Lista de livros -->
+  <div class="livros grid" id="livros">
+    <div class="livro" 
+         data-title="Pergaminho Antigo" 
+         data-author="Cristóvão da Costa"
+         data-sinopse="Um manuscrito misterioso que guarda segredos antigos e pode mudar o rumo da história."
+         data-file="livros/pergaminho.pdf"
+         data-img="../imagens/livros/pergaminho.jpg">
+      <img src="../imagens/livros/pergaminho.jpg" alt="Pergaminho Antigo" class="capa">
+      <h3>Pergaminho Antigo</h3>
+      <p>Autor: Cristóvão da Costa</p>
+      <div class="acoes">
+        <a href="livros/pergaminho.pdf" target="_blank" class="btn-leitura">📖 Ler</a>
+        <a href="livros/pergaminho.pdf" download class="btn-download">⬇️</a>
+        <button class="fav-btn">⭐</button>
+      </div>
+    </div>
+
+    <div class="livro" 
+         data-title="Blue Valley" 
+         data-author="John Blake"
+         data-sinopse="Uma aventura épica em um vale esquecido, onde coragem e amizade são a chave para sobreviver."
+         data-file="livros/bluevalley.pdf"
+         data-img="../imagens/livros/bluevalley.jpg">
+      <img src="../imagens/livros/bluevalley.jpg" alt="Blue Valley" class="capa">
+      <h3>Blue Valley</h3>
+      <p>Autor: John Blake</p>
+      <div class="acoes">
+        <a href="livros/bluevalley.pdf" target="_blank" class="btn-leitura">📖 Ler</a>
+        <a href="livros/bluevalley.pdf" download class="btn-download">⬇️</a>
+        <button class="fav-btn">⭐</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-img" src="" alt="Capa do Livro">
+    <div class="modal-info">
+      <h2 id="modal-title"></h2>
+      <p id="modal-author"></p>
+      <p id="modal-sinopse"></p>
+      <div class="acoes">
+        <a id="modal-ler" href="#" target="_blank" class="btn-leitura">📖 Ler</a>
+        <a id="modal-download" href="#" download class="btn-download">⬇️</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* === GERAL (igual ao anterior) === */
+.biblioteca {
+  max-width: 1000px;
+  margin: 40px auto;
+  font-family: "Lexend", sans-serif;
+  padding: 0 16px;
+}
+.biblioteca h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.biblioteca-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+.biblioteca-toolbar input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.biblioteca-toolbar button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+.biblioteca-toolbar button:hover { background: #2563eb; }
+
+.livros {
+  display: grid;
+  gap: 20px;
+}
+.livros.grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.livros.lista { display: flex; flex-direction: column; }
+
+.livro {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  transition: transform .2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+.livros.lista .livro {
+  flex-direction: row;
+  text-align: left;
+  gap: 20px;
+}
+.livros.lista .livro .capa { width: 100px; }
+.livro:hover { transform: translateY(-5px); }
+
+.capa {
+  width: 150px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.livro h3 { margin: 6px 0; font-size: 18px; }
+.livro p { font-size: 14px; color: #555; }
+.acoes {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.btn-leitura, .btn-download, .fav-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background .2s;
+}
+.btn-leitura { background: #3b82f6; color: #fff; }
+.btn-download { background: #f59e0b; color: #fff; }
+.fav-btn { background: #eee; }
+.btn-leitura:hover { background: #2563eb; }
+.btn-download:hover { background: #d97706; }
+.fav-btn.active { background: #facc15; }
+
+/* === MODAL === */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  gap: 20px;
+  animation: fadeIn .3s ease;
+}
+.modal-content img {
+  width: 250px;
+  border-radius: 8px;
+}
+.modal-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.modal-info h2 { margin: 0 0 10px; }
+.modal-info p { margin: 5px 0; color: #444; }
+.close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 28px;
+  cursor: pointer;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
+
+<script>
+const livros = document.querySelectorAll('.livro');
+const search = document.getElementById('search');
+const toggleViewBtn = document.getElementById('toggle-view');
+const livrosContainer = document.getElementById('livros');
+const favBtns = document.querySelectorAll('.fav-btn');
+
+// --- Pesquisa ---
+search.addEventListener('input', () => {
+  const term = search.value.toLowerCase();
+  livros.forEach(livro => {
+    const title = livro.dataset.title.toLowerCase();
+    const author = livro.dataset.author.toLowerCase();
+    livro.style.display = (title.includes(term) || author.includes(term)) ? '' : 'none';
+  });
+});
+
+// --- Alternar visualização ---
+toggleViewBtn.addEventListener('click', () => {
+  livrosContainer.classList.toggle('grid');
+  livrosContainer.classList.toggle('lista');
+});
+
+// --- Favoritos (localStorage) ---
+favBtns.forEach((btn, i) => {
+  const livro = livros[i];
+  const key = 'fav-' + livro.dataset.title;
+  if(localStorage.getItem(key) === '1') btn.classList.add('active');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // não abrir modal
+    btn.classList.toggle('active');
+    if(btn.classList.contains('active')){
+      localStorage.setItem(key, '1');
+    } else {
+      localStorage.removeItem(key);
+    }
+  });
+});
+
+// --- MODAL ---
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalTitle = document.getElementById('modal-title');
+const modalAuthor = document.getElementById('modal-author');
+const modalSinopse = document.getElementById('modal-sinopse');
+const modalLer = document.getElementById('modal-ler');
+const modalDownload = document.getElementById('modal-download');
+const modalClose = document.querySelector('.close');
+
+livros.forEach(livro => {
+  livro.addEventListener('click', () => {
+    modalImg.src = livro.dataset.img;
+    modalTitle.textContent = livro.dataset.title;
+    modalAuthor.textContent = "Autor: " + livro.dataset.author;
+    modalSinopse.textContent = livro.dataset.sinopse;
+    modalLer.href = livro.dataset.file;
+    modalDownload.href = livro.dataset.file;
+    modal.style.display = 'flex';
+  });
+});
+
+modalClose.addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+</script>
+
+
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Calendar -->
+      <section class="artist-calendar" id="calendar">
+        <h2>Próximos Lançamentos</h2>
+        <ul>
+          <li>Novas Datas em Breve</li>
+          <!-- <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li> -->
+        </ul>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Links -->
+      <section class="artist-links" id="links">
+        <h2>Siga o Artista</h2>
+        <a href="https://www.youtube.com/watch?v=FbgPrumHJM4" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <a href="https://discord.gg/fSyFtH6hxs" target="_blank"><i class="fa-brands fa-discord"></i> O Canto da Chaleira</a>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <section class="related-artists">
+      <h2>Outras pessoas também viram</h2>
+        <div class="related-grid">
+          <a href="../Artistas/alegna_costa.html" class="related-card">
+            <img src="../imagens/People/Alegna/alegna2.jpg" alt="Alegna Costa">
+            <h3>Alegna Costa</h3>
+          </a>
+
+          <a href="https://catalogopdmpe.vercel.app" class="related-card">
+            <img src="../imagens/Parcerias/pdm2.jpg" alt="Stand PDM">
+            <h3>Stand PDM</h3>
+          </a>
+
+          <a href="../Artistas/cristovao_mcduffin.html" class="related-card">
+            <img src="../imagens/People/Cristovao/cristovao3.jpg" alt="Cristovão McDuffin">
+            <h3>Cristovão McDuffin</h3>
+          </a>
+
+          <a href="../Artistas/willy_gama.html" class="related-card">
+            <img src="../imagens/Diversos/tba.jpg" alt="Willy Gama">
+            <h3>Willy Gama</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+
+  </div> <!-- /.artist-container -->
+
+<!-- Barra de Publicidade -->
+<div class="advert-bar">
+  <div class="advert-track">
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <img src="../imagens/Parcerias/barrigas2.png" alt="Publicidade 5">
+    <img src="../imagens/Parcerias/MVEvents.png" alt="Publicidade 6">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 7">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 8">
+    </a>
+    
+    <!-- Duplicar as imagens para criar o efeito de loop -->
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="../imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="../imagens/Parcerias/tunetown.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 4">
+    <img src="../imagens/Parcerias/barrigas2.png" alt="Publicidade 5">
+    <img src="../imagens/Parcerias/MVEvents.png" alt="Publicidade 6">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 7">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 8">
+    </a>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+const sideMenu = document.querySelector('.side-menu');
+const menuLinks = document.querySelectorAll('.side-menu nav a');
+
+const minHeight = 400; // altura inicial do menu
+
+// Calcula a altura máxima com base no conteúdo principal, sem ultrapassar o footer
+const mainContent = document.querySelector('.artist-profile');
+const maxHeight = mainContent.offsetTop + mainContent.offsetHeight - sideMenu.offsetTop - 20; // margem de 20px
+
+// Cores inicial e final (gradiente dinâmico)
+const startMenuColor = {r: 255, g: 255, b: 255, a: 0.02}; // #f5f5f5
+const endMenuColor   = {r: 235, g: 168, b: 60, a: 1};  // #eba83c
+
+// Gradiente do conteúdo (links)
+const startLinkColor = {r: 0, g: 0, b: 0};    // texto inicial
+const endLinkColor = {r: 0, g: 0, b: 0};   // texto final
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Faz o menu crescer proporcionalmente ao scroll da página
+  let newHeight = minHeight + scrollY;
+  if (newHeight > maxHeight) newHeight = maxHeight;
+  sideMenu.style.height = newHeight + "px";
+
+  // Calcula progresso para revelar links
+  let progress = (newHeight - minHeight) / (maxHeight - minHeight);
+
+  // Links animados
+  menuLinks.forEach((link, index) => {
+    const delay = index * 0;
+    link.style.opacity = progress > delay ? 1 : 0;
+    link.style.transform = progress > delay ? "translateY(0)" : "translateY(20px)";
+
+    // Gradiente de cor do link
+    const r = Math.round(startLinkColor.r + (endLinkColor.r - startLinkColor.r) * progress);
+    const g = Math.round(startLinkColor.g + (endLinkColor.g - startLinkColor.g) * progress);
+    const b = Math.round(startLinkColor.b + (endLinkColor.b - startLinkColor.b) * progress);
+    link.style.color = `rgb(${r},${g},${b})`;
+  });
+
+  // Gradiente do fundo do menu
+  const rMenu = Math.round(startMenuColor.r + (endMenuColor.r - startMenuColor.r) * progress);
+  const gMenu = Math.round(startMenuColor.g + (endMenuColor.g - startMenuColor.g) * progress);
+  const bMenu = Math.round(startMenuColor.b + (endMenuColor.b - startMenuColor.b) * progress);
+  const aMenu = startMenuColor.a + (endMenuColor.a - startMenuColor.a) * progress; // <<< sem Math.round
+  sideMenu.style.backgroundColor = `rgba(${rMenu},${gMenu},${bMenu},${aMenu})`;
+});
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
