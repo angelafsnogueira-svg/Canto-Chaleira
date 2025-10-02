@@ -75,10 +75,10 @@
     <aside style="font-size: 1.1rem;" class="side-menu">
       <nav>
         <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
-        <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
+        <!-- <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a> -->
         <a href="#playlist"><i class="fa-solid fa-book"></i> Obras</a>
-        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Agenda</a>
-        <a href="#links"><i class="fa-solid fa-link"></i> Links</a>
+        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Lançamentos</a>
+        <!-- <a href="#links"><i class="fa-solid fa-link"></i> Links</a> -->
       </nav>
     </aside>
 
@@ -106,7 +106,7 @@
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
     <br><br>
 
-      <!-- Gallery -->
+      <!-- Gallery 
       <section class="artist-gallery" id="gallery">
         <h2>Galeria</h2>
         <div class="galeria-artista">
@@ -133,9 +133,9 @@
             <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Thumb 7" class="thumb">
           </div>
         </div>
-      </section>
+      </section> -->
 
-<!-- Lightbox -->
+<!-- Lightbox 
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close">&times;</button>
   <button class="lightbox-prev">‹</button>
@@ -222,18 +222,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <hr class="divisor"
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
-    <br>
+    <br> -->
 
 <section class="biblioteca">
-  <h2>📚 Biblioteca Digital</h2>
+  <h2>Obras Literárias</h2>
 
-  <!-- Barra de ferramentas -->
+    <ul>
+        <li>Este autor ainda não tem obras publicadas</li>
+          <!-- <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li> -->
+    </ul>
+
+  <!-- Barra de ferramentas 
   <div class="biblioteca-toolbar">
     <input type="text" id="search" placeholder="Pesquisar livros..." />
     <button id="toggle-view">📋 Lista / 🪞 Estante</button>
-  </div>
+  </div> -->
 
-  <!-- Lista de livros -->
+  <!-- Lista de livros 
   <div class="livros grid" id="livros">
     <div class="livro" 
          data-title="Pergaminho Antigo" 
@@ -266,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <button class="fav-btn">⭐</button>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <!-- MODAL -->
@@ -502,20 +508,20 @@ window.addEventListener('click', e => { if(e.target === modal) modal.style.displ
         </ul>
       </section>
 
-    <hr class="divisor"
+    <!-- <hr class="divisor"
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
     <br><br>
 
-      <!-- Links -->
+       Links 
       <section class="artist-links" id="links">
         <h2>Siga o Artista</h2>
         <a href="https://www.youtube.com/watch?v=FbgPrumHJM4" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
         <a href="https://discord.gg/fSyFtH6hxs" target="_blank"><i class="fa-brands fa-discord"></i> O Canto da Chaleira</a>
-      </section>
+      </section> -->
 
     <hr class="divisor"
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
-    <br><br>
+    <br>
 
       <section class="related-artists">
       <h2>Outras pessoas também viram</h2>
@@ -582,9 +588,10 @@ window.addEventListener('click', e => { if(e.target === modal) modal.style.displ
 </div>
 
 
-  <!-- Footer -->
+  <!-- Rodapé -->
   <footer>
-    <p>&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
+    <p style="font-size: 12px; text-align: center;">&copy; 2025 O Canto da Chaleira. Todos os direitos reservados.</p>
+    <p style="font-size: 9px; margin-top: 5px; text-align: center; color:rgba(238, 236, 236, 0.253)"> <i>Developed by: Alegna Costa</i></p>
   </footer>
 
   <script>
