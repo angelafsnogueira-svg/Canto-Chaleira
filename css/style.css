@@ -819,7 +819,7 @@ main h2 {
 
 .advert-track {
   display: flex;
-  width: calc(311%);       /* 2x porque duplicamos imagens */
+  width: calc(350%);       /* 2x porque duplicamos imagens */
   gap: 10rem;
   padding-left: 2rem;
   padding-right: 2rem;
