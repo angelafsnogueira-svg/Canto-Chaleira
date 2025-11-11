@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O Canto da Chaleira</title>
-
+  
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
 
@@ -15,92 +15,691 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
-
   <style>
-    .under-construction {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
-      padding:60px 20px;
-      text-align:center;
-      background:rgba(255,255,255,0.05);
-      border-radius:12px;
-      margin:40px auto;
-      max-width:800px;
-    }
-    .under-construction .emoji {font-size:48px;margin-bottom:10px;}
-    .under-construction h2 {margin:0;font-size:22px;}
-    .under-construction p {margin-top:8px;color:#aaa;font-size:15px;}
-    .under-construction img.logo {margin-top:20px;max-width:120px;}
-    
+  body {
+    background: rgba(17, 17, 17, 0.02);
+    background-image: url("../imagens/Diversos/clean-gray-paper.png");
+  }
   </style>
 </head>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    let slides = document.querySelectorAll(".advert-slide");
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    setInterval(nextSlide, 4000);
-    showSlide(currentIndex);
-  });
-</script>
-
 <body>
 
-  <!-- Cabeçalho superior com ícones -->
+  <!-- Cabeçalho superior -->
   <div class="topbar">
     <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
       <i class="fa-brands fa-discord"></i>
     </a>
   </div>
 
-  <!-- Header principal -->
-<header class="site-header">
-  <div class="overlay"></div>
-  <div class="content">
-    <a href="../index.html">
+  <header class="site-header">
+    <div class="topbar">
+      <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+        <i class="fa-brands fa-discord"></i>
+      </a>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="content">
       <img src="../imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
-    </a>
-    <h1>O Canto da Chaleira</h1>
-    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+      <h1>O Canto da Chaleira</h1>
+      <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+    </div>
+
+    <nav class="menu">
+      <a href="../index.html">Início</a>
+      <a href="../sobre.html">Sobre Nós</a>
+      <a href="../artistas.html" class="active">Artistas</a>
+      <!-- <a href="../atividades.html">Atividades</a> -->
+      <a href="../eventos.html">Eventos</a>
+      <a href="../parcerias.html">Parcerias</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const menu = document.querySelector('.menu');
+      if(window.scrollY > 50){
+        menu.classList.add('scrolled');
+      } else {
+        menu.classList.remove('scrolled');
+      }
+    });
+  </script>
+
+  <!-- CONTAINER: Menu lateral + Conteúdo -->
+  <div class="artist-container">
+
+    <!-- Menu lateral -->
+    <aside style="font-size: 1.1rem;" class="side-menu">
+      <nav>
+        <a href="#artist-intro"><i class="fa-solid fa-user"></i> Introdução</a>
+        <a href="#gallery"><i class="fa-solid fa-image"></i> Galeria</a>
+        <!-- <a href="#playlist"><i class="fa-solid fa-music"></i> Singles</a> -->
+        <a href="#calendar"><i class="fa-solid fa-calendar"></i> Agenda</a>
+        <!-- <a href="#links"><i class="fa-solid fa-link"></i> Links</a> -->
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="artist-profile">
+      <!-- Intro -->
+      <section class="artist-intro" id="artist-intro">
+        <h2>ANANM</h2>
+        <img src="../imagens/People/ANANM/ananm1.jpg" alt="Foto do Artista" class="artist-photo">
+        <p><strong>Ray Kingston</strong> e <strong>Lola Rodriguez</strong> formam a dupla de dança <strong>ANANM – <i>As Nossas Ancas Não Mentem</i></strong>, um projeto artístico sediado
+           em Puerto Esperanza. A parceria surgiu de forma espontânea, quando ambos decidiram participar em eventos de dança locais por pura diversão. A química entre os dois foi 
+           imediata e rapidamente transformou um passatempo descontraído numa colaboração artística sólida e reconhecida.</p>
+        <br>
+        <p>Ray, ex-criador de conteúdos digitais e Lola, escritora da revista <strong>"PUERTA"</strong>, têm vindo a destacar-se pela energia contagiante, coordenação e expressividade 
+          das suas atuações.</p>
+        <br>
+        <p>Apesar de recente, o percurso da dupla já inclui importantes conquistas, entre as quais o <strong>1.º lugar na Festa de Dança do Vanilla Unicorn</strong> e o <strong>2.º 
+          lugar na Batalha de Danças dos Anos 90/2000 no Malibu Club</strong>. Estes resultados reforçaram a vontade de ambos em encarar a dança com maior profissionalismo, 
+          transformando um simples hobby numa verdadeira forma de expressão artística.</p>
+        <br>
+        <p>Atualmente, o projeto ANANM tem como objetivo continuar a inovar e diversificar as suas performances, explorando novas linguagens e estilos de dança. Unidos pela paixão 
+          e pela dedicação ao movimento, Ray Kingston e Lola Rodriguez continuam a construir o seu percurso artístico, sempre prontos para surpreender o público em cada atuação.</p>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Gallery -->
+      <section class="artist-gallery" id="gallery">
+        <h2>Galeria</h2>
+        <div class="galeria-artista">
+        <button class="galeria-btn prev">‹</button>
+          <div class="galeria-track-container">
+            <div class="galeria-track">
+              <img src="../imagens/People/ANANM/ananm1.jpg" alt="Foto 1" class="galeria-img">
+            </div>
+          </div>
+        <button class="galeria-btn next">›</button>
+          <div class="galeria-thumbnails">
+            <img src="../imagens/People/ANANM/ananm1.jpg" alt="Thumb 1" class="thumb active">
+          </div>
+        </div>
+      </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close">&times;</button>
+  <button class="lightbox-prev">‹</button>
+  <img src="" alt="Imagem ampliada">
+  <button class="lightbox-next">›</button>
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".galeria-track");
+  const prevBtn = document.querySelector(".galeria-btn.prev");
+  const nextBtn = document.querySelector(".galeria-btn.next");
+  const imgs = document.querySelectorAll(".galeria-img");
+  const thumbs = document.querySelectorAll(".thumb");
+
+  let currentIndex = 0;
+
+  function updateSlider() {
+    track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+  }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateSlider();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateSlider();
+  });
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+      currentIndex = index;
+      updateSlider();
+    });
+  });
+
+  // ---- Lightbox ----
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+  const lightboxClose = lightbox.querySelector(".lightbox-close");
+  const lightboxPrev = lightbox.querySelector(".lightbox-prev");
+  const lightboxNext = lightbox.querySelector(".lightbox-next");
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  imgs.forEach((img, index) => {
+    img.addEventListener("click", () => openLightbox(index));
+  });
+
+  function updateLightbox() {
+    lightboxImg.src = imgs[currentIndex].src;
+  }
+
+  lightboxClose.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightboxPrev.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+    updateLightbox();
+  });
+
+  lightboxNext.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % imgs.length;
+    updateLightbox();
+  });
+
+  // Fecha ao clicar fora da imagem
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.style.display = "none";
+  });
+
+  updateSlider();
+});
+</script>
+
+    <!-- <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br>
+
+PLAYLIST
+<section class="artist-playlist" id="playlist">
+  <h2 style="font-size: 3rem;">Singles</h2>
+
+  <ul>
+        <li>Este artista ainda não tem singles lançados</li>
+          <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li>
+    </ul>  -->
+
+  <!-- <div class="track" data-video="FbgPrumHJM4" data-bg="../imagens/Playlist/Cristovao/pergaminho.png">
+    <div class="track-header" tabindex="0">"Pergaminho" (Incompleto)</div>
+    <div class="track-content">
+      <div class="controls" role="group" aria-label="Controlo da faixa">
+        <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir" aria-pressed="false" aria-label="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <div class="waveform" aria-hidden="true"></div>
+
+      <div class="progress-container" aria-label="Barra de progresso" role="slider" tabindex="0">
+        <div class="progress"></div>
+        <div class="progress-handle" aria-hidden="true"></div>
+      </div>
+
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100" aria-label="Volume">
+      </div>
+    </div>
   </div>
 
-  <!-- Menu -->
-  <nav class="menu">
-    <a href="../index.html">Início</a>
-    <a href="../sobre.html">Sobre Nós</a>
-    <a href="../artistas.html" class="active">Artistas</a>
-    <!-- <a href="../atividades.html">Atividades</a> -->
-    <a href="../eventos.html">Eventos</a>
-    <a href="../parcerias.html">Parcerias</a>
-    <a href="../contacto.html">Contacto</a>
-  </nav>
-</header>
+  <div class="track" data-video="jwUSsWgay3g" data-bg="../imagens/Playlist/Cristovao/bluevalley.jpg">
+    <div class="track-header" tabindex="0">"Estica-me as Peles" John Blake feat. McDuffin</div>
+    <div class="track-content">
+      <div class="controls" role="group" aria-label="Controlo da faixa">
+        <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir" aria-pressed="false" aria-label="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
 
-  <!-- Conteúdo principal -->
-  <main>
-    <section class="under-construction">
-      <div class="emoji">☕</div>
-      <h2>Página em construção. Entretanto, aceita um chá?</h2>
-      <p>Estamos a preparar algo especial. Volta em breve para ver as novidades.</p>
-      <img src="../imagens/Diversos/CCLogo.png" alt="Logotipo O Canto da Chaleira" class="logo">
-    </section>
+      <div class="waveform" aria-hidden="true"></div>
 
+      <div class="progress-container" aria-label="Barra de progresso" role="slider" tabindex="0">
+        <div class="progress"></div>
+        <div class="progress-handle" aria-hidden="true"></div>
+      </div>
 
-  </main>
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100" aria-label="Volume">
+      </div>
+    </div>
+  </div>
+
+  <div class="track" data-video="aQcKBiQ0Tpg" data-bg="../imagens/Playlist/Cristovao/throughvalley.jpg">
+    <div class="track-header" tabindex="0">"Through the Valley (Cover)</div>
+    <div class="track-content">
+      <div class="controls" role="group" aria-label="Controlo da faixa">
+        <button class="play-btn" title="Play/Pause" aria-label="Play/Pause"><i class="fa-solid fa-play"></i></button>
+        <button class="loop-btn" title="Repetir" aria-pressed="false" aria-label="Repetir"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <div class="waveform" aria-hidden="true"></div>
+
+      <div class="progress-container" aria-label="Barra de progresso" role="slider" tabindex="0">
+        <div class="progress"></div>
+        <div class="progress-handle" aria-hidden="true"></div>
+      </div>
+
+      <div class="time-vol">
+        <span class="time">0:00 / 0:00</span>
+        <input type="range" class="volume" min="0" max="100" value="100" aria-label="Volume">
+      </div>
+    </div>
+  </div>-->
+
+  <!-- Hidden YouTube players -->
+  <div id="players-container" style="display:none;"></div>
+</section>
+
+<style>
+/* --- playlist base --- */
+.artist-playlist{margin:40px auto;max-width:900px;font-family:"Lexend",sans-serif}
+.artist-playlist h2{text-align:center;margin-bottom:20px;font-size:26px}
+
+/* track card */
+.track{background-size:cover;border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.06);margin-bottom:16px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.track.playing{border:2px solid #eba83c;box-shadow:0 8px 30px rgba(79,70,229,0.14)}
+.track-header{padding:12px 16px;background:#000000;cursor:pointer;font-weight:600;outline:none;display:flex;justify-content:center;align-items:ceneter;text-align:center;}
+.track-content{max-height:0;overflow:hidden;transition:max-height .45s ease,padding .2s; padding:0 16px}
+.track.active .track-content{max-height:260px;padding:16px}
+
+/* controls */
+.controls{display:flex;gap:8px;margin-bottom:12px}
+.controls button{border:0;background:#e6e7ee;color:#111;padding:10px;border-radius:8px;cursor:pointer;font-size:16px;transition:background .15s}
+.controls button:hover{background:#d6d7e6}
+.controls button.active{background:#fffcf7;color:#fff}
+
+/* waveform decorative */
+.waveform{display:flex;gap:2px;height:60px;align-items:flex-end;margin-bottom:-31px}
+.waveform .bar{width:3px;background:#a3a3a3;border-radius:2px;height:10px;transition:height .18s linear}
+
+/* progress */
+.progress-container{
+  width:100%;
+  height:8px;
+  background:#e5e7eb;
+  border-radius:999px;
+  margin:8px 0;
+  margin-bottom:-10px;
+  position:relative;
+  cursor:pointer;
+  user-select:none;
+  overflow:hidden; /* permite efeito "waveform saindo da barra" */
+}
+.progress{
+  position:absolute;
+  left:0;
+  bottom:0; /* sobe da base */
+  height:100%;
+  width:0;
+  border-radius:999px;
+  background: linear-gradient(to top, #f59e0b, #fde68a);
+  transition: width .1s linear;
+}
+.progress-handle{
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#eba83c;
+  border:2px solid #eba83c;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+  left:0;
+  pointer-events:none;
+  transition:left .05s linear;
+}
+
+/* time + volume */
+.time-vol{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.time{font-size:14px;color:#ffffff;min-width:110px}
+.volume{flex:1;margin-left:12px; accent-color:#f59e0b} /* cor da barra do volume */
+
+/* small screens */
+@media (max-width:720px){
+  .track.active .track-content{max-height:340px}
+  .waveform{height:48px}
+  .time{min-width:70px}
+}
+
+</style>
+
+<!-- SCRIPT  -->
+<script>
+(function(){
+  const trackEls = Array.from(document.querySelectorAll('.track'));
+  if(trackEls.length===0) return;
+
+  const players = [];
+  const state = [];
+  const barsMap = [];
+  const barsCount = 36;
+
+  function fmt(sec){
+    sec = Math.max(0, Math.floor(sec||0));
+    const m = Math.floor(sec/60);
+    const s = sec%60;
+    return m + ':' + (s<10?'0'+s:s);
+  }
+
+  function createWaveform(track, idx){
+    const wf = track.querySelector('.waveform');
+    wf.innerHTML = '';
+    const bars = [];
+    for(let i=0;i<barsCount;i++){
+      const b = document.createElement('div');
+      b.className = 'bar';
+      wf.appendChild(b);
+      bars.push(b);
+    }
+    barsMap[idx] = bars;
+  }
+
+  trackEls.forEach(track=>{
+  const bg = track.dataset.bg;
+  if(bg) track.style.backgroundImage = `url(${bg})`;
+  });
+
+  trackEls.forEach((track, idx)=>{
+    state[idx] = {ready:false,looping:false,dragging:false,mouseDown:false};
+    createWaveform(track, idx);
+
+    const header = track.querySelector('.track-header');
+    header.style.display = 'flex';
+    header.style.alignItems = 'center';
+    header.style.justifyContent = 'center';
+
+    header.addEventListener('click', ()=> track.classList.toggle('active'));
+    header.addEventListener('keydown', (ev)=>{ if(ev.key==='Enter' || ev.key===' ') { ev.preventDefault(); track.classList.toggle('active'); } });
+  });
+
+  function loadYouTubeAPI(cb){
+    if(window.YT && window.YT.Player){ cb(); return; }
+    const prev = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = function(){
+      if(typeof prev === 'function') prev();
+      cb();
+    };
+    if(!document.querySelector('script[src*="youtube.com/iframe_api"]')){
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.async = true;
+      document.head.appendChild(tag);
+    }
+  }
+
+  function initPlayers(){
+    const container = document.getElementById('players-container') || (function(){ const d=document.createElement('div'); d.id='players-container'; d.style.display='none'; document.body.appendChild(d); return d; })();
+
+    trackEls.forEach((track, idx)=>{
+      const videoId = track.dataset.video;
+      const playerDiv = document.createElement('div');
+      playerDiv.id = 'yt-player-' + idx;
+      container.appendChild(playerDiv);
+
+      players[idx] = new YT.Player(playerDiv.id, {
+        videoId,
+        playerVars: { autoplay:0, controls:0, modestbranding:1, rel:0 },
+        events: {
+          onReady: (ev)=> onPlayerReady(ev, idx),
+          onStateChange: (ev)=> onPlayerStateChange(ev, idx)
+        }
+      });
+
+      bindUI(track, idx);
+    });
+
+    requestAnimationFrame(loopTick);
+  }
+
+  function onPlayerReady(ev, idx){
+    state[idx].ready = true;
+    const vol = localStorage.getItem('ocv-vol-'+idx);
+    const volInput = trackEls[idx].querySelector('.volume');
+    if(vol !== null){
+      try{ players[idx].setVolume(Number(vol)); }catch(e){}
+      if(volInput) volInput.value = vol;
+    } else {
+      try{ players[idx].setVolume(100); }catch(e){}
+    }
+  }
+
+  function onPlayerStateChange(ev, idx){
+    const track = trackEls[idx];
+    const playBtnIcon = track.querySelector('.play-btn i');
+    const isPlaying = (ev.data === YT.PlayerState.PLAYING);
+    const isEnded   = (ev.data === YT.PlayerState.ENDED);
+
+    if(isPlaying){
+      track.classList.add('playing');
+      if(playBtnIcon) playBtnIcon.className = 'fa-solid fa-pause';
+    } else {
+      track.classList.remove('playing');
+      if(playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+    }
+
+    if(isEnded){
+      if(state[idx].looping && players[idx] && typeof players[idx].seekTo === 'function'){
+        players[idx].seekTo(0);
+        players[idx].playVideo();
+      } else {
+        if(playBtnIcon) playBtnIcon.className = 'fa-solid fa-play';
+        track.classList.remove('playing');
+      }
+    }
+  }
+
+  function bindUI(track, idx){
+    const playBtn = track.querySelector('.play-btn');
+    const loopBtn = track.querySelector('.loop-btn');
+    const volInput = track.querySelector('.volume');
+    const timeEl  = track.querySelector('.time');
+    const progressContainer = track.querySelector('.progress-container');
+    const progressEl = track.querySelector('.progress');
+    const handle = track.querySelector('.progress-handle');
+
+    playBtn.addEventListener('click', ()=>{
+      players.forEach((p,i)=>{ if(i!==idx && p && typeof p.pauseVideo==='function') try{ p.pauseVideo(); }catch(e){} });
+      const p = players[idx];
+      if(!p) return;
+      const stateCode = (typeof p.getPlayerState === 'function') ? p.getPlayerState() : -1;
+      if(stateCode === YT.PlayerState.PLAYING){ try{ p.pauseVideo(); }catch(e){} } 
+      else { try{ p.unMute(); p.playVideo(); }catch(e){} }
+    });
+
+    loopBtn.addEventListener('click', ()=>{
+      state[idx].looping = !state[idx].looping;
+      loopBtn.classList.toggle('active', state[idx].looping);
+      loopBtn.setAttribute('aria-pressed', state[idx].looping ? 'true' : 'false');
+    });
+
+    volInput.addEventListener('input', ()=>{
+      const v = volInput.value;
+      localStorage.setItem('ocv-vol-'+idx, v);
+      const p = players[idx];
+      if(p && typeof p.setVolume === 'function'){ try{ p.setVolume(Number(v)); }catch(e){} }
+    });
+
+    let pointerDown = false;
+    function pctFromEvent(evt){
+      const rect = progressContainer.getBoundingClientRect();
+      const clientX = (evt.touches ? evt.touches[0].clientX : evt.clientX);
+      let x = clientX - rect.left;
+      x = Math.max(0, Math.min(rect.width, x));
+      return x / rect.width;
+    }
+
+    function seekToPct(pct){
+      const p = players[idx];
+      if(!p || typeof p.getDuration !== 'function') return;
+      const dur = p.getDuration();
+      if(!isFinite(dur) || dur <= 0) return;
+      const target = dur * pct;
+      try{ p.seekTo(target, true); }catch(e){}
+    }
+
+    progressContainer.addEventListener('pointerdown', (ev)=>{
+      ev.preventDefault();
+      pointerDown = true;
+      state[idx].dragging = true;
+      const pct = pctFromEvent(ev);
+      progressEl.style.width = (pct*100)+'%';
+      handle.style.left = (pct*100)+'%';
+      progressContainer.setPointerCapture(ev.pointerId);
+    });
+
+    progressContainer.addEventListener('pointermove', (ev)=>{
+      if(!pointerDown) return;
+      const pct = pctFromEvent(ev);
+      progressEl.style.width = (pct*100)+'%';
+      handle.style.left = (pct*100)+'%';
+    });
+
+    progressContainer.addEventListener('pointerup', (ev)=>{
+      if(!pointerDown) return;
+      pointerDown = false;
+      state[idx].dragging = false;
+      const pct = pctFromEvent(ev);
+      progressEl.style.width = (pct*100)+'%';
+      handle.style.left = (pct*100)+'%';
+      seekToPct(pct);
+      try{ progressContainer.releasePointerCapture(ev.pointerId); }catch(e){}
+    });
+
+    progressContainer.addEventListener('keydown', (ev)=>{
+      const p = players[idx];
+      if(!p || typeof p.getDuration !== 'function') return;
+      const dur = p.getDuration();
+      if(!isFinite(dur) || dur <= 0) return;
+      let pct = (p.getCurrentTime()||0) / dur;
+      if(ev.key === 'ArrowRight') pct = Math.min(1, pct + 0.02);
+      else if(ev.key === 'ArrowLeft') pct = Math.max(0, pct - 0.02);
+      else if(ev.key === 'Home') pct = 0;
+      else if(ev.key === 'End') pct = 1;
+      else return;
+      ev.preventDefault();
+      seekToPct(pct);
+    });
+
+    track._ui = {progressEl, handle, timeEl, bars: barsMap[idx], header: track.querySelector('.track-header')};
+  }
+
+  function loopTick(){
+    trackEls.forEach((track, idx)=>{
+      const p = players[idx];
+      const st = state[idx];
+      const ui = track._ui;
+      if(!ui) return;
+
+      if(p && st && st.ready && typeof p.getDuration === 'function' && !st.dragging){
+        const dur = p.getDuration();
+        const cur = (typeof p.getCurrentTime === 'function') ? p.getCurrentTime() : 0;
+        if(isFinite(dur) && dur > 0){
+          ui.timeEl.textContent = fmt(cur) + ' / ' + fmt(dur);
+          const pct = (cur / dur) * 100;
+          ui.progressEl.style.width = pct + '%';
+          ui.handle.style.left = pct + '%';
+        } else { ui.timeEl.textContent = '0:00 / 0:00'; }
+      }
+
+      try{
+        const stateCode = (p && typeof p.getPlayerState === 'function') ? p.getPlayerState() : -1;
+        const header = ui.header;
+
+        if(stateCode === YT.PlayerState.PLAYING){
+          ui.bars.forEach(bar=>{
+            const h = Math.random()*48 + 8;
+            bar.style.height = h + 'px';
+            const pct = h / 56;
+            const startColor = `rgba(245,158,11,${0.7 + 0.3*pct})`;
+            const endColor   = `rgba(253,230,138,${0.7 + 0.3*pct})`;
+            bar.style.background = `linear-gradient(to top, ${startColor}, ${endColor})`;
+            bar.style.boxShadow = `0 0 ${4 + 6*pct}px rgba(253, 230, 138, 0.7)`;
+          });
+          if(header) header.style.background = `linear-gradient(90deg, rgba(245,158,11,1), rgba(253,230,138,1))`;
+        } else {
+          ui.bars.forEach(bar=>{
+            bar.style.height = '8px';
+            bar.style.background = '#f59e0b';
+            bar.style.boxShadow = 'none';
+          });
+          if(header){
+            header.style.background = '#000000';
+          }
+        }
+      } catch(e){}
+    });
+
+    requestAnimationFrame(loopTick);
+  }
+
+  loadYouTubeAPI(initPlayers);
+
+  window._ocv_debug = { players, state, trackEls };
+})();
+</script>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Calendar -->
+      <section class="artist-calendar" id="calendar">
+        <h2>Próximas Atuações</h2>
+        <ul>
+          <li>Novas Datas em Breve</li>
+          <!-- <li>28 Março 2026 - Porto, Portugal</li>
+          <li>15 Abril 2026 - Madrid, Espanha</li> -->
+        </ul>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br>
+
+      <!-- Links 
+      <section class="artist-links" id="links">
+        <h2>Siga o Artista</h2>
+        <a href="https://www.youtube.com/watch?v=FbgPrumHJM4" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        <a href="https://discord.gg/fSyFtH6hxs" target="_blank"><i class="fa-brands fa-discord"></i> O Canto da Chaleira</a>
+      </section>
+
+    <hr class="divisor"
+        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
+    <br><br> -->
+
+      <section class="related-artists">
+      <h2>Outras pessoas também viram</h2>
+
+        <div class="related-grid">
+          <a href="../Artistas/thunder.html" class="related-card">
+            <img src="../imagens/Diversos/tba.jpg" alt="Thunder">
+            <h3>Thunder</h3>
+          </a>
+
+          <a href="../Artistas/amber_fox.html" class="related-card">
+            <img src="../imagens/People/Amber/amber1.jpg" alt="Amber Fox">
+            <h3>Amber Fox</h3>
+          </a>
+
+          <a href="../Artistas/john_blake.html" class="related-card">
+            <img src="../imagens/People/Blake/blake1.jpg" alt="John Blake">
+            <h3>John Blake</h3>
+          </a>
+
+          <a href="../Artistas/cristovao_mcduffin.html" class="related-card">
+            <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Cristovão McDuffin">
+            <h3>Cristovão McDuffin</h3>
+          </a>
+
+        </div>
+      </section>
+    </main>
+
+  </div> <!-- /.artist-container -->
 
 <!-- Barra de Publicidade -->
 <div class="advert-bar">
@@ -147,18 +746,56 @@
     <p style="font-size: 9px; margin-top: 5px; text-align: center; color:rgba(238, 236, 236, 0.253)"> <i>Developed by: Alegna Costa</i></p>
   </footer>
 
-  <!-- JavaScript -->
-<script>
-  // Muda cor do menu ao rolar
-  window.addEventListener('scroll', function() {
-    const menu = document.querySelector('.menu');
-    if(window.scrollY > 50){
-      menu.classList.add('scrolled');
-    } else {
-      menu.classList.remove('scrolled');
-    }
+  <script>
+const sideMenu = document.querySelector('.side-menu');
+const menuLinks = document.querySelectorAll('.side-menu nav a');
+
+const minHeight = 400; // altura inicial do menu
+
+// Calcula a altura máxima com base no conteúdo principal, sem ultrapassar o footer
+const mainContent = document.querySelector('.artist-profile');
+const maxHeight = mainContent.offsetTop + mainContent.offsetHeight - sideMenu.offsetTop - 20; // margem de 20px
+
+// Cores inicial e final (gradiente dinâmico)
+const startMenuColor = {r: 255, g: 255, b: 255, a: 0.02}; // #f5f5f5
+const endMenuColor   = {r: 235, g: 168, b: 60, a: 1};  // #eba83c
+
+// Gradiente do conteúdo (links)
+const startLinkColor = {r: 0, g: 0, b: 0};    // texto inicial
+const endLinkColor = {r: 0, g: 0, b: 0};   // texto final
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // Faz o menu crescer proporcionalmente ao scroll da página
+  let newHeight = minHeight + scrollY;
+  if (newHeight > maxHeight) newHeight = maxHeight;
+  sideMenu.style.height = newHeight + "px";
+
+  // Calcula progresso para revelar links
+  let progress = (newHeight - minHeight) / (maxHeight - minHeight);
+
+  // Links animados
+  menuLinks.forEach((link, index) => {
+    const delay = index * 0;
+    link.style.opacity = progress > delay ? 1 : 0;
+    link.style.transform = progress > delay ? "translateY(0)" : "translateY(20px)";
+
+    // Gradiente de cor do link
+    const r = Math.round(startLinkColor.r + (endLinkColor.r - startLinkColor.r) * progress);
+    const g = Math.round(startLinkColor.g + (endLinkColor.g - startLinkColor.g) * progress);
+    const b = Math.round(startLinkColor.b + (endLinkColor.b - startLinkColor.b) * progress);
+    link.style.color = `rgb(${r},${g},${b})`;
   });
-</script>
+
+  // Gradiente do fundo do menu
+  const rMenu = Math.round(startMenuColor.r + (endMenuColor.r - startMenuColor.r) * progress);
+  const gMenu = Math.round(startMenuColor.g + (endMenuColor.g - startMenuColor.g) * progress);
+  const bMenu = Math.round(startMenuColor.b + (endMenuColor.b - startMenuColor.b) * progress);
+  const aMenu = startMenuColor.a + (endMenuColor.a - startMenuColor.a) * progress; // <<< sem Math.round
+  sideMenu.style.backgroundColor = `rgba(${rMenu},${gMenu},${bMenu},${aMenu})`;
+});
+  </script>
 
   <script src="js/script.js"></script>
 </body>

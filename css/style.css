@@ -795,6 +795,13 @@ main h2 {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* Remove qualquer movimento no slider estático */
+.slidereventos.estatico .slides {
+  animation: none !important;
+  transform: none !important;
+}
+
+
 .slidereventos .slides {
   display: flex;
   width: max-content;
@@ -807,6 +814,46 @@ main h2 {
   flex-shrink: 0;
   object-fit: cover;
 }
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 24px auto 40px;
+  font-family: inherit;
+}
+
+.pagination a,
+.pagination span {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  text-decoration: none;
+  color: inherit;
+}
+
+.pagination a:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.pagination .active {
+  background: rgba(255,255,255,0.18);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.pagination .disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.pagination .dots {
+  border: none;
+  padding: 8px 4px;
+}
+
 
 /* Slider de Publicidade */
 .advert-bar {
