@@ -1797,6 +1797,7 @@ color: #ffffff;
 
 .ccm-wrap{
   max-width:var(--ccm-maxw);
+  justify-content: center;
   margin:0 auto;
   padding:28px 20px;
 }
@@ -2018,7 +2019,7 @@ color: #ffffff;
 .ccm-card--gold .ccm-badge{
   background: rgba(231,198,96,.25);
   border-color: rgba(231,198,96,.6);
-  color: #2a2006;
+  color: #fff0dd;
 }
 
 .ccm-card__inner{position:relative;padding:22px}
@@ -2048,7 +2049,7 @@ color: #ffffff;
 .ccm-badge--gold{
   background: linear-gradient(180deg, rgba(255,239,174,.30), rgba(255,225,133,.14));
   border:1px solid rgba(255,235,164,.45);
-  color:#1c1602;
+  color:#cfeaff;
 }
 
 .ccm-title{color:rgb(253, 253, 253);font-size:1.55rem;font-weight:900;margin:0;font-family:Inter, system-ui, sans-serif;}
@@ -2167,10 +2168,11 @@ color: #ffffff;
 
 /* CTA final */
 .ccm-callout{
-  margin:44px 0 18px;
-  display:grid;
+  /* margin:44px 0 18px; */
+  display:flex;
   gap:16px;
   grid-template-columns:1fr;
+  justify-content: center;
 }
 
 @media(min-width:900px){
@@ -2185,6 +2187,8 @@ color: #ffffff;
   padding:22px;
   position:relative;
   overflow:hidden;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .ccm-call-card::after{
