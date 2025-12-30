@@ -4,245 +4,525 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cartão de Sócio — O Canto da Chaleira</title>
-  <!-- Fonte Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg: #0d0f14;
-      --card: #141822;
-      --muted: #9aa4b2;
-      --text: #e9edf4;
-      --brand: #6bbcff;   /* azul Canto */
-      --brand-2: #8ee2ff; /* realce */
-      --gold: #e7c660;
-      --gold-2: #ffed9a;
-      --stroke: rgba(255,255,255,0.08);
-      --shadow: 0 10px 35px rgba(0,0,0,.35);
-      --radius: 16px;
-      --radius-lg: 22px;
-      --maxw: 1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0d12 0%,#0d0f14 60%,#0b0d12 100%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif}
-    a{color:inherit}
 
-    /* Container base */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 20px}
+  <!-- CSS do site (o teu style.css global) -->
+  <link rel="stylesheet" href="css/style.css">
 
-    /* HERO */
-    .hero{position:relative;overflow:hidden;padding:74px 0 56px}
-    .hero::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:60%;background:radial-gradient(60% 60% at 50% 0%,rgba(107,188,255,.25),transparent 60%)}
-    .hero .kicker{display:inline-flex;align-items:center;gap:10px;color:var(--brand-2);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;background:rgba(139,204,255,.08);border:1px solid rgba(139,204,255,.25);padding:8px 12px;border-radius:999px}
-    .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:18px 0 10px;font-weight:800}
-    .hero p{max-width:840px;color:var(--muted);font-size:1.1rem}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-    .btn{appearance:none;border:1px solid var(--stroke);background:transparent;color:var(--text);padding:12px 18px;border-radius:12px;font-weight:700;letter-spacing:.02em;cursor:pointer;transition:.2s ease;background-image:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.0));}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,.35)}
-    .btn.brand{background:linear-gradient(180deg,#71c4ff,#3aa9ff);border:0;color:#0a0b0d}
-    .btn.gold{background:linear-gradient(180deg,var(--gold-2),var(--gold));border:0;color:#221b03}
+  <!-- Font Awesome (igual ao site) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    /* Benefits Intro */
-    .benefits-intro{margin-top:30px}
-    .benefits-intro h2{font-size:1.6rem;margin:0 0 8px}
-    .benefits-intro p{color:var(--muted)}
+  <!-- Fontes do site + Inter para a página -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    /* Tiers Cards */
-    .tiers{display:grid;grid-template-columns:1fr;gap:18px;margin-top:24px}
-    @media(min-width:860px){.tiers{grid-template-columns:1fr 1fr}}
-
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--shadow)}
-    .card header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
-    .badge{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.04)}
-    .badge.gold{background:linear-gradient(180deg,rgba(255,239,174,.25),rgba(255,225,133,.12));border:1px solid rgba(255,235,164,.45);color:#1c1602}
-    .title{font-size:1.5rem;font-weight:800}
-    .subtitle{color:var(--muted);margin:4px 0 12px}
-
-    .features{display:grid;gap:10px;margin:14px 0 18px}
-    .feature{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px dashed var(--stroke);padding:10px 12px;border-radius:12px}
-    .feature svg{flex:0 0 20px}
-
-    .card .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
-
-    /* Comparison */
-    .compare{margin-top:42px}
-    .compare h3{font-size:1.4rem;margin:0 0 14px}
-    .table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--stroke);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-    .table thead th{background:#0f131b;color:var(--muted);font-weight:700;text-align:left;padding:14px 16px}
-    .table tbody td{padding:14px 16px;border-top:1px solid var(--stroke)}
-    .table tbody tr:nth-child(even){background:rgba(255,255,255,.025)}
-    .yes{color:#72e2a1;font-weight:700}
-    .no{color:#ff8e8e;font-weight:700}
-
-    /* Callout */
-    .callout{margin:46px 0 18px;display:grid;gap:16px;grid-template-columns:1fr}
-    @media(min-width:900px){.callout{grid-template-columns:2fr 1fr}}
-    .call-card{background:linear-gradient(135deg,rgba(113,196,255,.12),rgba(231,198,96,.12));border:1px solid var(--stroke);border-radius:var(--radius-lg);padding:22px}
-    .call-card h3{margin:0 0 10px;font-size:1.45rem}
-    .call-card p{color:var(--muted);margin:0 0 12px}
-    .mini{display:grid;gap:10px}
-    .mini .small{font-size:.9rem;color:var(--muted)}
-
-    /* Footer note */
-    .foot{text-align:center;color:var(--muted);font-size:.9rem;margin:36px 0 14px}
-
-    /* Utility */
-    .sr{position:absolute;clip:rect(0 0 0 0);clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
-  </style>
+  <!-- CSS específico desta página -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <header class="hero">
-    <div class="wrap">
-      <span class="kicker">Cartão de Sócio · O Canto da Chaleira</span>
-      <h1>Dois cartões. Uma comunidade. Benefícios que te acompanham para todo o lado.</h1>
-      <p>Vive a cultura, o convívio e a criatividade de Puerto Esperanza com vantagens exclusivas. Escolhe entre <strong>Canto+</strong> e <strong>Canto+ Gold</strong> e descobre uma nova forma de estar no Canto.</p>
-      <div class="cta">
-        <a class="btn brand" href="#subscrever-cantoplus">Quero ser Canto+</a>
-        <a class="btn gold" href="#subscrever-gold">Quero ser Canto+ Gold</a>
-      </div>
+
+<body class="ccm-page">
+
+  <!-- Topbar (igual ao site) -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord" rel="noopener">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header (igual ao site) -->
+  <header class="site-header">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <a href="index.html">
+        <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+      </a>
+      <h1>O Canto da Chaleira</h1>
+      <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
     </div>
+
+    <!-- Menu (igual ao site) -->
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre Nós</a>
+      <a href="artistas.html">Artistas</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="parcerias.html">Parcerias</a>
+      <a href="cartao_socio.html" class="active">Cartão Sócio</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <section class="benefits-intro">
-      <h2>O que ganhas ao ser sócio?</h2>
-      <p>Descontos em eventos e parceiros, prioridade em reservas, experiências exclusivas e acesso a áreas e momentos que tornam cada participação mais especial.</p>
+  <!-- Conteúdo da página -->
+  <main class="ccm-main">
+    <div class="ccm-bg-grid" aria-hidden="true"></div>
+
+    <section class="ccm-hero" aria-label="Hero Cartão de Sócio">
+      <div class="ccm-wrap">
+        <h2 class="ccm-h1">Dois cartões. Uma comunidade. Benefícios que te acompanham para todo o lado.</h2>
+        <p class="ccm-lead">
+          Vive de forma completa a cultura, o convívio e a criatividade de Puerto Esperanza com vantagens exclusivas.
+        </p>
+        <p class="ccm-lead">
+          Escolhe entre <strong>Canto+</strong> e <strong>Canto+ Gold</strong> e descobre uma nova forma de experienciar tudo o que Puerto Esperanza tem a oferecer.
+        </p>
+      </div>
     </section>
 
-    <section class="tiers" aria-label="Planos de adesão">
-      <!-- Canto+ -->
-      $1
-          <!-- RESTAURAÇÃO -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Hog’s Pub:</strong> 1 menu extra na compra de 5 · 2 menus extra na compra de 8</div>
-          </div>
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Container Coffee:</strong> oferta de 2 sobremesas na compra de 5 menus · 4 sobremesas na compra de 8 menus</div>
-          </div>
-
-          <!-- ENTRETENIMENTO / BARES -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Malibu Club:</strong> 10% desconto na entrada · oferta de 2 bebidas</div>
-          </div>
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Cúpula:</strong> 10% desconto na entrada · oferta de 2 bebidas</div>
-          </div>
-
-          <!-- TECNOLOGIA & COMUNICAÇÃO -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Life Invader:</strong> desconto de $50 em reparos/compra de aparelhos · subscrição gratuita 7 dias</div>
-          </div>
-
-          <!-- SAÚDE -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>SEM:</strong> 10% de desconto em todos os tratamentos de urgência</div>
-          </div>
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>DBPE:</strong> entrada gratuita em ações de consciencialização / workshops</div>
-          </div>
-
-          <!-- OFICINAS -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Benny’s:</strong> 10% de desconto em reparações automóvel (exceto estética e full tune)</div>
-          </div>
-        $2
-          <a class="btn brand" id="subscrever-cantoplus" href="#">Subscrever Canto+</a>
-          <a class="btn" href="#comparar">Comparar benefícios</a>
-        </div>
-      </article>
-
-      <!-- Canto+ GOLD -->
-      $1
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Inclui todos os benefícios do Canto+</strong></div>
-          </div>
-
-          <!-- ENTRETENIMENTO / BARES -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Malibu Club (Gold):</strong> novidades e regalias exclusivas em breve</div>
-          </div>
-
-          <!-- TECNOLOGIA & COMUNICAÇÃO -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Life Invader (Gold):</strong> subscrição gratuita <strong>14 dias</strong> (em vez de 7)</div>
-          </div>
-
-          <!-- SAÚDE -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>SEM (Gold):</strong> 10% de desconto em consultas de especialidade</div>
-          </div>
-
-          <!-- CONCESSÃO AUTOMÓVEL -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>PDM:</strong> 1 entrada direta no sorteio mensal de um veículo</div>
-          </div>
-
-          <!-- Exclusividades do Gold já existentes no layout -->
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>Lugares VIP em eventos selecionados · Acesso à <strong>Zona Gold</strong></div>
-          </div>
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Meet &amp; Greet</strong> com artistas convidados · Entrada gratuita em <strong>1 evento/mês</strong></div>
-          </div>
-          <div class="feature">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 7L9 18l-5-5" stroke="#e7c660" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div>Merch anual exclusivo (edição limitada) · Pack de boas‑vindas <strong>premium</strong></div>
-          </div>
-        $2
-          <a class="btn gold" id="subscrever-gold" href="#">Subscrever Canto+ Gold</a>
-          <a class="btn" href="#comparar">Comparar benefícios</a>
-        </div>
-      </article>
+    <section class="ccm-wrap ccm-section" aria-label="Introdução de benefícios">
+      <h3 class="ccm-h2">O que ganhas ao ser sócio?</h3>
+      <p class="ccm-p">Em Puerto Esperanza, ninguém acorda a pensar: “Hoje vou gastar dinheiro.”</p>
+      <p class="ccm-p">Mas acontece. Começa com fome. Alguém diz “come qualquer coisa”. Depois alguém diz “anda ali comigo”. De repente estás no chão, o carro ficou sem metade das peças, e a tua noite passa a incluir uma maca, uma conta e… surpresa: havia evento.</p>
+      <p class="ccm-p">Há sempre evento.</p>
+      <p class="ccm-p">É neste ponto que percebes uma coisa: a cidade não vai abrandar por tua causa.</p>
+      <p class="ccm-p">O Cartão de Sócio do Canto da Chaleira existe para quem já percebeu isso. Não promete dias tranquilos. Promete que, cada vez que a cidade te cobra, ela devolve qualquer coisa.</p>
+      <p class="ccm-p">Com o cartão:</p>
+      <li class="ccm-p" style="margin-left: 50px;">comer deixa de ser só uma despesa inevitável,</li>
+      <li class="ccm-p" style="margin-left: 50px;">ir a eventos deixa de ser “será que vale a pena?”,</li>
+      <li class="ccm-p" style="margin-left: 50px;">o mecânico deixa de ser um imprevisto — passa a fazer parte do plano,</li>
+      <li class="ccm-p" style="margin-left: 50px;">a cidade apresenta-te experiências que tu nunca pediste — mas acabas a gostar,</li>
+      <li class="ccm-p" style="margin-left: 50px;">e aquelas idas frequentes ao hospital deixam de doer tanto… na carteira.</li>
     </section>
 
-    <!-- Comparação -->
-    $1
-            <tr><td>Restauração — Hog’s Pub · Container Coffee</td><td class="yes">✔ Benefícios incluídos</td><td class="yes">✔ Benefícios incluídos</td></tr>
-            <tr><td>Entretenimento — Malibu Club · Cúpula</td><td class="yes">✔ Desconto/Ofertas</td><td class="yes">✔ Desconto/Ofertas</td></tr>
+    <section class="ccm-wrap ccm-section" aria-label="Planos de adesão">
+      <div class="ccm-grid">
+        <!-- Canto+ -->
+        <article class="ccm-card ccm-card--blue" id="subscrever-cantoplus">
+          <div class="ccm-card__inner">
+            <div class="ccm-plan-head">
+              <div>
+                <p class="ccm-title">Canto+</p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem;">Para quem vive à base do “já agora”.</p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem; margin-top:-5px;">Já agora comes. Já agora vais. Já agora resolves o carro. </p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem; margin-top:-5px;">No fim do mês, afinal o “já agora” compensou.</p>
+              </div>
+              <span class="ccm-badge">Plano Base</span>
+            </div>
+
+            <div class="ccm-divider"></div>
+
+            <div class="ccm-cats">
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🍽️ Restauração 🍽️</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Hog’s Pub</strong>
+                    <ul class="ccm-chip-list">
+                      <li>1 menu extra na compra de 5 menus</li>
+                      <li>2 menus extra na compra de 8 menus</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Container Coffee</strong>
+                    <ul class="ccm-chip-list">
+                      <li>oferta 2 sobremesas na compra de 5 menus</li>
+                      <li>oferta 4 sobremesas na compra de 8 menus</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🪩 Entretenimento / Bares 🪩</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Malibu Club</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% desconto na entrada dos eventos</li>
+                      <li>oferta de 2 bebidas em eventos</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Cúpula</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% desconto na entrada dos eventos</li>
+                      <li>oferta de 2 bebidas em eventos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">📱 Tecnologia &amp; Comunicação 📱</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Life Invader</strong>
+                    <ul class="ccm-chip-list">
+                      <li>desconto de 50$ em reparos de equipamentos (acumulável)</li>
+                      <li>desconto de 50$ em compras de novos equipamentos (acumulável)</li>
+                      <li>subscrição 7 dias na aplicação "Life Invader" gratuita</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🏥 Saúde 🏥</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>SEM</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% de desconto em todos os tratamentos de urgência</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>DBPE</strong>
+                    <ul class="ccm-chip-list">
+                      <li>entrada gratuita em ações de consciencialização</li>
+                      <li>entrada gratuita em workshops</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🧰 Oficinas 🧰</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Benny's</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% de desconto em reparações (excepto estética e full tune)</li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+
+            <div class="ccm-cat">
+                <h4 class="ccm-h4" style="margin-bottom:-2px; font-size: 1rem;">Novas ofertas e regalias em breve</h4>
+                </div>
+            </div>
+
+            <div class="ccm-actions">
+              <a class="ccm-btn ccm-btn--brand" href="https://discord.gg/fSyFtH6hxs">Subscrever Canto+</a>
+              <a class="ccm-btn ccm-btn--ghost" href="#comparar">Comparar benefícios</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Canto+ Gold -->
+        <article class="ccm-card ccm-card--gold" id="subscrever-gold">
+          <div class="ccm-card__inner">
+            <div class="ccm-plan-head">
+              <div>
+                <p class="ccm-title">Canto+ Gold</p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem;">Para quem leva o “já agora” mais longe.</p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem; margin-top:-5px;">Já agora tudo acontece. E tu tens a cidade na tua mão.</p>
+                <p class="ccm-subtitle" style="font-size: 1.1rem; margin-top:-5px;">Não é luxo. É sobrevivência urbana com benefícios.</p>
+              </div>
+              <span class="ccm-badge ccm-badge--gold">Gold</span>
+            </div>
+
+            <div class="ccm-divider"></div>
+
+            <div class="ccm-cats">
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">✨ Inclui tudo do Canto+ ✨</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Benefícios do Canto+</strong>
+                    <ul class="ccm-chip-list">
+                      <li>descontos e ofertas de restauração, bares, tecnologia, saúde e oficinas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="ccm-cat">
+                <h4 class="ccm-h4">🎧 Entretenimento / Bares</h4>
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Malibu Club</strong>
+                    <ul class="ccm-chip-list">
+                      <li>novidades e regalias exclusivas em breve</li>
+                    </ul>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">📱 Tecnologia &amp; Comunicação 📱</h4>
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Life Invader</strong>
+                    <ul class="ccm-chip-list">
+                      <li>subscrição <strong>14 dias</strong> na aplicação "Life Invader" gratuita (em vez de 7)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🏥 Saúde 🏥</h4>
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>SEM</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% de desconto em todas as consultas de especialidade</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🧰 Oficinas 🧰</h4>
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Benny's</strong>
+                    <ul class="ccm-chip-list">
+                      <li>10% de desconto em peças de <strong>full tune</strong></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🚗 Concessão Automóvel 🚗</h4>
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>PDM</strong>
+                    <ul class="ccm-chip-list">
+                      <li>1 entrada direta no sorteio mensal de um veículo</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4">🏅 Exclusivos Canto da Chaleira 🏅</h4>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Newsletter</strong>
+                    <ul class="ccm-chip-list">
+                      <li>subscrição gratuita com todas as novidades, eventos e conteúdos produzidos na nossa associação, para estares sempre a par de tudo</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Eventos</strong>
+                    <ul class="ccm-chip-list">
+                      <li>Entrada gratuita em <strong>1 evento/mês</strong></li>
+                      <li>Lugares VIP em eventos selecionados</li>
+                      <li>Acesso à <strong>Zona Gold</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="ccm-chip">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 7L9 18l-5-5" stroke="#72e2a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                  <div class="ccm-chip-text">
+                  <strong>Espaço Fã</strong>
+                    <ul class="ccm-chip-list">
+                      <li>Meet &amp; Greet</strong> com artistas convidados</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ccm-cat">
+                <h4 class="ccm-h4" style="margin-bottom:-2px; font-size: 1rem;">Novas ofertas e regalias em breve</h4>
+                </div>
+            </div>
+
+            <div class="ccm-actions">
+              <a class="ccm-btn ccm-btn--gold" href="https://discord.gg/fSyFtH6hxs">Subscrever Canto+ Gold</a>
+              <a class="ccm-btn ccm-btn--ghost" href="#comparar">Comparar benefícios</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="ccm-wrap ccm-compare ccm-section" id="comparar" aria-label="Comparação de benefícios">
+      <h3 class="ccm-h3">Comparar benefícios</h3>
+
+      <div class="ccm-table-wrap" role="region" aria-label="Tabela de comparação" tabindex="0">
+        <table class="ccm-table">
+          <thead>
+            <tr>
+              <th>Benefício</th>
+              <th>Canto+</th>
+              <th>Canto+ Gold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Hog's Pub — Oferta menus</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>Container Coffee — Oferta sobremesas</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>Malibu Club — Desconto entrada</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>Malibu Club — Oferta bebidas</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>A Cúpula — Desconto entrada</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>A Cúpula — Oferta bebidas</td><td class="ccm-yes">✔ Incluído</td><td class="ccm-yes">✔ Incluído</td></tr>
             <tr><td>Life Invader — Subscrição gratuita</td><td>7 dias</td><td><strong>14 dias</strong></td></tr>
-            <tr><td>Life Invader — Desconto em reparos/compra</td><td class="yes">✔ $50</td><td class="yes">✔ $50</td></tr>
-            <tr><td>SEM — Urgências</td><td class="yes">✔ 10% desconto</td><td class="yes">✔ 10% desconto</td></tr>
-            <tr><td>SEM — Consultas de especialidade</td><td class="no">—</td><td class="yes">✔ 10% desconto</td></tr>
-            <tr><td>DBPE — Ações / workshops</td><td class="yes">✔ Entrada gratuita</td><td class="yes">✔ Entrada gratuita</td></tr>
-            <tr><td>Benny’s — Reparações (exceto estética & full tune)</td><td class="yes">✔ 10%</td><td class="yes">✔ 10%</td></tr>
-            <tr><td>PDM — Entrada no sorteio mensal</td><td class="no">—</td><td class="yes">✔ 1 entrada direta</td></tr>
-            <tr><td>Malibu Club — Regalias Gold</td><td class="no">—</td><td class="yes">✔ Em breve</td></tr>
-          $2
+            <tr><td>Life Invader — Desconto em reparos/compra</td><td class="ccm-yes">✔ $50</td><td class="ccm-yes">✔ $50</td></tr>
+            <tr><td>DBPE — Acesso Ações de consciencialização</td><td class="ccm-yes">✔ Entrada gratuita</td><td class="ccm-yes">✔ Entrada gratuita</td></tr>
+            <tr><td>DBPE — Acesso workshops</td><td class="ccm-yes">✔ Entrada gratuita</td><td class="ccm-yes">✔ Entrada gratuita</td></tr>
+            <tr><td>SEM — Urgências</td><td class="ccm-yes">✔ 10% desconto</td><td class="ccm-yes">✔ 10% desconto</td></tr>
+            <tr><td>SEM — Consultas de especialidade</td><td class="ccm-no">—</td><td class="ccm-yes">✔ 10% desconto</td></tr>
+            <tr><td>Benny’s — Reparações (exceto estética &amp; full tune)</td><td class="ccm-yes">✔ 10%</td><td class="ccm-yes">✔ 10%</td></tr>
+            <tr><td>Benny’s — Peças full tune</td><td class="ccm-no">—</td><td class="ccm-yes">✔ 10%</td></tr>
+            <tr><td>PDM — Entrada no sorteio mensal</td><td class="ccm-no">—</td><td class="ccm-yes">✔ 1 entrada direta</td></tr>
+            <tr><td>O Canto da Chaleira — Newsletter</td><td class="ccm-no">—</td><td class="ccm-yes">✔ Gratuita</td></tr>
+            <tr><td>O Canto da Chaleira — Acesso Zona Gold </td><td class="ccm-no">—</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>O Canto da Chaleira — Lugares VIP </td><td class="ccm-no">—</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>O Canto da Chaleira — Entrada gratuita 1 evento/mês</td><td class="ccm-no">—</td><td class="ccm-yes">✔ Incluído</td></tr>
+            <tr><td>O Canto da Chaleira — Meet &amp; Greet </td><td class="ccm-no">—</td><td class="ccm-yes">✔ Incluído</td></tr>
+          </tbody>
         </table>
       </div>
     </section>
 
-    <!-- Call to Action final -->
-    <section class="callout" aria-label="Adesão">
-      <div class="call-card">
-        <h3>Pronto para te juntares ao Canto?</h3>
-        <p>Escolhe o teu cartão e começa já a aproveitar todos os benefícios. Cada sócio conta. Cada momento importa.</p>
-        <div class="cta">
-          <a class="btn brand" href="#subscrever-cantoplus">Quero ser Canto+</a>
-          <a class="btn gold" href="#subscrever-gold">Quero ser Canto+ Gold</a>
+    <section class="ccm-wrap ccm-callout" aria-label="Adesão">
+      <div class="ccm-call-card">
+        <h3 class="ccm-h3">Pronto para te juntares ao Canto?</h3>
+        <p class="ccm-p">Escolhe o teu cartão e começa já a aproveitar todos os benefícios. Cada sócio conta. Cada momento importa.</p>
+        <div class="ccm-cta">
+          <a class="ccm-btn ccm-btn--brand" href="#subscrever-cantoplus">Quero ser Canto+</a>
+          <a class="ccm-btn ccm-btn--gold" href="#subscrever-gold">Quero ser Canto+ Gold</a>
         </div>
       </div>
-      <div class="mini">
-        <div class="small">Precisas de ajuda? <a href="#" style="text-decoration:underline;color:var(--brand-2)">Fala connosco</a></div>
-        <div class="small">Consulta também as <a href="#" style="text-decoration:underline;color:var(--brand-2)">Perguntas Frequentes</a>.</div>
+
+      <div class="ccm-mini">
+        <div class="ccm-small">Precisas de ajuda? <a href="contacto.html">Fala connosco</a></div>
+        <div class="ccm-small">Consulta também as <a href="#">Perguntas Frequentes</a>.</div>
       </div>
     </section>
-
-    <div class="foot">© 2025 O Canto da Chaleira — Todos os direitos reservados</div>
   </main>
+
+  <!-- Barra de publicidade (igual ao site) -->
+  <div class="advert-bar">
+    <div class="advert-track">
+      <a href="https://catalogopdmpe.vercel.app" target="blank"><img src="imagens/Parcerias/pdm.png" alt="Publicidade 1"></a>
+      <img src="imagens/Parcerias/academia.png" alt="Publicidade 2">
+      <img src="imagens/Parcerias/container.png" alt="Publicidade 3">
+      <a href="https://discord.gg/rPSrb6N4Pd" target="blank"><img src="imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;"></a>
+      <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 5">
+      <img src="imagens/Parcerias/life.png" alt="Publicidade 6">
+      <img src="imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
+      <img src="imagens/Parcerias/weazel.png" alt="Publicidade 9">
+      <a href="https://studiohailu.vercel.app/"><img src="imagens/Parcerias/studio hailu.png" alt="Publicidade 10"></a>
+      <a href="https://discord.gg/fq4aKCTKm2" target="blank"><img src="imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;"></a>
+      <img src="imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+
+      <!-- duplicado para loop -->
+      <a href="https://catalogopdmpe.vercel.app" target="blank"><img src="imagens/Parcerias/pdm.png" alt="Publicidade 1"></a>
+      <img src="imagens/Parcerias/academia.png" alt="Publicidade 2">
+      <img src="imagens/Parcerias/container.png" alt="Publicidade 3">
+      <a href="https://discord.gg/rPSrb6N4Pd" target="blank"><img src="imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;"></a>
+      <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 5">
+      <img src="imagens/Parcerias/life.png" alt="Publicidade 6">
+      <img src="imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
+      <img src="imagens/Parcerias/weazel.png" alt="Publicidade 9">
+      <a href="https://studiohailu.vercel.app/"><img src="imagens/Parcerias/studio hailu.png" alt="Publicidade 10"></a>
+      <a href="https://discord.gg/fq4aKCTKm2" target="blank"><img src="imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;"></a>
+      <img src="imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+    </div>
+  </div>
+
+  <!-- Rodapé (igual ao site) -->
+  <footer>
+    <p style="font-size: 12px; text-align: center;">&copy; 2025 O Canto da Chaleira. Todos os direitos reservados.</p>
+    <p style="font-size: 9px; margin-top: 5px; text-align: center; color:rgba(238, 236, 236, 0.253)"><i>Developed by: Alegna Costa</i></p>
+  </footer>
+
+  <!-- JS do menu scrolled (igual ao site) -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const menu = document.querySelector('.menu');
+      if(window.scrollY > 50){
+        menu.classList.add('scrolled');
+      } else {
+        menu.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

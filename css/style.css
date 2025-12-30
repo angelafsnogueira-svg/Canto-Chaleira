@@ -1755,6 +1755,459 @@ color: #ffffff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
+/* =========================
+   Cartão de Sócio (página)
+   Escopo: .ccm-page
+========================= */
+
+:root{
+  --ccm-bg0:#07080c;
+  --ccm-bg1:#0b0d12;
+  --ccm-muted:#9aa4b2;
+  --ccm-text:#e9edf4;
+
+  --ccm-brand:#6bbcff;
+  --ccm-brand2:#8ee2ff;
+
+  --ccm-gold:#e7c660;
+  --ccm-gold2:#ffed9a;
+
+  --ccm-stroke:rgba(255,255,255,.10);
+  --ccm-stroke2:rgba(255,255,255,.14);
+
+  --ccm-shadow: 0 14px 40px rgba(0,0,0,.45);
+  --ccm-radius-lg: 22px;
+
+  --ccm-maxw: 1120px;
+}
+
+/* Força a consistência do menu desta página (porque o teu CSS global mete links a preto) */
+.ccm-page .menu a{ color:#fff; }
+.ccm-page .menu a:hover{ color:#ffcc00; }
+
+/* Corrige o main do CSS global (que mete padding/margens gigantes) */
+.ccm-page main.ccm-main{
+  padding:0;
+  margin:0;
+  text-align:left;
+}
+
+/* Links dentro da área do cartão */
+.ccm-page .ccm-main a{ color:inherit; }
+
+.ccm-wrap{
+  max-width:var(--ccm-maxw);
+  margin:0 auto;
+  padding:28px 20px;
+}
+
+/* Grid subtil */
+.ccm-bg-grid{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:48px 48px;
+  mask-image: radial-gradient(60% 45% at 50% 15%, rgba(0,0,0,.9), transparent 70%);
+  opacity:.20;
+}
+
+/* HERO */
+.ccm-hero{
+  position:relative;
+  overflow:hidden;
+  padding:60px 0 30px; /* mais curto porque já tens o header do site */
+}
+
+.ccm-hero::before{
+  content:"";
+  position:absolute;
+  inset:-30% -10% auto -10%;
+  height:70%;
+  background:
+    radial-gradient(60% 60% at 50% 0%, rgba(107,188,255,.28), transparent 60%),
+    radial-gradient(45% 45% at 80% 10%, rgba(231,198,96,.18), transparent 60%);
+  filter: blur(2px);
+}
+
+.ccm-hero .ccm-wrap{position:relative}
+
+.ccm-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color:var(--ccm-gold2);
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  padding:9px 12px;
+  border-radius:999px;
+  background: rgba(139,204,255,.10);
+  border:1px solid rgba(139,204,255,.28);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+.ccm-dot{
+  width:8px;height:8px;border-radius:99px;
+  background: radial-gradient(circle at 30% 30%, #fff, var(--ccm-brand));
+  box-shadow: 0 0 0 4px rgba(107,188,255,.14);
+}
+
+.ccm-h1{
+  font-family:Inter, system-ui, sans-serif;
+  font-size:clamp(2.15rem,5vw,3.35rem);
+  line-height:1.05;
+  margin:18px 0 12px;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+
+.ccm-lead{
+  max-width:max-content;
+  color:rgba(0, 0, 0, 0.795);
+  font-family:Inter, system-ui, sans-serif;
+  font-size:1.12rem;
+  line-height:1.6;
+  margin:0;
+}
+
+/* Botões */
+.ccm-cta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+  justify-content: center;
+}
+
+.ccm-btn{
+  appearance:none;
+  border:1px solid var(--ccm-stroke);
+  background: rgba(0, 0, 0, 0.795);
+  color:var(--ccm-text);
+  padding:12px 18px;
+  border-radius:14px;
+  font-family:Inter, system-ui, sans-serif;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  outline:none;
+}
+
+.ccm-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(0,0,0,.40);
+  border-color:var(--ccm-stroke2);
+}
+
+.ccm-btn--brand{
+  background: linear-gradient(180deg, #7fd0ff 0%, #3aa9ff 100%);
+  border:0;color:#071018;
+}
+
+.ccm-btn--gold{
+  background: linear-gradient(180deg, var(--ccm-gold2) 0%, var(--ccm-gold) 100%);
+  border:0;color:#1b1402;
+}
+
+.ccm-btn--ghost{ background: transparent; }
+
+/* Secções */
+.ccm-section{margin-top:34px}
+
+.ccm-h2{
+  margin:0 0 8px;
+  margin-top: -50px;
+  font-family:Inter, system-ui, sans-serif;
+  font-size:2rem;
+  letter-spacing:-.01em;
+}
+
+.ccm-h3{
+  margin:0 0 14px;
+  font-family:Inter, system-ui, sans-serif;
+  font-size:1.35rem;
+}
+
+.ccm-p{
+  margin:0;
+  color:rgba(0, 0, 0, 0.795);
+  font-family:Inter, system-ui, sans-serif;
+  line-height:1.6;
+}
+
+/* Cards */
+.ccm-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  margin-top:18px;
+}
+
+@media(min-width:900px){
+  .ccm-grid{grid-template-columns:1fr 1fr}
+}
+
+.ccm-card{
+  position:relative;
+  border-radius:var(--ccm-radius-lg);
+  border:1px solid var(--ccm-stroke);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 139, 252, 0.85), 
+    rgba(231, 197, 7, 0.75)
+  );
+  box-shadow: var(--ccm-shadow);
+  overflow:hidden;
+}
+
+.ccm-card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(107,188,255,.12), transparent 55%),
+    radial-gradient(520px 220px at 90% 0%, rgba(231,198,96,.10), transparent 55%);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.ccm-card--blue{
+  background: linear-gradient(
+    180deg,
+    rgba(40, 77, 150, 0.92),
+    rgba(6, 35, 107, 0.88)
+  );
+  border: 1px solid rgba(107,188,255,.45);
+}
+
+.ccm-card--blue::before{
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(107,188,255,.25), transparent 55%),
+    radial-gradient(520px 220px at 90% 0%, rgba(107,188,255,.18), transparent 55%);
+}
+
+.ccm-card--gold{
+  background: linear-gradient(
+    180deg,
+    rgba(206, 163, 46, 0.95),
+    rgba(139, 109, 31, 0.9)
+  );
+  border: 1px solid rgba(231,198,96,.6);
+}
+
+.ccm-card--gold::before{
+  background:
+    radial-gradient(600px 220px at 20% 0%, rgba(231, 197, 96, 0.486), transparent 55%),
+    radial-gradient(520px 220px at 90% 0%, rgba(255, 236, 154, 0.582), transparent 55%);
+}
+
+.ccm-card--blue .ccm-badge{
+  background: rgba(107,188,255,.15);
+  border-color: rgba(107,188,255,.4);
+  color: #cfeaff;
+}
+
+.ccm-card--gold .ccm-badge{
+  background: rgba(231,198,96,.25);
+  border-color: rgba(231,198,96,.6);
+  color: #2a2006;
+}
+
+.ccm-card__inner{position:relative;padding:22px}
+
+.ccm-plan-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:10px;
+}
+
+.ccm-badge{
+  font-size:.76rem;
+  font-family:Inter, system-ui, sans-serif;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--ccm-stroke);
+  background: rgba(255,255,255,.05);
+  white-space:nowrap;
+  margin-left: -150px;
+}
+
+.ccm-badge--gold{
+  background: linear-gradient(180deg, rgba(255,239,174,.30), rgba(255,225,133,.14));
+  border:1px solid rgba(255,235,164,.45);
+  color:#1c1602;
+}
+
+.ccm-title{color:rgb(253, 253, 253);font-size:1.55rem;font-weight:900;margin:0;font-family:Inter, system-ui, sans-serif;}
+.ccm-subtitle{color:rgb(253, 253, 253);margin:6px 0 0;width:500px;  line-height:1.5;font-family:Inter, system-ui, sans-serif;}
+
+.ccm-divider{height:1px;background:rgba(255,255,255,.08);margin:16px 0}
+
+/* Benefícios */
+.ccm-cats{display:grid;gap:10px;margin-top:14px}
+
+.ccm-cat{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius:14px;
+  padding:12px;
+}
+
+.ccm-h4{
+  margin:0 0 10px;
+  font-size:1.5rem;
+  font-family:Inter, system-ui, sans-serif;
+  letter-spacing:.02em;
+  color:rgba(233,237,244,.92);
+  display:flex;align-items:center;gap:10px;
+  justify-content:center;
+}
+
+.ccm-chip{
+  display:inline-flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:12px;
+  color:rgb(253, 253, 253);
+  border:1px dashed rgba(255, 255, 255, 0.336);
+  background: rgba(255, 255, 255, 0.096);
+  margin:8px 0 0;
+  font-family:Inter, system-ui, sans-serif;
+  width:95%;
+  overflow:hidden; /* garante que o logo não sai da caixa */
+}
+
+.ccm-chip::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:16px;                 /* 👈 encostado à direita */
+  width:56px;
+  height:56px;
+  transform:translateY(-50%);
+  background-image: var(--chip-logo);
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center;
+  opacity:.12;                /* 👈 premium e discreto */
+  filter: grayscale(100%);
+  pointer-events:none;
+}
+
+.ccm-chip-text{
+  display:inline-flex;
+  flex-direction:column;
+  gap:4px;
+  width:100%;
+}
+
+.ccm-chip-list{
+  margin:4px 0 0;
+  padding-left:18px;
+  font-size:.95rem;
+  color:white;
+}
+
+.ccm-chip-list li{
+  line-height:1.4;
+}
+
+.ccm-chip svg{flex:0 0 20px;margin-top:2px}
+.ccm-actions{justify-content:center;display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+
+/* Tabela */
+.ccm-compare{margin-top:40px}
+
+.ccm-table-wrap{
+  border-radius:16px;
+  border:1px solid var(--ccm-stroke);
+  overflow:hidden;
+  box-shadow: var(--ccm-shadow);
+  background: rgba(255,255,255,.02);
+}
+
+.ccm-table{width:100%;border-collapse:collapse}
+
+.ccm-table thead th{
+  text-align:left;
+  padding:14px 16px;
+  font-size:.9rem;
+  color:var(--ccm-muted);
+  background: rgba(15,19,27,.85);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-family:Inter, system-ui, sans-serif;
+}
+
+.ccm-table tbody td{
+  padding:14px 16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  vertical-align:top;
+  font-family:Inter, system-ui, sans-serif;
+}
+
+.ccm-table tbody tr:nth-child(even){background: rgba(255,255,255,.02)}
+.ccm-table tbody tr:last-child td{border-bottom:0}
+
+.ccm-yes{color:#72e2a1;font-weight:900}
+.ccm-no{color:#ff8e8e;font-weight:900}
+
+/* CTA final */
+.ccm-callout{
+  margin:44px 0 18px;
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+}
+
+@media(min-width:900px){
+  .ccm-callout{grid-template-columns:2fr 1fr}
+}
+
+.ccm-call-card{
+  border-radius:var(--ccm-radius-lg);
+  border:1px solid var(--ccm-stroke);
+  background: linear-gradient(135deg, rgba(113,196,255,.12), rgba(231,198,96,.12));
+  box-shadow: var(--ccm-shadow);
+  padding:22px;
+  position:relative;
+  overflow:hidden;
+}
+
+.ccm-call-card::after{
+  content:"";
+  position:absolute;inset:-40% -20%;
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,.18), transparent 55%);
+  transform: rotate(8deg);
+  pointer-events:none;
+}
+
+.ccm-mini{
+  display:grid;
+  gap:10px;
+  padding:18px;
+  border-radius:var(--ccm-radius-lg);
+  border:1px solid var(--ccm-stroke);
+  background: rgba(255,255,255,.03);
+  box-shadow: var(--ccm-shadow);
+}
+
+.ccm-small{font-size:.92rem;color:var(--ccm-muted);font-family:Inter, system-ui, sans-serif;}
+.ccm-mini a{color:var(--ccm-brand2);text-decoration:underline}
+
 
 /* Rodapé */
 footer {
