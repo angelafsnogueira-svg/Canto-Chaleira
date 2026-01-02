@@ -107,124 +107,6 @@
         style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
     <br><br>
 
-      <!-- Gallery 
-      <section class="artist-gallery" id="gallery">
-        <h2>Galeria</h2>
-        <div class="galeria-artista">
-        <button class="galeria-btn prev">‹</button>
-          <div class="galeria-track-container">
-            <div class="galeria-track">
-              <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Foto 1" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Foto 2" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Foto 3" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cm3.jpg" alt="Foto 4" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cm2.jpg" alt="Foto 5" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Foto 6" class="galeria-img">
-              <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Foto 7" class="galeria-img">
-            </div>
-          </div>
-        <button class="galeria-btn next">›</button>
-          <div class="galeria-thumbnails">
-            <img src="../imagens/People/Cristovao/cristovão2.jpg" alt="Thumb 1" class="thumb active">
-            <img src="../imagens/People/Cristovao/cristovao5.jpg" alt="Thumb 2" class="thumb">
-            <img src="../imagens/People/Cristovao/cristovao1.jpg" alt="Thumb 3" class="thumb">
-            <img src="../imagens/People/Cristovao/cm3.jpg" alt="Thumb 4" class="thumb">
-            <img src="../imagens/People/Cristovao/cm2.jpg" alt="Thumb 5" class="thumb">
-            <img src="../imagens/People/Cristovao/cristovao4.jpg" alt="Thumb 6" class="thumb">
-            <img src="../imagens/People/Cristovao/cristovao6.jpg" alt="Thumb 7" class="thumb">
-          </div>
-        </div>
-      </section> -->
-
-<!-- Lightbox 
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close">&times;</button>
-  <button class="lightbox-prev">‹</button>
-  <img src="" alt="Imagem ampliada">
-  <button class="lightbox-next">›</button>
-</div> 
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const track = document.querySelector(".galeria-track");
-  const prevBtn = document.querySelector(".galeria-btn.prev");
-  const nextBtn = document.querySelector(".galeria-btn.next");
-  const imgs = document.querySelectorAll(".galeria-img");
-  const thumbs = document.querySelectorAll(".thumb");
-
-  let currentIndex = 0;
-
-  function updateSlider() {
-    track.style.transform = `translateX(${-currentIndex * (imgs[0].offsetWidth + 15)}px)`;
-    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
-  }
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % imgs.length;
-    updateSlider();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-    updateSlider();
-  });
-
-  thumbs.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => {
-      currentIndex = index;
-      updateSlider();
-    });
-  });
-
-  // ---- Lightbox ----
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = lightbox.querySelector("img");
-  const lightboxClose = lightbox.querySelector(".lightbox-close");
-  const lightboxPrev = lightbox.querySelector(".lightbox-prev");
-  const lightboxNext = lightbox.querySelector(".lightbox-next");
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightbox.style.display = "flex";
-    lightboxImg.src = imgs[currentIndex].src;
-  }
-
-  imgs.forEach((img, index) => {
-    img.addEventListener("click", () => openLightbox(index));
-  });
-
-  function updateLightbox() {
-    lightboxImg.src = imgs[currentIndex].src;
-  }
-
-  lightboxClose.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightboxPrev.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
-    updateLightbox();
-  });
-
-  lightboxNext.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % imgs.length;
-    updateLightbox();
-  });
-
-  // Fecha ao clicar fora da imagem
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  });
-
-  updateSlider();
-});
-</script>
-
-    <hr class="divisor"
-        style="position: absolute; left: 400px; right: 150px; border-top: 3px solid #eba83c;">
-    <br> -->
-
 <section class="biblioteca" id="biblioteca">
   <h2>Obras Literárias</h2>
 
@@ -289,139 +171,6 @@ As their brutal crimes gain notoriety, each becomes obsessed with the other, tur
   </div>
 </div>
 
-<style>
-/* === GERAL (igual ao anterior) === */
-.biblioteca {
-  max-width: 1000px;
-  margin: 40px auto;
-  font-family: "Lexend", sans-serif;
-  padding: 0 16px;
-}
-.biblioteca h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.biblioteca-toolbar {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  gap: 12px;
-}
-.biblioteca-toolbar input {
-  flex: 1;
-  padding: 8px 12px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-}
-.biblioteca-toolbar button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  background: #000000;
-  color: white;
-  cursor: pointer;
-}
-.biblioteca-toolbar button:hover { background: #2563eb; }
-
-.livros {
-  display: grid;
-  gap: 20px;
-}
-.livros.grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-.livros.lista { display: flex; flex-direction: column; }
-
-.livro {
-  background: none;
-  border-radius: 10px;
-  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
-  padding: 16px;
-  transition: transform .2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-.livros.lista .livro {
-  flex-direction: row;
-  text-align: left;
-  gap: 20px;
-}
-.livros.lista .livro .capa { width: 100px; }
-.livro:hover { transform: translateY(-5px); }
-
-.capa {
-  width: 150px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-.livro h3 { margin: 6px 0; font-size: 18px; }
-.livro p { font-size: 14px; color: #555; }
-.acoes {
-  margin-top: 10px;
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-}
-.btn-leitura, .btn-download, .fav-btn {
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background .2s;
-}
-.btn-leitura { background: #000000; color: #fff; }
-.btn-download { background: #f59e0b; color: #fff; }
-.fav-btn { background: #eee; }
-.btn-leitura:hover { background: #000000; }
-.btn-download:hover { background: #d97706; }
-.fav-btn.active { background: #facc15; }
-
-/* === MODAL === */
-.modal {
-  display: none; 
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 800px;
-  width: 90%;
-  display: flex;
-  gap: 20px;
-  animation: fadeIn .3s ease;
-}
-.modal-content img {
-  width: 250px;
-  border-radius: 8px;
-}
-.modal-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.modal-info h2 { margin: 0 0 10px; }
-.modal-info p { margin: 5px 0; color: #444; }
-.close {
-  position: absolute;
-  top: 20px; right: 30px;
-  font-size: 28px;
-  cursor: pointer;
-}
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(.95);}
-  to {opacity: 1; transform: scale(1);}
-}
-</style>
 
 <script>
 const livros = document.querySelectorAll('.livro');
@@ -551,21 +300,22 @@ window.addEventListener('click', e => { if(e.target === modal) modal.style.displ
     </a>
     <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
     <img src="../imagens/Parcerias/container.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/bennys2.png" alt="Publicidade 4" style="width: 300px; height: 300px; margin-right: -30px; margin-left: -30px; margin-top: -55px;">
     <a href="https://discord.gg/rPSrb6N4Pd" target="blank">
-      <img src="../imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="../imagens/Parcerias/dbpe.png" alt="Publicidade 5" style="width: 270px; height: 270px; margin-top: -35px;">
     </a>
-    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 5">
-    <img src="../imagens/Parcerias/life.png" alt="Publicidade 6">
-    <img src="../imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
-    <img src="../imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
-    <img src="../imagens/Parcerias/weazel.png" alt="Publicidade 9">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 6">
+    <img src="../imagens/Parcerias/life.png" alt="Publicidade 7">
+    <img src="../imagens/Parcerias/revista.png" alt="Publicidade 8" style="width: 270px; height: 270px; margin-top: -35px;">
+    <img src="../imagens/Parcerias/cupula4.png" alt="Publicidade 9" style="width: 220px; height: 220px; margin-top: -5px;">
+    <img src="../imagens/Parcerias/weazel.png" alt="Publicidade 10">
     <a href="https://studiohailu.vercel.app/">
-      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 10">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 11">
     </a>
     <a href="https://discord.gg/fq4aKCTKm2" target="blank">
-      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 12" style="width: 270px; height: 270px; margin-top: -35px;">
     </a>
-    <img src="../imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+    <img src="../imagens/Parcerias/malibu2.png" alt="Publicidade 13" style="width: 250px; height: 250px; margin-top: -30px;">
     
     <!-- Duplicar as imagens para criar o efeito de loop -->
     <a href="https://catalogopdmpe.vercel.app" target="blank">
@@ -573,28 +323,28 @@ window.addEventListener('click', e => { if(e.target === modal) modal.style.displ
     </a>
     <img src="../imagens/Parcerias/academia.png" alt="Publicidade 2">
     <img src="../imagens/Parcerias/container.png" alt="Publicidade 3">
+    <img src="../imagens/Parcerias/bennys2.png" alt="Publicidade 4" style="width: 300px; height: 300px; margin-right: -30px; margin-left: -30px; margin-top: -55px;">
     <a href="https://discord.gg/rPSrb6N4Pd" target="blank">
-      <img src="../imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="../imagens/Parcerias/dbpe.png" alt="Publicidade 5" style="width: 270px; height: 270px; margin-top: -35px;">
     </a>
-    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 5">
-    <img src="../imagens/Parcerias/life.png" alt="Publicidade 6">
-    <img src="../imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
-    <img src="../imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
-    <img src="../imagens/Parcerias/weazel.png" alt="Publicidade 9">
+    <img src="../imagens/Parcerias/asfalto.png" alt="Publicidade 6">
+    <img src="../imagens/Parcerias/life.png" alt="Publicidade 7">
+    <img src="../imagens/Parcerias/revista.png" alt="Publicidade 8" style="width: 270px; height: 270px; margin-top: -35px;">
+    <img src="../imagens/Parcerias/cupula4.png" alt="Publicidade 9" style="width: 220px; height: 220px; margin-top: -5px;">
+    <img src="../imagens/Parcerias/weazel.png" alt="Publicidade 10">
     <a href="https://studiohailu.vercel.app/">
-      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 10">
+      <img src="../imagens/Parcerias/studio hailu.png" alt="Publicidade 11">
     </a>
     <a href="https://discord.gg/fq4aKCTKm2" target="blank">
-      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;">
+      <img src="../imagens/Parcerias/hogs.png" alt="Publicidade 12" style="width: 270px; height: 270px; margin-top: -35px;">
     </a>
-    <img src="../imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+    <img src="../imagens/Parcerias/malibu2.png" alt="Publicidade 13" style="width: 250px; height: 250px; margin-top: -30px;">
   </div>
 </div>
 
-
   <!-- Rodapé -->
   <footer>
-    <p style="font-size: 12px; text-align: center;">&copy; 2025 O Canto da Chaleira. Todos os direitos reservados.</p>
+    <p style="font-size: 12px; text-align: center;">&copy; 2026 O Canto da Chaleira. Todos os direitos reservados.</p>
     <p style="font-size: 9px; margin-top: 5px; text-align: center; color:rgba(238, 236, 236, 0.253)"> <i>Developed by: Alegna Costa</i></p>
   </footer>
 
