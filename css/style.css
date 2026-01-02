@@ -1760,6 +1760,65 @@ color: #ffffff;
    Escopo: .ccm-page
 ========================= */
 
+/* Libertar qualquer corte do sticker (override forte) */
+.ccm-main,
+.ccm-section,
+.ccm-wrap,
+.ccm-grid,
+.ccm-card{
+  overflow: visible !important;
+}
+
+
+
+/* garante posicionamento correto */
+.ccm-card{
+  position: relative !important;
+  overflow: visible;
+}
+
+/* STICKER base */
+.ccm-card--blue::after,
+.ccm-card--gold::after{
+  position: absolute;
+  top: -30px;
+  right: -18px;
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  font-weight: 900;
+  font-size: .72rem;
+  line-height: 1.1;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+
+  transform: rotate(12deg);
+  z-index: 5;
+
+  box-shadow: 0 12px 26px rgba(0,0,0,.28);
+  border: 2px solid rgba(255,255,255,.35);
+}
+
+/* CANTO+ */
+.ccm-card--blue::after{
+  content: "14%\A desconto\A (3 meses)";
+  white-space: pre;
+  color: #000000;
+  background: linear-gradient(180deg, #7fd0ff 0%, #3aa9ff 100%);
+}
+
+/* CANTO+ GOLD */
+.ccm-card--gold::after{
+  content: "20%\A desconto\A (3 meses)";
+  white-space: pre;
+  color: #000000;
+  background: linear-gradient(180deg, #ffed9a 0%, #e7c660 100%);
+}
+
 :root{
   --ccm-bg0:#07080c;
   --ccm-bg1:#0b0d12;
@@ -2014,12 +2073,14 @@ color: #ffffff;
   background: rgba(107,188,255,.15);
   border-color: rgba(107,188,255,.4);
   color: #cfeaff;
+  margin-right: 30px;
 }
 
 .ccm-card--gold .ccm-badge{
   background: rgba(231,198,96,.25);
   border-color: rgba(231,198,96,.6);
   color: #fff0dd;
+  margin-right: 30px;
 }
 
 .ccm-card__inner{position:relative;padding:22px}
@@ -2044,6 +2105,7 @@ color: #ffffff;
   background: rgba(255,255,255,.05);
   white-space:nowrap;
   margin-left: -150px;
+  transform: translate(-50px);
 }
 
 .ccm-badge--gold{
