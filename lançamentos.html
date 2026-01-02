@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Canto da Chaleira</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Qwitcher+Grypen:wght@400;700&family=Lexend:wght@100..900&family=Lilita+One&display=swap" rel="stylesheet">
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slidesContainer = document.querySelector('.slidereventos .slides');
+      // código do slider
+    });
+  </script>
+
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let slides = document.querySelectorAll(".advert-slide");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 4000);
+    showSlide(currentIndex);
+  });
+</script>
+
+<body>
+
+
+  <!-- Aba de publicidade -->
+<!--
+  <div class="advert-bar">
+  <p class="sombra">🎉 Evento Especial: Concerto dia 30 de Agosto - Reserve já o seu bilhete!</p>
+</div>
+-->
+
+  <!-- Cabeçalho superior com ícones -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header principal -->
+   
+<header class="site-header">
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="https://discord.gg/fSyFtH6hxs" target="_blank" title="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+  </div>
+
+  <!-- Header com overlay -->
+  <div class="overlay"></div>
+  <div class="content">
+    <a href="index.html">
+      <img src="imagens/Diversos/CCLogo.png" alt="Logotipo" class="logo">
+    </a>
+    <h1>O Canto da Chaleira</h1>
+    <p class="slogan">Promovendo a criatividade. Enriquecendo a comunidade.</p>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre Nós</a>
+    <a href="artistas.html">Artistas</a>
+    <a href="lançamentos.html" class="active">Lançamentos</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="parcerias.html">Parcerias</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+  <!-- Conteúdo principal -->
+
+  <main>
+
+    <hr class="divisor">
+
+    <h2>Hoes N' Green Wine: Galofonia</h2>
+    <section class="text-section">
+        <div class="text-block left">
+            <p>O som ganhou força e identidade com o lançamento da <strong>Primeira Parte de Galofonia</strong>, o novo álbum de  <a href="Artistas/jose_galo.html"><strong>Zé Galo</strong></a>, um projeto que marca 
+                uma nova fase artística e sonora. Cada faixa reflete atitude, consistência e uma visão clara, pensada para quem vive a música com intensidade e sem filtros.</p>
+            <br></br>
+            <p>Disponível para <strong>todos ouvirem e repetirem as vezes que quiserem</strong>, esta primeira parte chega com energia crua, letras marcantes e uma sonoridade que 
+                não passa despercebida. <strong>Galofonia</strong> não é apenas um álbum — é uma afirmação. O artista deixa o agradecimento a todos os <strong>ouvintes e 
+                fãs</strong> que acompanham e dão força a este caminho, porque isto é só o começo… e o volume vai continuar a subir!</p>
+            <br>
+            <p>Ouve o álbum <a href="https://www.youtube.com/watch?v=RSlbQElahLg&list=PLTjRDcTKWHlqwmofX6HOV9AMu09DD2YAW&index=1"><strong>AQUI!</strong></a></p>
+        </div>
+    
+        <div class="text-block right">
+            <section class="slidereventos estatico">
+                <div class="slides">
+                    <img src="imagens/Playlist/Galo/galofonia.png" alt="Foto 1">
+                </div>
+        </div>
+
+            <style>
+
+                @keyframes slide {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
+        </section>
+    </section>
+
+    <hr class="divisor">
+    
+    <h2>Hoes N' Green Wine: Liberdade</h2>
+    <section class="text-section">
+        <div class="text-block left">
+            <p>O percurso continua a ganhar força com o lançamento de <strong>“Liberdade”</strong>, o segundo single de <a href="Artistas/jose_galo.html"><strong>Zé Galo</strong></a>,
+                 uma faixa que carrega verdade, atitude e identidade. Mais do que música, este tema nasce como um grito pessoal, refletindo escolhas, lutas e a vontade de romper 
+                 com limites impostos.</p>
+            <br></br>
+            <p>Disponível para <strong>todos ouvirem e sentirem</strong>, <strong>“Liberdade”</strong> traz uma sonoridade intensa e letras que não pedem permissão para existir. 
+            Este lançamento reforça o caminho traçado por <strong>Zé Galo</strong>, agradecendo a todos os <strong>ouvintes e fãs</strong> que continuam a dar voz a esta jornada — 
+            porque quando a mensagem é real, a liberdade ouve-se alto e claro. </p>
+            <br>
+            <p>Ouve o single <a href="Artistas/jose_galo.html#playlist"><strong>AQUI!</strong></a></p>
+        </div>
+    
+        <div class="text-block right">
+            <section class="slidereventos estatico">
+                <div class="slides">
+                    <img src="imagens/Playlist/Galo/liberdade.png" alt="Foto 1">
+                </div>
+        </div>
+
+            <style>
+
+                @keyframes slide {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
+        </section>
+    </section>
+
+    <hr class="divisor">
+
+    <h2>Hoes N' Green Wine: Vai-te F*der V*ca</h2>
+    <section class="text-section">
+        <div class="text-block left">
+            <p>O início de uma nova jornada sonora começa com o lançamento do <strong>primeiro single</strong> de <a href="Artistas/jose_galo.html"><strong>Zé Galo</strong></a>, 
+                uma faixa que marca o ponto de partida de um projeto pensado para deixar marca. Este primeiro tema apresenta a identidade, a atitude e a essência que virá a 
+                definir tudo o que se segue.</p>
+            <br></br>
+            <p>Disponível para <strong>todos ouvirem e sentirem</strong>, este single chega como um aviso claro: a mensagem é direta, a sonoridade é crua e a intenção é real.</p>
+            <br>
+            <p>Ouve o single <a href="Artistas/jose_galo.html#playlist"><strong>AQUI!</strong></a></p>
+        </div>
+    
+        <div class="text-block right">
+            <section class="slidereventos estatico">
+                <div class="slides">
+                    <img src="imagens/Playlist/Galo/vaca.png" alt="Foto 1">
+                </div>
+        </div>
+
+            <style>
+
+                @keyframes slide {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            </style>
+        </section>
+    </section>
+
+    <hr class="divisor">
+
+              <!-- Paginação -->
+          <nav id="pagination" class="pagination"></nav>
+
+      <section class="cta-sobre">
+        <div class="overlay"></div>
+        <div class="content">
+        <h2>Gostaria de fazer um evento?</h2>
+        <p class="centralizado">Não hesite em pedir a nossa colaboração.</p>
+        <a href="contacto.html" class="btn-sobre">Contacto</a>
+        </div>
+      </section>
+
+      <section class="cta-artistas">
+
+      </section>
+
+      <section class="cta-atividades">
+
+      </section>
+
+      <section class="cta-atividades">
+
+
+  </main>
+
+
+<script>
+(function () {
+  const itemsPerPage = 5; 
+
+  // 1) recolhe os "eventos": h2 + .text-section seguinte (+ hr.divisor seguinte, se existir)
+  const main = document.querySelector('main');
+  const headings = Array.from(main.querySelectorAll(':scope > h2'));
+  const events = headings.map(h2 => {
+    const section = h2.nextElementSibling && h2.nextElementSibling.matches('.text-section')
+      ? h2.nextElementSibling
+      : null;
+    const maybeHr = section && section.nextElementSibling && section.nextElementSibling.matches('hr.divisor')
+      ? section.nextElementSibling
+      : null;
+    return { h2, section, hr: maybeHr };
+  }).filter(ev => ev.section); // só conta h2 que têm .text-section a seguir
+
+  if (!events.length) return;
+
+  // 2) helpers
+  const totalItems = events.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+  const getPageFromQS = () => {
+    const p = parseInt(new URLSearchParams(location.search).get('page'), 10);
+    return (isNaN(p) || p < 1) ? 1 : Math.min(p, totalPages);
+  };
+
+  const showPage = (page) => {
+    const start = (page - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    events.forEach((ev, idx) => {
+      const visible = idx >= start && idx < end;
+      [ev.h2, ev.section, ev.hr].forEach(el => {
+        if (!el) return;
+        el.style.display = visible ? '' : 'none';
+      });
+    });
+  };
+
+  const gotoPage = (page, push = true) => {
+    showPage(page);
+    renderPagination(page);
+    if (push) {
+      const url = new URL(location.href);
+      if (page === 1) url.searchParams.delete('page'); else url.searchParams.set('page', page);
+      history.pushState({ page }, '', url);
+    }
+    // scroll suave ao topo da lista
+    const firstVisible = events[(page - 1) * itemsPerPage];
+    if (firstVisible) firstVisible.h2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // 3) constrói a barra de paginação (com «Anterior», «Seguinte» e …)
+  const paginationEl = document.getElementById('pagination');
+  const renderPagination = (current) => {
+    if (!paginationEl) return;
+    const btn = (label, page, extraClass = '', isLink = true, aria = '') =>
+      isLink
+        ? `<a href="${page === 1 ? '?' : '?page=' + page}" data-page="${page}" class="${extraClass}" ${aria}>${label}</a>`
+        : `<span class="${extraClass}" ${aria}>${label}</span>`;
+
+    // lógica de pontos (mostra 1, último, atual-1..atual+1)
+    const pages = [];
+    const addPage = (p) => pages.push(p);
+    const addDots = () => pages.push('...');
+
+    addPage(1);
+    if (current > 3) addDots();
+    for (let p = Math.max(2, current - 1); p <= Math.min(totalPages - 1, current + 1); p++) addPage(p);
+    if (current < totalPages - 2) addDots();
+    if (totalPages > 1) addPage(totalPages);
+
+    const prevDisabled = current === 1;
+    const nextDisabled = current === totalPages;
+
+    paginationEl.innerHTML = [
+      btn('« Anterior', Math.max(1, current - 1), prevDisabled ? 'disabled' : '', !prevDisabled, 'aria-label="Página anterior"'),
+      ...pages.map(p => p === '...'
+        ? `<span class="dots" aria-hidden="true">…</span>`
+        : (p === current
+            ? btn(p, p, 'active', false, 'aria-current="page"')
+            : btn(p, p))),
+      btn('Seguinte »', Math.min(totalPages, current + 1), nextDisabled ? 'disabled' : '', !nextDisabled, 'aria-label="Página seguinte"')
+    ].join('');
+
+    // listeners
+    paginationEl.querySelectorAll('a[data-page]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const p = parseInt(a.getAttribute('data-page'), 10);
+        if (!isNaN(p)) gotoPage(p);
+      });
+    });
+  };
+
+  // 4) reage ao back/forward do browser
+  window.addEventListener('popstate', () => gotoPage(getPageFromQS(), false));
+
+  // 5) arranque
+  gotoPage(getPageFromQS(), false);
+})();
+</script>
+
+<!-- Barra de Publicidade -->
+<div class="advert-bar">
+  <div class="advert-track">
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="imagens/Parcerias/container.png" alt="Publicidade 3">
+    <a href="https://discord.gg/rPSrb6N4Pd" target="blank">
+      <img src="imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;">
+    </a>
+    <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 5">
+    <img src="imagens/Parcerias/life.png" alt="Publicidade 6">
+    <img src="imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
+    <img src="imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
+    <img src="imagens/Parcerias/weazel.png" alt="Publicidade 9">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="imagens/Parcerias/studio hailu.png" alt="Publicidade 10">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;">
+    </a>
+    <img src="imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+    
+    <!-- Duplicar as imagens para criar o efeito de loop -->
+    <a href="https://catalogopdmpe.vercel.app" target="blank">
+      <img src="imagens/Parcerias/pdm.png" alt="Publicidade 1">
+    </a>
+    <img src="imagens/Parcerias/academia.png" alt="Publicidade 2">
+    <img src="imagens/Parcerias/container.png" alt="Publicidade 3">
+    <a href="https://discord.gg/rPSrb6N4Pd" target="blank">
+      <img src="imagens/Parcerias/dbpe.png" alt="Publicidade 4" style="width: 270px; height: 270px; margin-top: -35px;">
+    </a>
+    <img src="imagens/Parcerias/asfalto.png" alt="Publicidade 5">
+    <img src="imagens/Parcerias/life.png" alt="Publicidade 6">
+    <img src="imagens/Parcerias/revista.png" alt="Publicidade 7" style="width: 270px; height: 270px; margin-top: -35px;">
+    <img src="imagens/Parcerias/cupula4.png" alt="Publicidade 8" style="width: 220px; height: 220px; margin-top: -5px;">
+    <img src="imagens/Parcerias/weazel.png" alt="Publicidade 9">
+    <a href="https://studiohailu.vercel.app/">
+      <img src="imagens/Parcerias/studio hailu.png" alt="Publicidade 10">
+    </a>
+    <a href="https://discord.gg/fq4aKCTKm2" target="blank">
+      <img src="imagens/Parcerias/hogs.png" alt="Publicidade 11" style="width: 270px; height: 270px; margin-top: -35px;">
+    </a>
+    <img src="imagens/Parcerias/malibu2.png" alt="Publicidade 12" style="width: 250px; height: 250px; margin-top: -30px;">
+  </div>
+</div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p style="font-size: 12px; text-align: center;">&copy; 2025 O Canto da Chaleira. Todos os direitos reservados.</p>
+    <p style="font-size: 9px; margin-top: 5px; text-align: center; color:rgba(238, 236, 236, 0.253)"> <i>Developed by: Alegna Costa</i></p>
+  </footer>
+
+  <!-- JavaScript -->
+<script>
+  // Muda cor do menu ao rolar
+  window.addEventListener('scroll', function() {
+    const menu = document.querySelector('.menu');
+    if(window.scrollY > 50){
+      menu.classList.add('scrolled');
+    } else {
+      menu.classList.remove('scrolled');
+    }
+  });
+</script>
+
+</body>
+</html>
